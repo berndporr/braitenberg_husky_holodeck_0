@@ -1,0 +1,5 @@
+- ssh X forwarding from docker in shell script
+- path of the projects (.opt) is quite diabolical
+- the install script is also the script to basically do everything
+- nrpStorage (is that the place to keep experiments)
+- container path not clear with the "\"
