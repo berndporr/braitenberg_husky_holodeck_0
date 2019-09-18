@@ -1,7 +1,7 @@
 <ExD 
   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
   xmlns="http://schemas.humanbrainproject.eu/SP10/2014/ExDConfig" xsi:schemaLocation="http://schemas.humanbrainproject.eu/SP10/2014/ExDConfig ../ExDConfFile.xsd">
-  <name>Holodeck Husky Braitenberg experiment</name>
+  <name>brainless Braitenberg</name>
   <thumbnail>ExDXMLExample.jpg</thumbnail>
   <description>This experiment loads the Husky robot from Clearpath Robotics in the Holodeck environment.
         If the user starts the experiment, the Braitenberg vehicle network is executed

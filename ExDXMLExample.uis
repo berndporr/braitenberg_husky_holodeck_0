@@ -50,6 +50,7 @@
           "title": "",
           "activeItemIndex": 0,
           "width": 100,
+          "height": 100,
           "content": [
             {
               "type": "component",
@@ -65,6 +66,51 @@
               "customOptionsDirective": "<environment-rendering-options/>",
               "pwidth": 800,
               "pheight": 600,
+              "reorderEnabled": true
+            },
+            {
+              "type": "component",
+              "title": "Brain Editor",
+              "id": "pynn-editor",
+              "componentName": "angularModuleComponent",
+              "componentState": {
+                "module": "exdFrontendApp",
+                "angularDirective": "<pynn-editor />",
+                "singleton": true
+              },
+              "pwidth": 800,
+              "pheight": 900,
+              "isClosable": true,
+              "reorderEnabled": true
+            },
+            {
+              "type": "component",
+              "title": "Log Console",
+              "id": "log-console",
+              "componentName": "angularModuleComponent",
+              "componentState": {
+                "module": "exdFrontendApp",
+                "angularDirective": "<log-console />",
+                "singleton": true
+              },
+              "pwidth": 400,
+              "pheight": 300,
+              "isClosable": true,
+              "reorderEnabled": true
+            },
+            {
+              "type": "component",
+              "title": "TF Editor",
+              "id": "transfer-function-editor",
+              "componentName": "angularModuleComponent",
+              "componentState": {
+                "module": "exdFrontendApp",
+                "angularDirective": "<transfer-function-editor />",
+                "singleton": true
+              },
+              "pwidth": 900,
+              "pheight": 700,
+              "isClosable": true,
               "reorderEnabled": true
             }
           ]
