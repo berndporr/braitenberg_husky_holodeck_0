@@ -1,4 +1,4 @@
-- ssh X forwarding from docker in shell script
+- ssh X forwarding from docker in shell script (visual studio!)
 - path of the projects (.opt) is quite diabolical
 - the install script is also the script to basically do everything
 - nrpStorage (is that the place to keep experiments)
