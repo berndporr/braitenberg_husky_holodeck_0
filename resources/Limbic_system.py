@@ -384,3 +384,117 @@ class Limbic_system:
         self.step = self.step + 1
 
         return self.CoreBlueOut, self.CoreGreenOut, self.mPFC2CoreExploreLeft, self.mPFC2CoreExploreRight
+
+
+def unit_test():
+    import pylab as pl
+    
+    print("Unit test")
+    l = Limbic_system()
+    reward = 0
+    placefieldGreen = 0
+    placefieldBlue = 0
+    on_contact_direction_Green = 0
+    on_contact_direction_Blue = 0
+    visual_direction_Green = 0
+    visual_direction_Blue = 0
+    visual_reward_Green = 0
+    visual_reward_Blue = 0
+    print("Single step")
+    l.doStep(reward,
+            placefieldGreen, placefieldBlue,
+            on_contact_direction_Green, on_contact_direction_Blue,
+            visual_direction_Green, visual_direction_Blue,
+            visual_reward_Green, visual_reward_Blue)
+
+    vis_green = []
+    vis_blue = []
+    pf_green = []
+    pf_blue = []
+    mPFC_Green = []
+    DRN = []
+    core_w_green = []
+    VTA = []
+    core_out_green = []
+    
+    for i in range(10000):
+        # repeats every 2000 time steps
+        epoch = i % 2000
+        visual_direction_Green = visual_direction_Green + 0.001
+        if visual_direction_Green > 1:
+            visual_direction_Green = 1
+        if epoch == 0:
+            visual_direction_Green = 0
+        if (epoch > 800) and (epoch < 1100):
+            placefieldGreen = 1
+        else:
+            placefieldGreen = 0
+        if (epoch > 1000) and (epoch < 1005):
+            reward = 1
+        else:
+            reward = 0
+        l.doStep(reward,
+                 placefieldGreen, placefieldBlue,
+                 on_contact_direction_Green, on_contact_direction_Blue,
+                 visual_direction_Green, visual_direction_Blue,
+                 visual_reward_Green, visual_reward_Blue)
+        
+        vis_green.append(visual_direction_Green)
+        vis_blue.append(visual_direction_Blue)
+        pf_green.append(placefieldGreen)
+        pf_blue.append(placefieldBlue)
+        mPFC_Green.append(l.mPFC_Green)
+        DRN.append(l.DRN)
+        core_w_green.append(l.core_weight_lg2lg)
+        VTA.append(l.LH)
+        core_out_green.append(l.CoreGreenOut)
+
+    pl.subplot(711)
+    pl.plot(vis_green)
+    pl.plot(pf_green)
+    pl.ylabel('vis1/green lm')
+    pl.ylim([0,1.2])
+    pl.yticks([0,0.5,1])
+    #
+    pl.subplot(712)
+    pl.plot(vis_blue)
+    pl.plot(pf_blue)
+    pl.ylabel('vis2/green r')
+    pl.ylim([0,1.2])
+    pl.yticks([0,0.5,1])
+    #
+    pl.subplot(713);
+    pl.plot(mPFC_Green);
+    pl.ylabel('mPFC: green lm');
+    pl.ylim([0,2.5])
+    pl.yticks([0,1,2])
+    #
+    pl.subplot(714);
+    pl.plot(DRN);
+    pl.ylabel('DRN');
+    pl.ylim([0,2.5])
+    pl.yticks([0,1,2])
+    #
+    pl.subplot(715);
+    pl.plot(core_w_green);
+    pl.ylabel('core w green');
+    pl.ylim([0,1.2])
+    pl.yticks([0,0.5,1])
+    #
+    pl.subplot(716);
+    pl.plot(VTA);
+    pl.ylabel('VTA');
+    pl.ylim([0,0.6])
+    pl.yticks([0,0.25,0.5])
+    #
+    #
+    pl.subplot(717);
+    pl.plot(core_out_green);
+    pl.ylabel('core out green');
+    pl.ylim([0,3])
+    pl.yticks([0,1,2])
+    #
+    pl.show();
+
+if __name__== "__main__":
+    unit_test()
