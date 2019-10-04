@@ -16,14 +16,27 @@
     <model name="concretewall1_0">
       <static>1</static>
       <link name="concretewall::body">
-      <collision name="concretewall1">
-        <pose>0 0 1 0 0 0</pose>
-        <geometry>
-          <box>
-            <size>2 0.4 2.0</size>
-          </box>
-        </geometry>
-      </collision>
+        <collision name="concretewall1">
+          <pose frame="">0 0 1 0 -0 0</pose>
+          <geometry>
+            <box>
+              <size>2 0.4 2</size>
+            </box>
+          </geometry>
+          <max_contacts>10</max_contacts>
+          <surface>
+            <contact>
+              <ode/>
+            </contact>
+            <bounce/>
+            <friction>
+              <torsional>
+                <ode/>
+              </torsional>
+              <ode/>
+            </friction>
+          </surface>
+        </collision>
         <visual name="concretewall1">
           <cast_shadows>1</cast_shadows>
           <geometry>
@@ -47,15 +60,27 @@
     <model name="concretewall1_1">
       <static>1</static>
       <link name="concretewall::body">
-      <collision name="concretewall1">
-        <pose>0 0 1 0 0 0</pose>
-        <geometry>
-          <box>
-            <size>2 0.4 2.0</size>
-          </box>
-        </geometry>
-      </collision>
-
+        <collision name="concretewall1">
+          <pose frame="">0 0 1 0 -0 0</pose>
+          <geometry>
+            <box>
+              <size>2 0.4 2</size>
+            </box>
+          </geometry>
+          <max_contacts>10</max_contacts>
+          <surface>
+            <contact>
+              <ode/>
+            </contact>
+            <bounce/>
+            <friction>
+              <torsional>
+                <ode/>
+              </torsional>
+              <ode/>
+            </friction>
+          </surface>
+        </collision>
         <visual name="concretewall1">
           <cast_shadows>1</cast_shadows>
           <geometry>
@@ -80,14 +105,26 @@
       <static>1</static>
       <link name="concretewall::body">
         <collision name="concretewall1">
-        <pose>0 0 1 0 0 0</pose>
-        <geometry>
-          <box>
-            <size>2 0.4 2.0</size>
-          </box>
-        </geometry>
-       </collision>
-
+          <pose frame="">0 0 1 0 -0 0</pose>
+          <geometry>
+            <box>
+              <size>2 0.4 2</size>
+            </box>
+          </geometry>
+          <max_contacts>10</max_contacts>
+          <surface>
+            <contact>
+              <ode/>
+            </contact>
+            <bounce/>
+            <friction>
+              <torsional>
+                <ode/>
+              </torsional>
+              <ode/>
+            </friction>
+          </surface>
+        </collision>
         <visual name="concretewall1">
           <cast_shadows>1</cast_shadows>
           <geometry>
@@ -112,14 +149,26 @@
       <static>1</static>
       <link name="concretewall::body">
         <collision name="concretewall1">
-        <pose>0 0 1 0 0 0</pose>
-        <geometry>
-          <box>
-            <size>2 0.4 2.0</size>
-          </box>
-        </geometry>
-       </collision>
-
+          <pose frame="">0 0 1 0 -0 0</pose>
+          <geometry>
+            <box>
+              <size>2 0.4 2</size>
+            </box>
+          </geometry>
+          <max_contacts>10</max_contacts>
+          <surface>
+            <contact>
+              <ode/>
+            </contact>
+            <bounce/>
+            <friction>
+              <torsional>
+                <ode/>
+              </torsional>
+              <ode/>
+            </friction>
+          </surface>
+        </collision>
         <visual name="concretewall1">
           <cast_shadows>1</cast_shadows>
           <geometry>
@@ -144,13 +193,26 @@
       <static>1</static>
       <link name="concretewall::body">
         <collision name="concretewall1">
-        <pose>0 0 1 0 0 0</pose>
-        <geometry>
-          <box>
-            <size>2 0.4 2.0</size>
-          </box>
-        </geometry>
-       </collision>
+          <pose frame="">0 0 1 0 -0 0</pose>
+          <geometry>
+            <box>
+              <size>2 0.4 2</size>
+            </box>
+          </geometry>
+          <max_contacts>10</max_contacts>
+          <surface>
+            <contact>
+              <ode/>
+            </contact>
+            <bounce/>
+            <friction>
+              <torsional>
+                <ode/>
+              </torsional>
+              <ode/>
+            </friction>
+          </surface>
+        </collision>
         <visual name="concretewall1">
           <cast_shadows>1</cast_shadows>
           <geometry>
@@ -175,14 +237,26 @@
       <static>1</static>
       <link name="concretewall::body">
         <collision name="concretewall1">
-        <pose>0 0 1 0 0 0</pose>
-        <geometry>
-          <box>
-            <size>2 0.4 2.0</size>
-          </box>
-        </geometry>
-       </collision>
-
+          <pose frame="">0 0 1 0 -0 0</pose>
+          <geometry>
+            <box>
+              <size>2 0.4 2</size>
+            </box>
+          </geometry>
+          <max_contacts>10</max_contacts>
+          <surface>
+            <contact>
+              <ode/>
+            </contact>
+            <bounce/>
+            <friction>
+              <torsional>
+                <ode/>
+              </torsional>
+              <ode/>
+            </friction>
+          </surface>
+        </collision>
         <visual name="concretewall1">
           <cast_shadows>1</cast_shadows>
           <geometry>
@@ -206,14 +280,14 @@
     <model name="woodwall_10">
       <static>1</static>
       <link name="woodwall::body">
-       <collision name="woodwall-coll">
-       <pose>0 0 1 0 0 0</pose>
-        <geometry>
-          <box>
-            <size>2 0.4 2.0</size>
-          </box>
-        </geometry>
-        <max_contacts>10</max_contacts>
+        <collision name="woodwall-coll">
+          <pose frame="">0 0 1 0 -0 0</pose>
+          <geometry>
+            <box>
+              <size>2 0.4 2</size>
+            </box>
+          </geometry>
+          <max_contacts>10</max_contacts>
           <surface>
             <contact>
               <ode/>
@@ -250,14 +324,14 @@
     <model name="woodwall_11">
       <static>1</static>
       <link name="woodwall::body">
-       <collision name="woodwall-coll">
-       <pose>0 0 1 0 0 0</pose>
-        <geometry>
-          <box>
-            <size>2 0.4 2.0</size>
-          </box>
-        </geometry>
-        <max_contacts>10</max_contacts>
+        <collision name="woodwall-coll">
+          <pose frame="">0 0 1 0 -0 0</pose>
+          <geometry>
+            <box>
+              <size>2 0.4 2</size>
+            </box>
+          </geometry>
+          <max_contacts>10</max_contacts>
           <surface>
             <contact>
               <ode/>
@@ -443,7 +517,7 @@
           <pose frame="">0 0 0 0 -0 0</pose>
           <geometry>
             <mesh>
-            <uri>model://squarewindow/meshes/squarewindow-collision.dae</uri>
+              <uri>model://squarewindow/meshes/squarewindow-collision.dae</uri>
               <scale>1 1 1</scale>
             </mesh>
           </geometry>
@@ -488,7 +562,7 @@
           <pose frame="">0 0 0 0 -0 0</pose>
           <geometry>
             <mesh>
-            <uri>model://squarewindow/meshes/squarewindow-collision.dae</uri>
+              <uri>model://squarewindow/meshes/squarewindow-collision.dae</uri>
               <scale>1 1 1</scale>
             </mesh>
           </geometry>
@@ -533,7 +607,7 @@
           <pose frame="">0 0 0 0 -0 0</pose>
           <geometry>
             <mesh>
-            <uri>model://squarewindow/meshes/squarewindow-collision.dae</uri>
+              <uri>model://squarewindow/meshes/squarewindow-collision.dae</uri>
               <scale>1 1 1</scale>
             </mesh>
           </geometry>
@@ -574,13 +648,26 @@
     <model name="ground">
       <static>1</static>
       <link name="link">
-       <collision name="collision">
-          <pose>0 0 0.016 0 0 0</pose>
+        <collision name="collision">
+          <pose frame="">0 0 0.016 0 -0 0</pose>
           <geometry>
             <box>
               <size>22.938 22.954 0.016</size>
             </box>
           </geometry>
+          <max_contacts>10</max_contacts>
+          <surface>
+            <contact>
+              <ode/>
+            </contact>
+            <bounce/>
+            <friction>
+              <torsional>
+                <ode/>
+              </torsional>
+              <ode/>
+            </friction>
+          </surface>
         </collision>
         <visual name="visual">
           <cast_shadows>0</cast_shadows>
@@ -602,13 +689,13 @@
       <static>1</static>
       <link name="concretepylon::body">
         <collision name="concretepylon-coll">
-        <pose>0 0 3 0 0 0</pose>
-        <geometry>
-           <cylinder>
-            <radius>0.5</radius>
-            <length>6</length>
-          </cylinder>
-        </geometry>
+          <pose frame="">0 0 3 0 -0 0</pose>
+          <geometry>
+            <cylinder>
+              <radius>0.5</radius>
+              <length>6</length>
+            </cylinder>
+          </geometry>
           <max_contacts>10</max_contacts>
           <surface>
             <contact>
@@ -692,13 +779,26 @@
       <static>1</static>
       <link name="concretewall::body">
         <collision name="concretewall1">
-        <pose>0 0 1 0 0 0</pose>
-        <geometry>
-          <box>
-            <size>2 0.4 2.0</size>
-          </box>
-        </geometry>
-       </collision>
+          <pose frame="">0 0 1 0 -0 0</pose>
+          <geometry>
+            <box>
+              <size>2 0.4 2</size>
+            </box>
+          </geometry>
+          <max_contacts>10</max_contacts>
+          <surface>
+            <contact>
+              <ode/>
+            </contact>
+            <bounce/>
+            <friction>
+              <torsional>
+                <ode/>
+              </torsional>
+              <ode/>
+            </friction>
+          </surface>
+        </collision>
         <visual name="concretewall1">
           <cast_shadows>1</cast_shadows>
           <geometry>
@@ -726,7 +826,7 @@
           <pose frame="">0 0 0 0 -0 0</pose>
           <geometry>
             <mesh>
-            <uri>model://squarewindow/meshes/squarewindow-collision.dae</uri>
+              <uri>model://squarewindow/meshes/squarewindow-collision.dae</uri>
               <scale>1 1 1</scale>
             </mesh>
           </geometry>
@@ -767,14 +867,14 @@
     <model name="woodwall_5">
       <static>1</static>
       <link name="woodwall::body">
-      <collision name="woodwall-coll">
-       <pose>0 0 1 0 0 0</pose>
-        <geometry>
-          <box>
-            <size>2 0.4 2.0</size>
-          </box>
-        </geometry>
-        <max_contacts>10</max_contacts>
+        <collision name="woodwall-coll">
+          <pose frame="">0 0 1 0 -0 0</pose>
+          <geometry>
+            <box>
+              <size>2 0.4 2</size>
+            </box>
+          </geometry>
+          <max_contacts>10</max_contacts>
           <surface>
             <contact>
               <ode/>
@@ -815,7 +915,7 @@
           <pose frame="">0 0 0 0 -0 0</pose>
           <geometry>
             <mesh>
-            <uri>model://squarewindow/meshes/squarewindow-collision.dae</uri>
+              <uri>model://squarewindow/meshes/squarewindow-collision.dae</uri>
               <scale>1 1 1</scale>
             </mesh>
           </geometry>
@@ -860,7 +960,7 @@
           <pose frame="">0 0 0 0 -0 0</pose>
           <geometry>
             <mesh>
-            <uri>model://squarewindow/meshes/squarewindow-collision.dae</uri>
+              <uri>model://squarewindow/meshes/squarewindow-collision.dae</uri>
               <scale>1 1 1</scale>
             </mesh>
           </geometry>
@@ -905,7 +1005,7 @@
           <pose frame="">0 0 0 0 -0 0</pose>
           <geometry>
             <mesh>
-            <uri>model://squarewindow/meshes/squarewindow-collision.dae</uri>
+              <uri>model://squarewindow/meshes/squarewindow-collision.dae</uri>
               <scale>1 1 1</scale>
             </mesh>
           </geometry>
@@ -950,7 +1050,7 @@
           <pose frame="">0 0 0 0 -0 0</pose>
           <geometry>
             <mesh>
-            <uri>model://squarewindow/meshes/squarewindow-collision.dae</uri>
+              <uri>model://squarewindow/meshes/squarewindow-collision.dae</uri>
               <scale>1 1 1</scale>
             </mesh>
           </geometry>
@@ -995,7 +1095,7 @@
           <pose frame="">0 0 0 0 -0 0</pose>
           <geometry>
             <mesh>
-            <uri>model://squarewindow/meshes/squarewindow-collision.dae</uri>
+              <uri>model://squarewindow/meshes/squarewindow-collision.dae</uri>
               <scale>1 1 1</scale>
             </mesh>
           </geometry>
@@ -1040,7 +1140,7 @@
           <pose frame="">0 0 0 0 -0 0</pose>
           <geometry>
             <mesh>
-            <uri>model://squarewindow/meshes/squarewindow-collision.dae</uri>
+              <uri>model://squarewindow/meshes/squarewindow-collision.dae</uri>
               <scale>1 1 1</scale>
             </mesh>
           </geometry>
@@ -1085,7 +1185,7 @@
           <pose frame="">0 0 0 0 -0 0</pose>
           <geometry>
             <mesh>
-            <uri>model://squarewindow/meshes/squarewindow-collision.dae</uri>
+              <uri>model://squarewindow/meshes/squarewindow-collision.dae</uri>
               <scale>1 1 1</scale>
             </mesh>
           </geometry>
@@ -1130,7 +1230,7 @@
           <pose frame="">0 0 0 0 -0 0</pose>
           <geometry>
             <mesh>
-            <uri>model://squarewindow/meshes/squarewindow-collision.dae</uri>
+              <uri>model://squarewindow/meshes/squarewindow-collision.dae</uri>
               <scale>1 1 1</scale>
             </mesh>
           </geometry>
@@ -1191,13 +1291,13 @@
       <static>1</static>
       <link name="concretepylon::body">
         <collision name="concretepylon-coll">
-       <pose>0 0 3 0 0 0</pose>
-        <geometry>
-           <cylinder>
-            <radius>0.5</radius>
-            <length>6</length>
-          </cylinder>
-        </geometry>
+          <pose frame="">0 0 3 0 -0 0</pose>
+          <geometry>
+            <cylinder>
+              <radius>0.5</radius>
+              <length>6</length>
+            </cylinder>
+          </geometry>
           <max_contacts>10</max_contacts>
           <surface>
             <contact>
@@ -1236,13 +1336,13 @@
       <static>1</static>
       <link name="concretepylon::body">
         <collision name="concretepylon-coll">
-        <pose>0 0 3 0 0 0</pose>
-        <geometry>
-           <cylinder>
-            <radius>0.5</radius>
-            <length>6</length>
-          </cylinder>
-        </geometry>
+          <pose frame="">0 0 3 0 -0 0</pose>
+          <geometry>
+            <cylinder>
+              <radius>0.5</radius>
+              <length>6</length>
+            </cylinder>
+          </geometry>
           <max_contacts>10</max_contacts>
           <surface>
             <contact>
@@ -1329,7 +1429,7 @@
           <pose frame="">0 0 0 0 -0 0</pose>
           <geometry>
             <mesh>
-            <uri>model://squarewindow/meshes/squarewindow-collision.dae</uri>
+              <uri>model://squarewindow/meshes/squarewindow-collision.dae</uri>
               <scale>1 1 1</scale>
             </mesh>
           </geometry>
@@ -1460,14 +1560,14 @@
     <model name="woodwall_3">
       <static>1</static>
       <link name="woodwall::body">
-     <collision name="woodwall-coll">
-       <pose>0 0 1 0 0 0</pose>
-        <geometry>
-          <box>
-            <size>2 0.4 2.0</size>
-          </box>
-        </geometry>
-        <max_contacts>10</max_contacts>
+        <collision name="woodwall-coll">
+          <pose frame="">0 0 1 0 -0 0</pose>
+          <geometry>
+            <box>
+              <size>2 0.4 2</size>
+            </box>
+          </geometry>
+          <max_contacts>10</max_contacts>
           <surface>
             <contact>
               <ode/>
@@ -1507,9 +1607,9 @@
         <collision name="bigtopwindow-coll">
           <pose frame="">0 0 0 0 -0 0</pose>
           <geometry>
-         <box>
-            <size>6 6 0.082</size>
-          </box>
+            <box>
+              <size>6 6 0.082</size>
+            </box>
           </geometry>
           <max_contacts>10</max_contacts>
           <surface>
@@ -1551,9 +1651,9 @@
         <collision name="bigtopwindow-coll">
           <pose frame="">0 0 0 0 -0 0</pose>
           <geometry>
-          <box>
-            <size>6 6 0.082</size>
-          </box>
+            <box>
+              <size>6 6 0.082</size>
+            </box>
           </geometry>
           <max_contacts>10</max_contacts>
           <surface>
@@ -1595,9 +1695,9 @@
         <collision name="bigtopwindow-coll">
           <pose frame="">0 0 0 0 -0 0</pose>
           <geometry>
-          <box>
-            <size>6 6 0.082</size>
-          </box>
+            <box>
+              <size>6 6 0.082</size>
+            </box>
           </geometry>
           <max_contacts>10</max_contacts>
           <surface>
@@ -1639,9 +1739,9 @@
         <collision name="bigtopwindow-coll">
           <pose frame="">0 0 0 0 -0 0</pose>
           <geometry>
-         <box>
-            <size>6 6 0.082</size>
-          </box>
+            <box>
+              <size>6 6 0.082</size>
+            </box>
           </geometry>
           <max_contacts>10</max_contacts>
           <surface>
@@ -1681,12 +1781,25 @@
       <static>1</static>
       <link name="concretewallhigh::body">
         <collision name="concretewallhigh-coll">
-        <pose>0 0 2 0 0 0</pose>
-        <geometry>
-          <box>
-            <size>2 0.4 4.0</size>
-          </box>
-        </geometry>
+          <pose frame="">0 0 2 0 -0 0</pose>
+          <geometry>
+            <box>
+              <size>2 0.4 4</size>
+            </box>
+          </geometry>
+          <max_contacts>10</max_contacts>
+          <surface>
+            <contact>
+              <ode/>
+            </contact>
+            <bounce/>
+            <friction>
+              <torsional>
+                <ode/>
+              </torsional>
+              <ode/>
+            </friction>
+          </surface>
         </collision>
         <visual name="concretewallhigh">
           <cast_shadows>1</cast_shadows>
@@ -1731,12 +1844,25 @@
       <static>1</static>
       <link name="concretewallhigh::body">
         <collision name="concretewallhigh-coll">
-        <pose>0 0 2 0 0 0</pose>
-        <geometry>
-          <box>
-            <size>2 0.4 4.0</size>
-          </box>
-        </geometry>
+          <pose frame="">0 0 2 0 -0 0</pose>
+          <geometry>
+            <box>
+              <size>2 0.4 4</size>
+            </box>
+          </geometry>
+          <max_contacts>10</max_contacts>
+          <surface>
+            <contact>
+              <ode/>
+            </contact>
+            <bounce/>
+            <friction>
+              <torsional>
+                <ode/>
+              </torsional>
+              <ode/>
+            </friction>
+          </surface>
         </collision>
         <visual name="concretewallhigh">
           <cast_shadows>1</cast_shadows>
@@ -1762,12 +1888,25 @@
       <static>1</static>
       <link name="concretewallhigh::body">
         <collision name="concretewallhigh-coll">
-        <pose>0 0 2 0 0 0</pose>
-        <geometry>
-          <box>
-            <size>2 0.4 4.0</size>
-          </box>
-        </geometry>
+          <pose frame="">0 0 2 0 -0 0</pose>
+          <geometry>
+            <box>
+              <size>2 0.4 4</size>
+            </box>
+          </geometry>
+          <max_contacts>10</max_contacts>
+          <surface>
+            <contact>
+              <ode/>
+            </contact>
+            <bounce/>
+            <friction>
+              <torsional>
+                <ode/>
+              </torsional>
+              <ode/>
+            </friction>
+          </surface>
         </collision>
         <visual name="concretewallhigh">
           <cast_shadows>1</cast_shadows>
@@ -1793,12 +1932,25 @@
       <static>1</static>
       <link name="concretewallhigh::body">
         <collision name="concretewallhigh-coll">
-        <pose>0 0 2 0 0 0</pose>
-        <geometry>
-          <box>
-            <size>2 0.4 4.0</size>
-          </box>
-        </geometry>
+          <pose frame="">0 0 2 0 -0 0</pose>
+          <geometry>
+            <box>
+              <size>2 0.4 4</size>
+            </box>
+          </geometry>
+          <max_contacts>10</max_contacts>
+          <surface>
+            <contact>
+              <ode/>
+            </contact>
+            <bounce/>
+            <friction>
+              <torsional>
+                <ode/>
+              </torsional>
+              <ode/>
+            </friction>
+          </surface>
         </collision>
         <visual name="concretewallhigh">
           <cast_shadows>1</cast_shadows>
@@ -1824,12 +1976,25 @@
       <static>1</static>
       <link name="concretewallhigh::body">
         <collision name="concretewallhigh-coll">
-        <pose>0 0 2 0 0 0</pose>
-        <geometry>
-          <box>
-            <size>2 0.4 4.0</size>
-          </box>
-        </geometry>
+          <pose frame="">0 0 2 0 -0 0</pose>
+          <geometry>
+            <box>
+              <size>2 0.4 4</size>
+            </box>
+          </geometry>
+          <max_contacts>10</max_contacts>
+          <surface>
+            <contact>
+              <ode/>
+            </contact>
+            <bounce/>
+            <friction>
+              <torsional>
+                <ode/>
+              </torsional>
+              <ode/>
+            </friction>
+          </surface>
         </collision>
         <visual name="concretewallhigh">
           <cast_shadows>1</cast_shadows>
@@ -1855,12 +2020,25 @@
       <static>1</static>
       <link name="concretewallhigh::body">
         <collision name="concretewallhigh-coll">
-        <pose>0 0 2 0 0 0</pose>
-        <geometry>
-          <box>
-            <size>2 0.4 4.0</size>
-          </box>
-        </geometry>
+          <pose frame="">0 0 2 0 -0 0</pose>
+          <geometry>
+            <box>
+              <size>2 0.4 4</size>
+            </box>
+          </geometry>
+          <max_contacts>10</max_contacts>
+          <surface>
+            <contact>
+              <ode/>
+            </contact>
+            <bounce/>
+            <friction>
+              <torsional>
+                <ode/>
+              </torsional>
+              <ode/>
+            </friction>
+          </surface>
         </collision>
         <visual name="concretewallhigh">
           <cast_shadows>1</cast_shadows>
@@ -1973,12 +2151,25 @@
       <static>1</static>
       <link name="concretewallhigh::body">
         <collision name="concretewallhigh-coll">
-        <pose>0 0 2 0 0 0</pose>
-        <geometry>
-          <box>
-            <size>2 0.4 4.0</size>
-          </box>
-        </geometry>
+          <pose frame="">0 0 2 0 -0 0</pose>
+          <geometry>
+            <box>
+              <size>2 0.4 4</size>
+            </box>
+          </geometry>
+          <max_contacts>10</max_contacts>
+          <surface>
+            <contact>
+              <ode/>
+            </contact>
+            <bounce/>
+            <friction>
+              <torsional>
+                <ode/>
+              </torsional>
+              <ode/>
+            </friction>
+          </surface>
         </collision>
         <visual name="concretewallhigh">
           <cast_shadows>1</cast_shadows>
@@ -2007,7 +2198,7 @@
           <pose frame="">0 0 0 0 -0 0</pose>
           <geometry>
             <mesh>
-            <uri>model://highwindow/meshes/highwindow-collision.dae</uri>
+              <uri>model://highwindow/meshes/highwindow-collision.dae</uri>
               <scale>1 1 1</scale>
             </mesh>
           </geometry>
@@ -2052,7 +2243,7 @@
           <pose frame="">0 0 0 0 -0 0</pose>
           <geometry>
             <mesh>
-            <uri>model://highwindow/meshes/highwindow-collision.dae</uri>
+              <uri>model://highwindow/meshes/highwindow-collision.dae</uri>
               <scale>1 1 1</scale>
             </mesh>
           </geometry>
@@ -2097,7 +2288,7 @@
           <pose frame="">0 0 0 0 -0 0</pose>
           <geometry>
             <mesh>
-            <uri>model://highwindow/meshes/highwindow-collision.dae</uri>
+              <uri>model://highwindow/meshes/highwindow-collision.dae</uri>
               <scale>1 1 1</scale>
             </mesh>
           </geometry>
@@ -2142,7 +2333,7 @@
           <pose frame="">0 0 0 0 -0 0</pose>
           <geometry>
             <mesh>
-            <uri>model://highwindow/meshes/highwindow-collision.dae</uri>
+              <uri>model://highwindow/meshes/highwindow-collision.dae</uri>
               <scale>1 1 1</scale>
             </mesh>
           </geometry>
@@ -2187,7 +2378,7 @@
           <pose frame="">0 0 0 0 -0 0</pose>
           <geometry>
             <mesh>
-            <uri>model://highwindow/meshes/highwindow-collision.dae</uri>
+              <uri>model://highwindow/meshes/highwindow-collision.dae</uri>
               <scale>1 1 1</scale>
             </mesh>
           </geometry>
@@ -2232,7 +2423,7 @@
           <pose frame="">0 0 0 0 -0 0</pose>
           <geometry>
             <mesh>
-            <uri>model://highwindow/meshes/highwindow-collision.dae</uri>
+              <uri>model://highwindow/meshes/highwindow-collision.dae</uri>
               <scale>1 1 1</scale>
             </mesh>
           </geometry>
@@ -2277,7 +2468,7 @@
           <pose frame="">0 0 0 0 -0 0</pose>
           <geometry>
             <mesh>
-            <uri>model://highwindow/meshes/highwindow-collision.dae</uri>
+              <uri>model://highwindow/meshes/highwindow-collision.dae</uri>
               <scale>1 1 1</scale>
             </mesh>
           </geometry>
@@ -2319,12 +2510,25 @@
       <static>1</static>
       <link name="concretewallhigh::body">
         <collision name="concretewallhigh-coll">
-        <pose>0 0 2 0 0 0</pose>
-        <geometry>
-          <box>
-            <size>2 0.4 4.0</size>
-          </box>
-        </geometry>
+          <pose frame="">0 0 2 0 -0 0</pose>
+          <geometry>
+            <box>
+              <size>2 0.4 4</size>
+            </box>
+          </geometry>
+          <max_contacts>10</max_contacts>
+          <surface>
+            <contact>
+              <ode/>
+            </contact>
+            <bounce/>
+            <friction>
+              <torsional>
+                <ode/>
+              </torsional>
+              <ode/>
+            </friction>
+          </surface>
         </collision>
         <visual name="concretewallhigh">
           <cast_shadows>1</cast_shadows>
@@ -2353,7 +2557,7 @@
           <pose frame="">0 0 0 0 -0 0</pose>
           <geometry>
             <mesh>
-            <uri>model://highwindow/meshes/highwindow-collision.dae</uri>
+              <uri>model://highwindow/meshes/highwindow-collision.dae</uri>
               <scale>1 1 1</scale>
             </mesh>
           </geometry>
@@ -2398,7 +2602,7 @@
           <pose frame="">0 0 0 0 -0 0</pose>
           <geometry>
             <mesh>
-            <uri>model://highwindow/meshes/highwindow-collision.dae</uri>
+              <uri>model://highwindow/meshes/highwindow-collision.dae</uri>
               <scale>1 1 1</scale>
             </mesh>
           </geometry>
@@ -2443,7 +2647,7 @@
           <pose frame="">0 0 0 0 -0 0</pose>
           <geometry>
             <mesh>
-            <uri>model://highwindow/meshes/highwindow-collision.dae</uri>
+              <uri>model://highwindow/meshes/highwindow-collision.dae</uri>
               <scale>1 1 1</scale>
             </mesh>
           </geometry>
@@ -2484,14 +2688,27 @@
     <model name="carpetground_0">
       <static>1</static>
       <link name="carpetground::body">
-       <collision name="carpetground-collision">
-        <pose>0 0 0.0125 0 0 0</pose>
-        <geometry>
-          <box>
-            <size>6 6 0.025</size>
-          </box>
-        </geometry>
-      </collision>
+        <collision name="carpetground-collision">
+          <pose frame="">0 0 0.0125 0 -0 0</pose>
+          <geometry>
+            <box>
+              <size>6 6 0.025</size>
+            </box>
+          </geometry>
+          <max_contacts>10</max_contacts>
+          <surface>
+            <contact>
+              <ode/>
+            </contact>
+            <bounce/>
+            <friction>
+              <torsional>
+                <ode/>
+              </torsional>
+              <ode/>
+            </friction>
+          </surface>
+        </collision>
         <visual name="carpetground">
           <cast_shadows>1</cast_shadows>
           <geometry>
@@ -2502,20 +2719,23 @@
           </geometry>
         </visual>
         <pose frame="">0 0 0 0 -0 0</pose>
+        <self_collide>0</self_collide>
+        <kinematic>0</kinematic>
+        <gravity>1</gravity>
       </link>
       <pose frame="">0 0 0.02 0 -0 0</pose>
     </model>
     <model name="woodwall_4">
       <static>1</static>
       <link name="woodwall::body">
-     <collision name="woodwall-coll">
-       <pose>0 0 1 0 0 0</pose>
-        <geometry>
-          <box>
-            <size>2 0.4 2.0</size>
-          </box>
-        </geometry>
-        <max_contacts>10</max_contacts>
+        <collision name="woodwall-coll">
+          <pose frame="">0 0 1 0 -0 0</pose>
+          <geometry>
+            <box>
+              <size>2 0.4 2</size>
+            </box>
+          </geometry>
+          <max_contacts>10</max_contacts>
           <surface>
             <contact>
               <ode/>
@@ -2553,13 +2773,13 @@
       <static>1</static>
       <link name="concretepylon::body">
         <collision name="concretepylon-coll">
-         <pose>0 0 3 0 0 0</pose>
-        <geometry>
-           <cylinder>
-            <radius>0.5</radius>
-            <length>6</length>
-          </cylinder>
-        </geometry>
+          <pose frame="">0 0 3 0 -0 0</pose>
+          <geometry>
+            <cylinder>
+              <radius>0.5</radius>
+              <length>6</length>
+            </cylinder>
+          </geometry>
           <max_contacts>10</max_contacts>
           <surface>
             <contact>
@@ -2597,14 +2817,14 @@
     <model name="woodwall_6">
       <static>1</static>
       <link name="woodwall::body">
-     <collision name="woodwall-coll">
-       <pose>0 0 1 0 0 0</pose>
-        <geometry>
-          <box>
-            <size>2 0.4 2.0</size>
-          </box>
-        </geometry>
-        <max_contacts>10</max_contacts>
+        <collision name="woodwall-coll">
+          <pose frame="">0 0 1 0 -0 0</pose>
+          <geometry>
+            <box>
+              <size>2 0.4 2</size>
+            </box>
+          </geometry>
+          <max_contacts>10</max_contacts>
           <surface>
             <contact>
               <ode/>
@@ -2641,14 +2861,14 @@
     <model name="woodwall_7">
       <static>1</static>
       <link name="woodwall::body">
-    <collision name="woodwall-coll">
-       <pose>0 0 1 0 0 0</pose>
-        <geometry>
-          <box>
-            <size>2 0.4 2.0</size>
-          </box>
-        </geometry>
-        <max_contacts>10</max_contacts>
+        <collision name="woodwall-coll">
+          <pose frame="">0 0 1 0 -0 0</pose>
+          <geometry>
+            <box>
+              <size>2 0.4 2</size>
+            </box>
+          </geometry>
+          <max_contacts>10</max_contacts>
           <surface>
             <contact>
               <ode/>
@@ -2685,14 +2905,14 @@
     <model name="woodwall_0">
       <static>1</static>
       <link name="woodwall::body">
-      <collision name="woodwall-coll">
-       <pose>0 0 1 0 0 0</pose>
-        <geometry>
-          <box>
-            <size>2 0.4 2.0</size>
-          </box>
-        </geometry>
-        <max_contacts>10</max_contacts>
+        <collision name="woodwall-coll">
+          <pose frame="">0 0 1 0 -0 0</pose>
+          <geometry>
+            <box>
+              <size>2 0.4 2</size>
+            </box>
+          </geometry>
+          <max_contacts>10</max_contacts>
           <surface>
             <contact>
               <ode/>
@@ -2729,14 +2949,14 @@
     <model name="woodwall_1">
       <static>1</static>
       <link name="woodwall::body">
-     <collision name="woodwall-coll">
-       <pose>0 0 1 0 0 0</pose>
-        <geometry>
-          <box>
-            <size>2 0.4 2.0</size>
-          </box>
-        </geometry>
-        <max_contacts>10</max_contacts>
+        <collision name="woodwall-coll">
+          <pose frame="">0 0 1 0 -0 0</pose>
+          <geometry>
+            <box>
+              <size>2 0.4 2</size>
+            </box>
+          </geometry>
+          <max_contacts>10</max_contacts>
           <surface>
             <contact>
               <ode/>
@@ -2773,14 +2993,14 @@
     <model name="woodwall_2">
       <static>1</static>
       <link name="woodwall::body">
-    <collision name="woodwall-coll">
-       <pose>0 0 1 0 0 0</pose>
-        <geometry>
-          <box>
-            <size>2 0.4 2.0</size>
-          </box>
-        </geometry>
-        <max_contacts>10</max_contacts>
+        <collision name="woodwall-coll">
+          <pose frame="">0 0 1 0 -0 0</pose>
+          <geometry>
+            <box>
+              <size>2 0.4 2</size>
+            </box>
+          </geometry>
+          <max_contacts>10</max_contacts>
           <surface>
             <contact>
               <ode/>
@@ -2847,6 +3067,12 @@
               <scale>1 1 1</scale>
             </mesh>
           </geometry>
+          <material>
+            <script>
+              <name>__default__</name>
+              <uri>__default__</uri>
+            </script>
+          </material>
         </visual>
         <visual name="screen_glass">
           <cast_shadows>0</cast_shadows>
@@ -2859,7 +3085,7 @@
           <material>
             <script>
               <uri>file://media/materials/scripts/gazebo.material</uri>
-              <name>Gazebo/BlueGlow</name>
+              <name>Gazebo/RedGlow</name>
             </script>
           </material>
         </visual>
@@ -2962,14 +3188,14 @@
     <model name="woodwall_8">
       <static>1</static>
       <link name="woodwall::body">
-     <collision name="woodwall-coll">
-       <pose>0 0 1 0 0 0</pose>
-        <geometry>
-          <box>
-            <size>2 0.4 2.0</size>
-          </box>
-        </geometry>
-        <max_contacts>10</max_contacts>
+        <collision name="woodwall-coll">
+          <pose frame="">0 0 1 0 -0 0</pose>
+          <geometry>
+            <box>
+              <size>2 0.4 2</size>
+            </box>
+          </geometry>
+          <max_contacts>10</max_contacts>
           <surface>
             <contact>
               <ode/>
@@ -3006,14 +3232,14 @@
     <model name="woodwall_9">
       <static>1</static>
       <link name="woodwall::body">
-     <collision name="woodwall-coll">
-       <pose>0 0 1 0 0 0</pose>
-        <geometry>
-          <box>
-            <size>2 0.4 2.0</size>
-          </box>
-        </geometry>
-        <max_contacts>10</max_contacts>
+        <collision name="woodwall-coll">
+          <pose frame="">0 0 1 0 -0 0</pose>
+          <geometry>
+            <box>
+              <size>2 0.4 2</size>
+            </box>
+          </geometry>
+          <max_contacts>10</max_contacts>
           <surface>
             <contact>
               <ode/>
@@ -3047,17 +3273,845 @@
       </link>
       <pose frame="">6.74826 3.69705 0 0 -0 1.5708</pose>
     </model>
-    <model name="screensupport_0">
-      <pose frame="">0.036109 2.58592 0.031598 0 -0 0</pose>
-      <static>1</static>
-      <link name="screensupport::body">
-        <collision name="screensupport-coll">
+    <gravity>0 0 -9.8</gravity>
+    <magnetic_field>6e-06 2.3e-05 -4.2e-05</magnetic_field>
+    <atmosphere type="adiabatic"/>
+    <physics name="default_physics" default="0" type="ode">
+      <max_step_size>0.001</max_step_size>
+      <real_time_factor>1</real_time_factor>
+      <real_time_update_rate>1000</real_time_update_rate>
+    </physics>
+    <scene>
+      <ambient>0.4 0.4 0.4 1</ambient>
+      <background>0.7 0.7 0.7 1</background>
+      <shadows>1</shadows>
+    </scene>
+    <spherical_coordinates>
+      <surface_model>EARTH_WGS84</surface_model>
+      <latitude_deg>0</latitude_deg>
+      <longitude_deg>0</longitude_deg>
+      <elevation>0</elevation>
+      <heading_deg>0</heading_deg>
+    </spherical_coordinates>
+    <state world_name="default">
+      <sim_time>31 64000000</sim_time>
+      <real_time>0 0</real_time>
+      <wall_time>1570149490 652608785</wall_time>
+      <iterations>1</iterations>
+      <model name="bench_0">
+        <pose frame="">-4.36935 1.01034 -0.280649 0 -0 0</pose>
+        <scale>1 1 1</scale>
+        <link name="bench::body">
+          <pose frame="">-4.36935 1.01034 -0.280649 0 -0 0</pose>
+          <velocity>0 0 0 0 -0 0</velocity>
+          <acceleration>0 0 0 0 -0 0</acceleration>
+          <wrench>0 0 0 0 -0 0</wrench>
+        </link>
+      </model>
+      <model name="bigtopwindow_0">
+        <pose frame="">-2.48074 -4.60158 5.97425 0 -0 0</pose>
+        <scale>1 1 1</scale>
+        <link name="bigtopwindow::body">
+          <pose frame="">-2.48074 -4.60158 5.97425 0 -0 0</pose>
+          <velocity>0 0 0 0 -0 0</velocity>
+          <acceleration>0 0 0 0 -0 0</acceleration>
+          <wrench>0 0 0 0 -0 0</wrench>
+        </link>
+      </model>
+      <model name="bigtopwindow_1">
+        <pose frame="">-2.48074 1.39842 5.97425 0 -0 0</pose>
+        <scale>1 1 1</scale>
+        <link name="bigtopwindow::body">
+          <pose frame="">-2.48074 1.39842 5.97425 0 -0 0</pose>
+          <velocity>0 0 0 0 -0 0</velocity>
+          <acceleration>0 0 0 0 -0 0</acceleration>
+          <wrench>0 0 0 0 -0 0</wrench>
+        </link>
+      </model>
+      <model name="bigtopwindow_2">
+        <pose frame="">3.51926 -4.60158 5.97425 0 -0 0</pose>
+        <scale>1 1 1</scale>
+        <link name="bigtopwindow::body">
+          <pose frame="">3.51926 -4.60158 5.97425 0 -0 0</pose>
+          <velocity>0 0 0 0 -0 0</velocity>
+          <acceleration>0 0 0 0 -0 0</acceleration>
+          <wrench>0 0 0 0 -0 0</wrench>
+        </link>
+      </model>
+      <model name="bigtopwindow_3">
+        <pose frame="">3.51926 1.39842 5.97425 0 -0 0</pose>
+        <scale>1 1 1</scale>
+        <link name="bigtopwindow::body">
+          <pose frame="">3.51926 1.39842 5.97425 0 -0 0</pose>
+          <velocity>0 0 0 0 -0 0</velocity>
+          <acceleration>0 0 0 0 -0 0</acceleration>
+          <wrench>0 0 0 0 -0 0</wrench>
+        </link>
+      </model>
+      <model name="carpetground_0">
+        <pose frame="">-0.67 0 0 0 -0 0</pose>
+        <scale>1 1 1</scale>
+        <link name="carpetground::body">
+          <pose frame="">-0.67 0 0 0 -0 0</pose>
+          <velocity>0 0 0 0 -0 0</velocity>
+          <acceleration>0 0 0 0 -0 0</acceleration>
+          <wrench>0 0 0 0 -0 0</wrench>
+        </link>
+      </model>
+      <model name="computer_0">
+        <pose frame="">4.0505 -6.35426 0.944646 0 0 -1.5708</pose>
+        <scale>1 1 1</scale>
+        <link name="Computer::body">
+          <pose frame="">4.0505 -6.35426 0.944646 0 0 -1.5708</pose>
+          <velocity>0 0 0 0 -0 0</velocity>
+          <acceleration>0 0 0 0 -0 0</acceleration>
+          <wrench>0 0 0 0 -0 0</wrench>
+        </link>
+      </model>
+      <model name="concrete_wall_0">
+        <pose frame="">-3.66506 0.059864 0.014666 0 0 -1.5708</pose>
+        <scale>1 1 1</scale>
+        <link name="concretewall::body">
+          <pose frame="">-3.66506 0.059864 0.014666 0 0 -1.5708</pose>
+          <velocity>0 0 0 0 -0 0</velocity>
+          <acceleration>0 0 0 0 -0 0</acceleration>
+          <wrench>0 0 0 0 -0 0</wrench>
+        </link>
+      </model>
+      <model name="concrete_wall_1">
+        <pose frame="">-3.665 2 0.015 0 -0 1.5708</pose>
+        <scale>1 1 1</scale>
+        <link name="concretewall::body">
+          <pose frame="">-3.665 2 0.015 0 -0 1.5708</pose>
+          <velocity>0 0 0 0 -0 0</velocity>
+          <acceleration>0 0 0 0 -0 0</acceleration>
+          <wrench>0 0 0 0 -0 0</wrench>
+        </link>
+      </model>
+      <model name="concrete_wall_2">
+        <pose frame="">-3.665 -1.892 0.015 0 -0 1.5708</pose>
+        <scale>1 1 1</scale>
+        <link name="concretewall::body">
+          <pose frame="">-3.665 -1.892 0.015 0 -0 1.5708</pose>
+          <velocity>0 0 0 0 -0 0</velocity>
+          <acceleration>0 0 0 0 -0 0</acceleration>
+          <wrench>0 0 0 0 -0 0</wrench>
+        </link>
+      </model>
+      <model name="concrete_wall_3">
+        <pose frame="">-2.865 -3.092 0.014666 0 -0 0</pose>
+        <scale>1 1 1</scale>
+        <link name="concretewall::body">
+          <pose frame="">-2.865 -3.092 0.014666 0 -0 0</pose>
+          <velocity>0 0 0 0 -0 0</velocity>
+          <acceleration>0 0 0 0 -0 0</acceleration>
+          <wrench>0 0 0 0 -0 0</wrench>
+        </link>
+      </model>
+      <model name="concrete_wall_4">
+        <pose frame="">-2.85901 3.16584 0.014895 0 -0 0</pose>
+        <scale>1 1 1</scale>
+        <link name="concretewall::body">
+          <pose frame="">-2.85901 3.16584 0.014895 0 -0 0</pose>
+          <velocity>0 0 0 0 -0 0</velocity>
+          <acceleration>0 0 0 0 -0 0</acceleration>
+          <wrench>0 0 0 0 -0 0</wrench>
+        </link>
+      </model>
+      <model name="concrete_wall_5">
+        <pose frame="">-0.865 -3.092 0.014666 0 -0 0</pose>
+        <scale>1 1 1</scale>
+        <link name="concretewall::body">
+          <pose frame="">-0.865 -3.092 0.014666 0 -0 0</pose>
+          <velocity>0 0 0 0 -0 0</velocity>
+          <acceleration>0 0 0 0 -0 0</acceleration>
+          <wrench>0 0 0 0 -0 0</wrench>
+        </link>
+      </model>
+      <model name="concrete_wall_6">
+        <pose frame="">-0.859009 3.16584 0.014666 0 -0 0</pose>
+        <scale>1 1 1</scale>
+        <link name="concretewall::body">
+          <pose frame="">-0.859009 3.16584 0.014666 0 -0 0</pose>
+          <velocity>0 0 0 0 -0 0</velocity>
+          <acceleration>0 0 0 0 -0 0</acceleration>
+          <wrench>0 0 0 0 -0 0</wrench>
+        </link>
+      </model>
+      <model name="concretepylon_0">
+        <pose frame="">-5.21683 -7.3505 0.019561 0 -0 0</pose>
+        <scale>1 1 1</scale>
+        <link name="concretepylon::body">
+          <pose frame="">-5.21683 -7.3505 0.019561 0 -0 0</pose>
+          <velocity>0 0 0 0 -0 0</velocity>
+          <acceleration>0 0 0 0 -0 0</acceleration>
+          <wrench>0 0 0 0 -0 0</wrench>
+        </link>
+      </model>
+      <model name="concretepylon_1">
+        <pose frame="">6.65107 4.82045 0.019561 0 -0 0</pose>
+        <scale>1 1 1</scale>
+        <link name="concretepylon::body">
+          <pose frame="">6.65107 4.82045 0.019561 0 -0 0</pose>
+          <velocity>0 0 0 0 -0 0</velocity>
+          <acceleration>0 0 0 0 -0 0</acceleration>
+          <wrench>0 0 0 0 -0 0</wrench>
+        </link>
+      </model>
+      <model name="concretepylon_2">
+        <pose frame="">-5.35088 4.37792 0.019561 0 -0 0</pose>
+        <scale>1 1 1</scale>
+        <link name="concretepylon::body">
+          <pose frame="">-5.35088 4.37792 0.019561 0 -0 0</pose>
+          <velocity>0 0 0 0 -0 0</velocity>
+          <acceleration>0 0 0 0 -0 0</acceleration>
+          <wrench>0 0 0 0 -0 0</wrench>
+        </link>
+      </model>
+      <model name="concretepylon_3">
+        <pose frame="">6.65107 -7.53909 0.019561 0 -0 0</pose>
+        <scale>1 1 1</scale>
+        <link name="concretepylon::body">
+          <pose frame="">6.65107 -7.53909 0.019561 0 -0 0</pose>
+          <velocity>0 0 0 0 -0 0</velocity>
+          <acceleration>0 0 0 0 -0 0</acceleration>
+          <wrench>0 0 0 0 -0 0</wrench>
+        </link>
+      </model>
+      <model name="concretewall1_0">
+        <pose frame="">-5.46911 -2.30918 4.02082 0 -0 1.5708</pose>
+        <scale>1 1 1</scale>
+        <link name="concretewall::body">
+          <pose frame="">-5.46911 -2.30918 4.02082 0 -0 1.5708</pose>
+          <velocity>0 0 0 0 -0 0</velocity>
+          <acceleration>0 0 0 0 -0 0</acceleration>
+          <wrench>0 0 0 0 -0 0</wrench>
+        </link>
+      </model>
+      <model name="concretewall1_1">
+        <pose frame="">-5.46911 -4.31171 4.02082 0 -0 1.5708</pose>
+        <scale>1 1 1</scale>
+        <link name="concretewall::body">
+          <pose frame="">-5.46911 -4.31171 4.02082 0 -0 1.5708</pose>
+          <velocity>0 0 0 0 -0 0</velocity>
+          <acceleration>0 0 0 0 -0 0</acceleration>
+          <wrench>0 0 0 0 -0 0</wrench>
+        </link>
+      </model>
+      <model name="concretewall1_2">
+        <pose frame="">-4.343 -7.533 3.968 0 0 -3.14159</pose>
+        <scale>1 1 1</scale>
+        <link name="concretewall::body">
+          <pose frame="">-4.343 -7.533 3.968 0 0 -3.14159</pose>
+          <velocity>0 0 0 0 -0 0</velocity>
+          <acceleration>0 0 0 0 -0 0</acceleration>
+          <wrench>0 0 0 0 -0 0</wrench>
+        </link>
+      </model>
+      <model name="concretewall1_3">
+        <pose frame="">3.657 -7.533 3.968 0 0 -3.14159</pose>
+        <scale>1 1 1</scale>
+        <link name="concretewall::body">
+          <pose frame="">3.657 -7.533 3.968 0 0 -3.14159</pose>
+          <velocity>0 0 0 0 -0 0</velocity>
+          <acceleration>0 0 0 0 -0 0</acceleration>
+          <wrench>0 0 0 0 -0 0</wrench>
+        </link>
+      </model>
+      <model name="concretewall1_4">
+        <pose frame="">5.657 -7.533 3.968 0 0 -3.14159</pose>
+        <scale>1 1 1</scale>
+        <link name="concretewall::body">
+          <pose frame="">5.657 -7.533 3.968 0 0 -3.14159</pose>
+          <velocity>0 0 0 0 -0 0</velocity>
+          <acceleration>0 0 0 0 -0 0</acceleration>
+          <wrench>0 0 0 0 -0 0</wrench>
+        </link>
+      </model>
+      <model name="concretewall1_5">
+        <pose frame="">-4.343 4.378 3.968 0 0 -3.14159</pose>
+        <scale>1 1 1</scale>
+        <link name="concretewall::body">
+          <pose frame="">-4.343 4.378 3.968 0 0 -3.14159</pose>
+          <velocity>0 0 0 0 -0 0</velocity>
+          <acceleration>0 0 0 0 -0 0</acceleration>
+          <wrench>0 0 0 0 -0 0</wrench>
+        </link>
+      </model>
+      <model name="concretewall1_6">
+        <pose frame="">5.657 4.378 3.968 0 0 -3.14159</pose>
+        <scale>1 1 1</scale>
+        <link name="concretewall::body">
+          <pose frame="">5.657 4.378 3.968 0 0 -3.14159</pose>
+          <velocity>0 0 0 0 -0 0</velocity>
+          <acceleration>0 0 0 0 -0 0</acceleration>
+          <wrench>0 0 0 0 -0 0</wrench>
+        </link>
+      </model>
+      <model name="concretewallhigh_0">
+        <pose frame="">-5.47636 -0.316687 0.015928 0 -0 1.5708</pose>
+        <scale>1 1 1</scale>
+        <link name="concretewallhigh::body">
+          <pose frame="">-5.47636 -0.316687 0.015928 0 -0 1.5708</pose>
+          <velocity>0 0 0 0 -0 0</velocity>
+          <acceleration>0 0 0 0 -0 0</acceleration>
+          <wrench>0 0 0 0 -0 0</wrench>
+        </link>
+      </model>
+      <model name="concretewallhigh_1">
+        <pose frame="">-5.47636 1.68331 0.015928 0 -0 1.5708</pose>
+        <scale>1 1 1</scale>
+        <link name="concretewallhigh::body">
+          <pose frame="">-5.47636 1.68331 0.015928 0 -0 1.5708</pose>
+          <velocity>0 0 0 0 -0 0</velocity>
+          <acceleration>0 0 0 0 -0 0</acceleration>
+          <wrench>0 0 0 0 -0 0</wrench>
+        </link>
+      </model>
+      <model name="concretewallhigh_3">
+        <pose frame="">-4.34331 -7.53299 0.00977 0 -0 0</pose>
+        <scale>1 1 1</scale>
+        <link name="concretewallhigh::body">
+          <pose frame="">-4.34331 -7.53299 0.00977 0 -0 0</pose>
+          <velocity>0 0 0 0 -0 0</velocity>
+          <acceleration>0 0 0 0 -0 0</acceleration>
+          <wrench>0 0 0 0 -0 0</wrench>
+        </link>
+      </model>
+      <model name="concretewallhigh_4">
+        <pose frame="">3.65669 -7.53299 0.00977 0 -0 0</pose>
+        <scale>1 1 1</scale>
+        <link name="concretewallhigh::body">
+          <pose frame="">3.65669 -7.53299 0.00977 0 -0 0</pose>
+          <velocity>0 0 0 0 -0 0</velocity>
+          <acceleration>0 0 0 0 -0 0</acceleration>
+          <wrench>0 0 0 0 -0 0</wrench>
+        </link>
+      </model>
+      <model name="concretewallhigh_5">
+        <pose frame="">5.65775 -7.53299 0.00977 0 -0 0</pose>
+        <scale>1 1 1</scale>
+        <link name="concretewallhigh::body">
+          <pose frame="">5.65775 -7.53299 0.00977 0 -0 0</pose>
+          <velocity>0 0 0 0 -0 0</velocity>
+          <acceleration>0 0 0 0 -0 0</acceleration>
+          <wrench>0 0 0 0 -0 0</wrench>
+        </link>
+      </model>
+      <model name="concretewallhigh_6">
+        <pose frame="">-4.343 4.378 0.01 0 -0 0</pose>
+        <scale>1 1 1</scale>
+        <link name="concretewallhigh::body">
+          <pose frame="">-4.343 4.378 0.01 0 -0 0</pose>
+          <velocity>0 0 0 0 -0 0</velocity>
+          <acceleration>0 0 0 0 -0 0</acceleration>
+          <wrench>0 0 0 0 -0 0</wrench>
+        </link>
+      </model>
+      <model name="concretewallhigh_7">
+        <pose frame="">3.657 4.378 0.01 0 -0 0</pose>
+        <scale>1 1 1</scale>
+        <link name="concretewallhigh::body">
+          <pose frame="">3.657 4.378 0.01 0 -0 0</pose>
+          <velocity>0 0 0 0 -0 0</velocity>
+          <acceleration>0 0 0 0 -0 0</acceleration>
+          <wrench>0 0 0 0 -0 0</wrench>
+        </link>
+      </model>
+      <model name="concretewallhigh_8">
+        <pose frame="">5.657 4.378 0.01 0 -0 0</pose>
+        <scale>1 1 1</scale>
+        <link name="concretewallhigh::body">
+          <pose frame="">5.657 4.378 0.01 0 -0 0</pose>
+          <velocity>0 0 0 0 -0 0</velocity>
+          <acceleration>0 0 0 0 -0 0</acceleration>
+          <wrench>0 0 0 0 -0 0</wrench>
+        </link>
+      </model>
+      <model name="glassdoor_0">
+        <pose frame="">-5.47636 -3.31669 0 0 -0 1.5708</pose>
+        <scale>1 1 1</scale>
+        <link name="highwindow::body">
+          <pose frame="">-5.47636 -3.31669 0 0 -0 1.5708</pose>
+          <velocity>0 0 0 0 -0 0</velocity>
+          <acceleration>0 0 0 0 -0 0</acceleration>
+          <wrench>0 0 0 0 -0 0</wrench>
+        </link>
+      </model>
+      <model name="ground">
+        <pose frame="">0 0 0 0 -0 0</pose>
+        <scale>1 1 1</scale>
+        <link name="link">
           <pose frame="">0 0 0 0 -0 0</pose>
+          <velocity>0 0 0 0 -0 0</velocity>
+          <acceleration>0 0 0 0 -0 0</acceleration>
+          <wrench>0 0 0 0 -0 0</wrench>
+        </link>
+      </model>
+      <model name="highwindow_0">
+        <pose frame="">-2.34331 -7.4879 0.019561 0 -0 0</pose>
+        <scale>1 1 1</scale>
+        <link name="highwindow::body">
+          <pose frame="">-2.34331 -7.4879 0.019561 0 -0 0</pose>
+          <velocity>0 0 0 0 -0 0</velocity>
+          <acceleration>0 0 0 0 -0 0</acceleration>
+          <wrench>0 0 0 0 -0 0</wrench>
+        </link>
+      </model>
+      <model name="highwindow_1">
+        <pose frame="">-0.34331 -7.4879 0.019561 0 -0 0</pose>
+        <scale>1 1 1</scale>
+        <link name="highwindow::body">
+          <pose frame="">-0.34331 -7.4879 0.019561 0 -0 0</pose>
+          <velocity>0 0 0 0 -0 0</velocity>
+          <acceleration>0 0 0 0 -0 0</acceleration>
+          <wrench>0 0 0 0 -0 0</wrench>
+        </link>
+      </model>
+      <model name="highwindow_2">
+        <pose frame="">1.65669 -7.4879 0.019561 0 -0 0</pose>
+        <scale>1 1 1</scale>
+        <link name="highwindow::body">
+          <pose frame="">1.65669 -7.4879 0.019561 0 -0 0</pose>
+          <velocity>0 0 0 0 -0 0</velocity>
+          <acceleration>0 0 0 0 -0 0</acceleration>
+          <wrench>0 0 0 0 -0 0</wrench>
+        </link>
+      </model>
+      <model name="highwindow_3">
+        <pose frame="">-2.343 4.37817 0.02 0 -0 3.14159</pose>
+        <scale>1 1 1</scale>
+        <link name="highwindow::body">
+          <pose frame="">-2.343 4.37817 0.02 0 -0 3.14159</pose>
+          <velocity>0 0 0 0 -0 0</velocity>
+          <acceleration>0 0 0 0 -0 0</acceleration>
+          <wrench>0 0 0 0 -0 0</wrench>
+        </link>
+      </model>
+      <model name="highwindow_4">
+        <pose frame="">-0.343 4.378 0.02 0 -0 3.14159</pose>
+        <scale>1 1 1</scale>
+        <link name="highwindow::body">
+          <pose frame="">-0.343 4.378 0.02 0 -0 3.14159</pose>
+          <velocity>0 0 0 0 -0 0</velocity>
+          <acceleration>0 0 0 0 -0 0</acceleration>
+          <wrench>0 0 0 0 -0 0</wrench>
+        </link>
+      </model>
+      <model name="highwindow_5">
+        <pose frame="">1.657 4.378 0.02 0 -0 3.14159</pose>
+        <scale>1 1 1</scale>
+        <link name="highwindow::body">
+          <pose frame="">1.657 4.378 0.02 0 -0 3.14159</pose>
+          <velocity>0 0 0 0 -0 0</velocity>
+          <acceleration>0 0 0 0 -0 0</acceleration>
+          <wrench>0 0 0 0 -0 0</wrench>
+        </link>
+      </model>
+      <model name="highwindow_6">
+        <pose frame="">6.74039 -4.29539 0.019561 0 -0 1.5708</pose>
+        <scale>1 1 1</scale>
+        <link name="highwindow::body">
+          <pose frame="">6.74039 -4.29539 0.019561 0 -0 1.5708</pose>
+          <velocity>0 0 0 0 -0 0</velocity>
+          <acceleration>0 0 0 0 -0 0</acceleration>
+          <wrench>0 0 0 0 -0 0</wrench>
+        </link>
+      </model>
+      <model name="highwindow_7">
+        <pose frame="">6.74039 -2.29538 0.019561 0 -0 1.5708</pose>
+        <scale>1 1 1</scale>
+        <link name="highwindow::body">
+          <pose frame="">6.74039 -2.29538 0.019561 0 -0 1.5708</pose>
+          <velocity>0 0 0 0 -0 0</velocity>
+          <acceleration>0 0 0 0 -0 0</acceleration>
+          <wrench>0 0 0 0 -0 0</wrench>
+        </link>
+      </model>
+      <model name="highwindow_8">
+        <pose frame="">6.74 -0.295 0.02 0 -0 1.5708</pose>
+        <scale>1 1 1</scale>
+        <link name="highwindow::body">
+          <pose frame="">6.74 -0.295 0.02 0 -0 1.5708</pose>
+          <velocity>0 0 0 0 -0 0</velocity>
+          <acceleration>0 0 0 0 -0 0</acceleration>
+          <wrench>0 0 0 0 -0 0</wrench>
+        </link>
+      </model>
+      <model name="highwindow_9">
+        <pose frame="">6.74 1.705 0.02 0 -0 1.5708</pose>
+        <scale>1 1 1</scale>
+        <link name="highwindow::body">
+          <pose frame="">6.74 1.705 0.02 0 -0 1.5708</pose>
+          <velocity>0 0 0 0 -0 0</velocity>
+          <acceleration>0 0 0 0 -0 0</acceleration>
+          <wrench>0 0 0 0 -0 0</wrench>
+        </link>
+      </model>
+      <model name="left_vr_screen">
+        <pose frame="">-1.63839 -1.827 0.1 -1.5708 0 1.5708</pose>
+        <scale>1 1 1</scale>
+        <link name="body">
+          <pose frame="">-1.63839 -1.827 0.1 -1.5708 0 1.5708</pose>
+          <velocity>0 0 0 0 -0 0</velocity>
+          <acceleration>0 0 0 0 -0 0</acceleration>
+          <wrench>0 0 0 0 -0 0</wrench>
+        </link>
+      </model>
+      <model name="officechair_0">
+        <pose frame="">4.16044 -4.45334 0.013045 0 0 -0.585731</pose>
+        <scale>1 1 1</scale>
+        <link name="officechair::body">
+          <pose frame="">4.16044 -4.45334 0.013045 0 0 -0.585731</pose>
+          <velocity>0 0 0 0 -0 0</velocity>
+          <acceleration>0 0 0 0 -0 0</acceleration>
+          <wrench>0 0 0 0 -0 0</wrench>
+        </link>
+      </model>
+      <model name="right_vr_screen">
+        <pose frame="">-1.69421 1.886 0.1 -1.5708 0 1.5708</pose>
+        <scale>1 1 1</scale>
+        <link name="body">
+          <pose frame="">-1.69421 1.886 0.1 -1.5708 0 1.5708</pose>
+          <velocity>0 0 0 0 -0 0</velocity>
+          <acceleration>0 0 0 0 -0 0</acceleration>
+          <wrench>0 0 0 0 -0 0</wrench>
+        </link>
+      </model>
+      <model name="sofa_0">
+        <pose frame="">-1.19702 -6.30912 -0.074259 0 -0 2.62634</pose>
+        <scale>1 1 1</scale>
+        <link name="sofa::body">
+          <pose frame="">-1.19702 -6.30912 -0.074259 0 -0 2.62634</pose>
+          <velocity>0 0 0 0 -0 0</velocity>
+          <acceleration>0 0 0 0 -0 0</acceleration>
+          <wrench>0 0 0 0 -0 0</wrench>
+        </link>
+      </model>
+      <model name="squarewindow_0">
+        <pose frame="">-5.4732 -0.287088 4.02572 0 0 -1.5708</pose>
+        <scale>1 1 1</scale>
+        <link name="squarewindow::body">
+          <pose frame="">-5.4732 -0.287088 4.02572 0 0 -1.5708</pose>
+          <velocity>0 0 0 0 -0 0</velocity>
+          <acceleration>0 0 0 0 -0 0</acceleration>
+          <wrench>0 0 0 0 -0 0</wrench>
+        </link>
+      </model>
+      <model name="squarewindow_1">
+        <pose frame="">-5.4732 1.71291 4.02572 0 0 -1.5708</pose>
+        <scale>1 1 1</scale>
+        <link name="squarewindow::body">
+          <pose frame="">-5.4732 1.71291 4.02572 0 0 -1.5708</pose>
+          <velocity>0 0 0 0 -0 0</velocity>
+          <acceleration>0 0 0 0 -0 0</acceleration>
+          <wrench>0 0 0 0 -0 0</wrench>
+        </link>
+      </model>
+      <model name="squarewindow_10">
+        <pose frame="">6.732 -2.29658 4.026 0 -0 1.5708</pose>
+        <scale>1 1 1</scale>
+        <link name="squarewindow::body">
+          <pose frame="">6.732 -2.29658 4.026 0 -0 1.5708</pose>
+          <velocity>0 0 0 0 -0 0</velocity>
+          <acceleration>0 0 0 0 -0 0</acceleration>
+          <wrench>0 0 0 0 -0 0</wrench>
+        </link>
+      </model>
+      <model name="squarewindow_11">
+        <pose frame="">6.732 -4.29891 4.026 0 -0 1.5708</pose>
+        <scale>1 1 1</scale>
+        <link name="squarewindow::body">
+          <pose frame="">6.732 -4.29891 4.026 0 -0 1.5708</pose>
+          <velocity>0 0 0 0 -0 0</velocity>
+          <acceleration>0 0 0 0 -0 0</acceleration>
+          <wrench>0 0 0 0 -0 0</wrench>
+        </link>
+      </model>
+      <model name="squarewindow_12">
+        <pose frame="">3.657 4.578 3.973 0 -0 3.14159</pose>
+        <scale>1 1 1</scale>
+        <link name="squarewindow::body">
+          <pose frame="">3.657 4.578 3.973 0 -0 3.14159</pose>
+          <velocity>0 0 0 0 -0 0</velocity>
+          <acceleration>0 0 0 0 -0 0</acceleration>
+          <wrench>0 0 0 0 -0 0</wrench>
+        </link>
+      </model>
+      <model name="squarewindow_2">
+        <pose frame="">-2.343 4.39 3.973 0 -0 3.14159</pose>
+        <scale>1 1 1</scale>
+        <link name="squarewindow::body">
+          <pose frame="">-2.343 4.39 3.973 0 -0 3.14159</pose>
+          <velocity>0 0 0 0 -0 0</velocity>
+          <acceleration>0 0 0 0 -0 0</acceleration>
+          <wrench>0 0 0 0 -0 0</wrench>
+        </link>
+      </model>
+      <model name="squarewindow_3">
+        <pose frame="">-2.343 -7.52824 3.9729 0 -0 0</pose>
+        <scale>1 1 1</scale>
+        <link name="squarewindow::body">
+          <pose frame="">-2.343 -7.52824 3.9729 0 -0 0</pose>
+          <velocity>0 0 0 0 -0 0</velocity>
+          <acceleration>0 0 0 0 -0 0</acceleration>
+          <wrench>0 0 0 0 -0 0</wrench>
+        </link>
+      </model>
+      <model name="squarewindow_4">
+        <pose frame="">-0.343 -7.52824 3.9729 0 -0 0</pose>
+        <scale>1 1 1</scale>
+        <link name="squarewindow::body">
+          <pose frame="">-0.343 -7.52824 3.9729 0 -0 0</pose>
+          <velocity>0 0 0 0 -0 0</velocity>
+          <acceleration>0 0 0 0 -0 0</acceleration>
+          <wrench>0 0 0 0 -0 0</wrench>
+        </link>
+      </model>
+      <model name="squarewindow_5">
+        <pose frame="">1.657 -7.52824 3.9729 0 -0 0</pose>
+        <scale>1 1 1</scale>
+        <link name="squarewindow::body">
+          <pose frame="">1.657 -7.52824 3.9729 0 -0 0</pose>
+          <velocity>0 0 0 0 -0 0</velocity>
+          <acceleration>0 0 0 0 -0 0</acceleration>
+          <wrench>0 0 0 0 -0 0</wrench>
+        </link>
+      </model>
+      <model name="squarewindow_6">
+        <pose frame="">-0.343 4.39 3.973 0 -0 3.14159</pose>
+        <scale>1 1 1</scale>
+        <link name="squarewindow::body">
+          <pose frame="">-0.343 4.39 3.973 0 -0 3.14159</pose>
+          <velocity>0 0 0 0 -0 0</velocity>
+          <acceleration>0 0 0 0 -0 0</acceleration>
+          <wrench>0 0 0 0 -0 0</wrench>
+        </link>
+      </model>
+      <model name="squarewindow_7">
+        <pose frame="">1.657 4.39 3.973 0 -0 3.14159</pose>
+        <scale>1 1 1</scale>
+        <link name="squarewindow::body">
+          <pose frame="">1.657 4.39 3.973 0 -0 3.14159</pose>
+          <velocity>0 0 0 0 -0 0</velocity>
+          <acceleration>0 0 0 0 -0 0</acceleration>
+          <wrench>0 0 0 0 -0 0</wrench>
+        </link>
+      </model>
+      <model name="squarewindow_8">
+        <pose frame="">6.732 -0.287 4.026 0 -0 1.5708</pose>
+        <scale>1 1 1</scale>
+        <link name="squarewindow::body">
+          <pose frame="">6.732 -0.287 4.026 0 -0 1.5708</pose>
+          <velocity>0 0 0 0 -0 0</velocity>
+          <acceleration>0 0 0 0 -0 0</acceleration>
+          <wrench>0 0 0 0 -0 0</wrench>
+        </link>
+      </model>
+      <model name="squarewindow_9">
+        <pose frame="">6.73181 1.697 4.02572 0 -0 1.5708</pose>
+        <scale>1 1 1</scale>
+        <link name="squarewindow::body">
+          <pose frame="">6.73181 1.697 4.02572 0 -0 1.5708</pose>
+          <velocity>0 0 0 0 -0 0</velocity>
+          <acceleration>0 0 0 0 -0 0</acceleration>
+          <wrench>0 0 0 0 -0 0</wrench>
+        </link>
+      </model>
+      <model name="top_lamp_0">
+        <pose frame="">0.528672 -3.579 5.07716 0 -0 0</pose>
+        <scale>1 1 1</scale>
+        <link name="top_lamp::body">
+          <pose frame="">0.528672 -3.579 5.07716 0 -0 0</pose>
+          <velocity>0 0 0 0 -0 0</velocity>
+          <acceleration>0 0 0 0 -0 0</acceleration>
+          <wrench>0 0 0 0 -0 0</wrench>
+        </link>
+      </model>
+      <model name="top_lamp_1">
+        <pose frame="">0.529 1.203 5.077 0 -0 0</pose>
+        <scale>1 1 1</scale>
+        <link name="top_lamp::body">
+          <pose frame="">0.529 1.203 5.077 0 -0 0</pose>
+          <velocity>0 0 0 0 -0 0</velocity>
+          <acceleration>0 0 0 0 -0 0</acceleration>
+          <wrench>0 0 0 0 -0 0</wrench>
+        </link>
+      </model>
+      <model name="viz_poster_0">
+        <pose frame="">-5.27605 -0.322974 1.92915 0 -0 0</pose>
+        <scale>1 1 1</scale>
+        <link name="vr_poster::body">
+          <pose frame="">-5.27605 -0.322974 1.92915 0 -0 0</pose>
+          <velocity>0 0 0 0 -0 0</velocity>
+          <acceleration>0 0 0 0 -0 0</acceleration>
+          <wrench>0 0 0 0 -0 0</wrench>
+        </link>
+      </model>
+      <model name="viz_poster_2_0">
+        <pose frame="">-5.27605 1.68818 1.91121 0 -0 0</pose>
+        <scale>1 1 1</scale>
+        <link name="vr_poster_2::body">
+          <pose frame="">-5.27605 1.68818 1.91121 0 -0 0</pose>
+          <velocity>0 0 0 0 -0 0</velocity>
+          <acceleration>0 0 0 0 -0 0</acceleration>
+          <wrench>0 0 0 0 -0 0</wrench>
+        </link>
+      </model>
+      <model name="vr_lamp_0">
+        <pose frame="">-4.49007 3.42436 0.02422 0 -0 1.5708</pose>
+        <scale>1 1 1</scale>
+        <link name="vr_lamp::body">
+          <pose frame="">-4.49007 3.42436 0.02422 0 -0 1.5708</pose>
+          <velocity>0 0 0 0 -0 0</velocity>
+          <acceleration>0 0 0 0 -0 0</acceleration>
+          <wrench>0 0 0 0 -0 0</wrench>
+        </link>
+      </model>
+      <model name="woodtable_0">
+        <pose frame="">3.90716 -6.09161 0.018804 0 -0 0</pose>
+        <scale>1 1 1</scale>
+        <link name="woodtable::body">
+          <pose frame="">3.90716 -6.09161 0.018804 0 -0 0</pose>
+          <velocity>0 0 0 0 -0 0</velocity>
+          <acceleration>0 0 0 0 -0 0</acceleration>
+          <wrench>0 0 0 0 -0 0</wrench>
+        </link>
+      </model>
+      <model name="woodwall_0">
+        <pose frame="">-5.47636 -6.31669 0 0 -0 1.5708</pose>
+        <scale>1 1 1</scale>
+        <link name="woodwall::body">
+          <pose frame="">-5.47636 -6.31669 0 0 -0 1.5708</pose>
+          <velocity>0 0 0 0 -0 0</velocity>
+          <acceleration>0 0 0 0 -0 0</acceleration>
+          <wrench>0 0 0 0 -0 0</wrench>
+        </link>
+      </model>
+      <model name="woodwall_1">
+        <pose frame="">-5.476 -6.317 2 0 -0 1.5708</pose>
+        <scale>1 1 1</scale>
+        <link name="woodwall::body">
+          <pose frame="">-5.476 -6.317 2 0 -0 1.5708</pose>
+          <velocity>0 0 0 0 -0 0</velocity>
+          <acceleration>0 0 0 0 -0 0</acceleration>
+          <wrench>0 0 0 0 -0 0</wrench>
+        </link>
+      </model>
+      <model name="woodwall_10">
+        <pose frame="">6.748 3.697 2 0 -0 1.5708</pose>
+        <scale>1 1 1</scale>
+        <link name="woodwall::body">
+          <pose frame="">6.748 3.697 2 0 -0 1.5708</pose>
+          <velocity>0 0 0 0 -0 0</velocity>
+          <acceleration>0 0 0 0 -0 0</acceleration>
+          <wrench>0 0 0 0 -0 0</wrench>
+        </link>
+      </model>
+      <model name="woodwall_11">
+        <pose frame="">6.748 3.697 3.977 0 -0 1.5708</pose>
+        <scale>1 1 1</scale>
+        <link name="woodwall::body">
+          <pose frame="">6.748 3.697 3.977 0 -0 1.5708</pose>
+          <velocity>0 0 0 0 -0 0</velocity>
+          <acceleration>0 0 0 0 -0 0</acceleration>
+          <wrench>0 0 0 0 -0 0</wrench>
+        </link>
+      </model>
+      <model name="woodwall_2">
+        <pose frame="">-5.476 -6.317 3.97681 0 -0 1.5708</pose>
+        <scale>1 1 1</scale>
+        <link name="woodwall::body">
+          <pose frame="">-5.476 -6.317 3.97681 0 -0 1.5708</pose>
+          <velocity>0 0 0 0 -0 0</velocity>
+          <acceleration>0 0 0 0 -0 0</acceleration>
+          <wrench>0 0 0 0 -0 0</wrench>
+        </link>
+      </model>
+      <model name="woodwall_3">
+        <pose frame="">-5.47636 3.69107 0 0 -0 1.5708</pose>
+        <scale>1 1 1</scale>
+        <link name="woodwall::body">
+          <pose frame="">-5.47636 3.69107 0 0 -0 1.5708</pose>
+          <velocity>0 0 0 0 -0 0</velocity>
+          <acceleration>0 0 0 0 -0 0</acceleration>
+          <wrench>0 0 0 0 -0 0</wrench>
+        </link>
+      </model>
+      <model name="woodwall_4">
+        <pose frame="">-5.476 3.6915 2 0 -0 1.5708</pose>
+        <scale>1 1 1</scale>
+        <link name="woodwall::body">
+          <pose frame="">-5.476 3.6915 2 0 -0 1.5708</pose>
+          <velocity>0 0 0 0 -0 0</velocity>
+          <acceleration>0 0 0 0 -0 0</acceleration>
+          <wrench>0 0 0 0 -0 0</wrench>
+        </link>
+      </model>
+      <model name="woodwall_5">
+        <pose frame="">-5.476 3.691 3.977 0 -0 1.5708</pose>
+        <scale>1 1 1</scale>
+        <link name="woodwall::body">
+          <pose frame="">-5.476 3.691 3.977 0 -0 1.5708</pose>
+          <velocity>0 0 0 0 -0 0</velocity>
+          <acceleration>0 0 0 0 -0 0</acceleration>
+          <wrench>0 0 0 0 -0 0</wrench>
+        </link>
+      </model>
+      <model name="woodwall_6">
+        <pose frame="">6.74826 -6.31669 0 0 -0 1.5708</pose>
+        <scale>1 1 1</scale>
+        <link name="woodwall::body">
+          <pose frame="">6.74826 -6.31669 0 0 -0 1.5708</pose>
+          <velocity>0 0 0 0 -0 0</velocity>
+          <acceleration>0 0 0 0 -0 0</acceleration>
+          <wrench>0 0 0 0 -0 0</wrench>
+        </link>
+      </model>
+      <model name="woodwall_7">
+        <pose frame="">6.748 -6.317 2 0 -0 1.5708</pose>
+        <scale>1 1 1</scale>
+        <link name="woodwall::body">
+          <pose frame="">6.748 -6.317 2 0 -0 1.5708</pose>
+          <velocity>0 0 0 0 -0 0</velocity>
+          <acceleration>0 0 0 0 -0 0</acceleration>
+          <wrench>0 0 0 0 -0 0</wrench>
+        </link>
+      </model>
+      <model name="woodwall_8">
+        <pose frame="">6.748 -6.317 3.977 0 -0 1.5708</pose>
+        <scale>1 1 1</scale>
+        <link name="woodwall::body">
+          <pose frame="">6.748 -6.317 3.977 0 -0 1.5708</pose>
+          <velocity>0 0 0 0 -0 0</velocity>
+          <acceleration>0 0 0 0 -0 0</acceleration>
+          <wrench>0 0 0 0 -0 0</wrench>
+        </link>
+      </model>
+      <model name="woodwall_9">
+        <pose frame="">6.74826 3.69705 0 0 -0 1.5708</pose>
+        <scale>1 1 1</scale>
+        <link name="woodwall::body">
+          <pose frame="">6.74826 3.69705 0 0 -0 1.5708</pose>
+          <velocity>0 0 0 0 -0 0</velocity>
+          <acceleration>0 0 0 0 -0 0</acceleration>
+          <wrench>0 0 0 0 -0 0</wrench>
+        </link>
+      </model>
+      <light name="sun">
+        <pose frame="">7.485 -12.379 17.2198 0 -0 0</pose>
+      </light>
+    </state>
+    <model name="concrete_wall_0">
+      <pose frame="">0.7102 -0.02627 0.014666 0 -0 0</pose>
+      <static>1</static>
+      <link name="concretewall::body">
+        <collision name="concretewall1">
+          <pose frame="">0 0 1 0 -0 0</pose>
           <geometry>
-            <mesh>
-              <uri>model://screensupport/meshes/screensupport-collision.dae</uri>
-              <scale>1 1 1</scale>
-            </mesh>
+            <box>
+              <size>2 0.4 2</size>
+            </box>
           </geometry>
           <max_contacts>10</max_contacts>
           <surface>
@@ -3073,11 +4127,11 @@
             </friction>
           </surface>
         </collision>
-        <visual name="screensupport">
+        <visual name="concretewall1">
           <cast_shadows>1</cast_shadows>
           <geometry>
             <mesh>
-              <uri>model://screensupport/meshes/screensupport.dae</uri>
+              <uri>model://concretewall1/meshes/concretewall1.dae</uri>
               <scale>1 1 1</scale>
             </mesh>
           </geometry>
@@ -3092,17 +4146,16 @@
         <pose frame="">0 0 0 0 -0 0</pose>
       </link>
     </model>
-    <model name="screensupport_1">
-      <pose frame="">0.036109 -2.75095 0.031598 0 -0 0</pose>
+    <model name="concrete_wall_1">
+      <pose frame="">-2.99422 2.686 0.014666 0 -0 0</pose>
       <static>1</static>
-      <link name="screensupport::body">
-        <collision name="screensupport-coll">
-          <pose frame="">0 0 0 0 -0 0</pose>
+      <link name="concretewall::body">
+        <collision name="concretewall1">
+          <pose frame="">0 0 1 0 -0 0</pose>
           <geometry>
-            <mesh>
-              <uri>model://screensupport/meshes/screensupport-collision.dae</uri>
-              <scale>1 1 1</scale>
-            </mesh>
+            <box>
+              <size>2 0.4 2</size>
+            </box>
           </geometry>
           <max_contacts>10</max_contacts>
           <surface>
@@ -3118,11 +4171,11 @@
             </friction>
           </surface>
         </collision>
-        <visual name="screensupport">
+        <visual name="concretewall1">
           <cast_shadows>1</cast_shadows>
           <geometry>
             <mesh>
-              <uri>model://screensupport/meshes/screensupport.dae</uri>
+              <uri>model://concretewall1/meshes/concretewall1.dae</uri>
               <scale>1 1 1</scale>
             </mesh>
           </geometry>
@@ -3137,5 +4190,225 @@
         <pose frame="">0 0 0 0 -0 0</pose>
       </link>
     </model>
-  </world>
+    <model name="concrete_wall_2">
+      <pose frame="">-1.8384 -1.70561 0.085101 0 -0 0</pose>
+      <static>1</static>
+      <link name="concretewall::body">
+        <collision name="concretewall1">
+          <pose frame="">0 0 1 0 -0 0</pose>
+          <geometry>
+            <box>
+              <size>2 0.4 2</size>
+            </box>
+          </geometry>
+          <max_contacts>10</max_contacts>
+          <surface>
+            <contact>
+              <ode/>
+            </contact>
+            <bounce/>
+            <friction>
+              <torsional>
+                <ode/>
+              </torsional>
+              <ode/>
+            </friction>
+          </surface>
+        </collision>
+        <visual name="concretewall1">
+          <cast_shadows>1</cast_shadows>
+          <geometry>
+            <mesh>
+              <uri>model://concretewall1/meshes/concretewall1.dae</uri>
+              <scale>1 1 1</scale>
+            </mesh>
+          </geometry>
+        </visual>
+        <velocity_decay>
+          <linear>0</linear>
+          <angular>0</angular>
+        </velocity_decay>
+        <self_collide>0</self_collide>
+        <kinematic>0</kinematic>
+        <gravity>1</gravity>
+        <pose frame="">0 0 0 0 -0 0</pose>
+      </link>
+    </model>
+    <model name="concrete_wall_3">
+      <pose frame="">-2.865 -3.092 0.014666 0 -0 0</pose>
+      <static>1</static>
+      <link name="concretewall::body">
+        <collision name="concretewall1">
+          <pose frame="">0 0 1 0 -0 0</pose>
+          <geometry>
+            <box>
+              <size>2 0.4 2</size>
+            </box>
+          </geometry>
+          <max_contacts>10</max_contacts>
+          <surface>
+            <contact>
+              <ode/>
+            </contact>
+            <bounce/>
+            <friction>
+              <torsional>
+                <ode/>
+              </torsional>
+              <ode/>
+            </friction>
+          </surface>
+        </collision>
+        <visual name="concretewall1">
+          <cast_shadows>1</cast_shadows>
+          <geometry>
+            <mesh>
+              <uri>model://concretewall1/meshes/concretewall1.dae</uri>
+              <scale>1 1 1</scale>
+            </mesh>
+          </geometry>
+        </visual>
+        <velocity_decay>
+          <linear>0</linear>
+          <angular>0</angular>
+        </velocity_decay>
+        <self_collide>0</self_collide>
+        <kinematic>0</kinematic>
+        <gravity>1</gravity>
+        <pose frame="">0 0 0 0 -0 0</pose>
+      </link>
+    </model>
+    <model name="concrete_wall_4">
+      <pose frame="">-2.97153 3.978 0.014895 0 -0 0</pose>
+      <static>1</static>
+      <link name="concretewall::body">
+        <collision name="concretewall1">
+          <pose frame="">0 0 1 0 -0 0</pose>
+          <geometry>
+            <box>
+              <size>2 0.4 2</size>
+            </box>
+          </geometry>
+          <max_contacts>10</max_contacts>
+          <surface>
+            <contact>
+              <ode/>
+            </contact>
+            <bounce/>
+            <friction>
+              <torsional>
+                <ode/>
+              </torsional>
+              <ode/>
+            </friction>
+          </surface>
+        </collision>
+        <visual name="concretewall1">
+          <cast_shadows>1</cast_shadows>
+          <geometry>
+            <mesh>
+              <uri>model://concretewall1/meshes/concretewall1.dae</uri>
+              <scale>1 1 1</scale>
+            </mesh>
+          </geometry>
+        </visual>
+        <velocity_decay>
+          <linear>0</linear>
+          <angular>0</angular>
+        </velocity_decay>
+        <self_collide>0</self_collide>
+        <kinematic>0</kinematic>
+        <gravity>1</gravity>
+        <pose frame="">0 0 0 0 -0 0</pose>
+      </link>
+    </model>
+    <model name="concrete_wall_5">
+      <pose frame="">-0.865 -3.092 0.014666 0 -0 0</pose>
+      <static>1</static>
+      <link name="concretewall::body">
+        <collision name="concretewall1">
+          <pose frame="">0 0 1 0 -0 0</pose>
+          <geometry>
+            <box>
+              <size>2 0.4 2</size>
+            </box>
+          </geometry>
+          <max_contacts>10</max_contacts>
+          <surface>
+            <contact>
+              <ode/>
+            </contact>
+            <bounce/>
+            <friction>
+              <torsional>
+                <ode/>
+              </torsional>
+              <ode/>
+            </friction>
+          </surface>
+        </collision>
+        <visual name="concretewall1">
+          <cast_shadows>1</cast_shadows>
+          <geometry>
+            <mesh>
+              <uri>model://concretewall1/meshes/concretewall1.dae</uri>
+              <scale>1 1 1</scale>
+            </mesh>
+          </geometry>
+        </visual>
+        <velocity_decay>
+          <linear>0</linear>
+          <angular>0</angular>
+        </velocity_decay>
+        <self_collide>0</self_collide>
+        <kinematic>0</kinematic>
+        <gravity>1</gravity>
+        <pose frame="">0 0 0 0 -0 0</pose>
+      </link>
+    </model>
+    <model name="concrete_wall_6">
+      <pose frame="">-0.859009 3.16584 0.014666 0 -0 0</pose>
+      <static>1</static>
+      <link name="concretewall::body">
+        <collision name="concretewall1">
+          <pose frame="">0 0 1 0 -0 0</pose>
+          <geometry>
+            <box>
+              <size>2 0.4 2</size>
+            </box>
+          </geometry>
+          <max_contacts>10</max_contacts>
+          <surface>
+            <contact>
+              <ode/>
+            </contact>
+            <bounce/>
+            <friction>
+              <torsional>
+                <ode/>
+              </torsional>
+              <ode/>
+            </friction>
+          </surface>
+        </collision>
+        <visual name="concretewall1">
+          <cast_shadows>1</cast_shadows>
+          <geometry>
+            <mesh>
+              <uri>model://concretewall1/meshes/concretewall1.dae</uri>
+              <scale>1 1 1</scale>
+            </mesh>
+          </geometry>
+        </visual>
+        <velocity_decay>
+          <linear>0</linear>
+          <angular>0</angular>
+        </velocity_decay>
+        <self_collide>0</self_collide>
+        <kinematic>0</kinematic>
+        <gravity>1</gravity>
+        <pose frame="">0 0 0 0 -0 0</pose>
+      </link>
+    </model>
+    </world>
 </sdf>

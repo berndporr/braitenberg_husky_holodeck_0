@@ -23,4 +23,7 @@
     <cameraLookAt x="0" y="0" z="0.49999" />
   </cameraPose>
   <cloneDate>2019-08-30T09:03:43</cloneDate>
+  <experimentControl>
+    <stateMachine id="statemachine_0_1570146448901_frontend_generated" src="statemachine_0_1570146448901_frontend_generated.exd" xsi:type="SMACHStateMachine" />
+  </experimentControl>
 </ExD>

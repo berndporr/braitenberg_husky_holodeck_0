@@ -1,5 +1,7 @@
 import Filter
 import random
+from enum import Enum
+import math 
 
 # which state for exploration
 class ExploreStates(Enum):
@@ -26,10 +28,10 @@ def weightChange(self, w, delta):
 class Limbic_system:
     
 
-    def ofc5HTreceptors(x, htR1, htR2):
+    def ofc5HTreceptors(self, x, htR1, htR2):
         htR1 = htR1 + self.OFC_5HTR1_OFFSET
         htR2 = htR2 + self.OFC_5HTR2_OFFSET
-        r = (1-exp(-math.pow(x/htR1,htR1)))*htR2
+        r = (1-math.exp(-math.pow(x/htR1,htR1)))*htR2
         if (r < 0.00001):
             return 0;
         return r;
@@ -49,7 +51,7 @@ class Limbic_system:
         ##############################################################
         # NAcc core
         ##############################################################
-	
+    
         # I see the light green object and I approach the light
         # green one
         self.core_weight_lg2lg = 0.2
@@ -105,8 +107,8 @@ class Limbic_system:
         # and activate it.
         self.VTA_baseline_activity = 0.10
 
-        # actual baseline for LTD/LTP
-        self.VTA_zero_val = VTA_baseline_activity/1.99
+        # # actual baseline for LTD/LTP
+        self.VTA_zero_val = self.VTA_baseline_activity / 1.99
 
 
         ###################################################################
@@ -127,10 +129,10 @@ class Limbic_system:
 
         self.visual_direction_Green_trace = 0
         self.visual_direction_Blue_trace = 0
-	
+    
         self.mPFC_Green = 0
         self.mPFC_Blue = 0
-	
+    
         self.mPFC_receptor_5HT1 = 0
         self.mPFC_receptor_5HT2 = 0
 
@@ -155,19 +157,21 @@ class Limbic_system:
         self.dlVP = 0
 
         #################################################################
-    	# EP
+        # EP
         self.EP=0
 
         ####################################################################
-	    # Lateral habenula (LHb)
+        # Lateral habenula (LHb)
         self.LHb = 0
+        self.LHB_BIAS = 0
 
         ######################################################################
         # Dorsal Raphe Nucleus (DRN)
         self.DRN = 0
-
+        self.DRN_OFFSET = 0
+        self.DRN_SUPPRESSION = 0
         ######################################################################
-	    # Oribtofrontal Cortex (OFC)
+        # Oribtofrontal Cortex (OFC)
         self.OFC = 0
         self.OFCprev = 0
         self.OFCpersist = 0
@@ -175,7 +179,7 @@ class Limbic_system:
         # learning rate for the OFC, just now from HC to OFC
         self.learning_rate_OFC = 0.01
 
-	    # weights from the hippocampus place fields to the OFC
+        # weights from the hippocampus place fields to the OFC
         self.pfLg2OFC = 0
         self.pfDg2OFC = 0
 
@@ -186,7 +190,7 @@ class Limbic_system:
         self.on_contact_direction_Blue_filter = Filter.SecondOrderFilter()
         self.on_contact_direction_Blue_filter.init_lowpass(0.1)
 
-	    # copies of the input signals
+        # copies of the input signals
         self.reward = 0
         self.placefieldGreen = 0
         self.placefieldBlue = 0
@@ -200,6 +204,19 @@ class Limbic_system:
         # start logging
         self.flog = open("log.dat","w")
 
+
+#  It gets as inputs:
+#  - the reward
+#  - two place field signals (placefield*) which go from 0 to 1 when in the place field (where the reward shows up)
+#  - two signals when the agent touches the landmark: (on_contact_direction_*)
+#  - visual inputs when the agent sees a landmark which goes from 0 to 1 the closer the agent gets (_visual_direction_*)
+#  - visual inputs when the agent sees the reward (_visual_reward_*)
+# 
+#  It needs to set the outputs:
+#  - CoreGreenOut and CoreBlueOut which when set to non-zero generates a navigation behaviour towards
+#    the landmarks
+#  - mPFC2CoreExploreLeft and - mPFC2CoreExploreRight to generate exploration behaviour
+#    that is inhibited with other activities.
         
     def doStep(self, _reward,
             _placefieldGreen, _placefieldBlue,
@@ -217,8 +234,8 @@ class Limbic_system:
         self.visual_reward_Blue = _visual_reward_Blue
 
         # smooth out the visual stuff
-        self.visual_direction_Green_trace = visual_direction_Green_mPFC_filter.filter(self.visual_direction_Green)
-        self.visual_direction_Blue_trace = visual_direction_Blue_mPFC_filter.filter(self.visual_direction_Blue)
+        self.visual_direction_Green_trace = self.visual_direction_Green_mPFC_filter.filter(self.visual_direction_Green)
+        self.visual_direction_Blue_trace = self.visual_direction_Blue_mPFC_filter.filter(self.visual_direction_Blue)
 
         if self.mPFCspontGreen > 0:
             self.mPFCspontGreen = self.mPFCspontGreen - 1
@@ -241,36 +258,46 @@ class Limbic_system:
         if self.exploreState == ExploreStates.EXPLORE_LEFT:
             mPFC2CoreExploreLeft = 0.1
             mPFC2CoreExploreRight = 0
-    		if random.random() < 0.03:
-	    		exploreState = random.choice(list(ExploreStates))
+            if random.random() < 0.03:
+                exploreState = random.choice(list(ExploreStates))
         elif self.exploreState == ExploreStates.EXPLORE_RIGHT:
             mPFC2CoreExploreLeft = 0
             mPFC2CoreExploreRight = 0.1
-    		if random.random() < 0.03:
-	    		exploreState = random.choice(list(ExploreStates))
+            if random.random() < 0.03:
+                exploreState = random.choice(list(ExploreStates))
         elif self.exploreState == ExploreStates.EXPLORE_STOP:
             mPFC2CoreExploreLeft = 0
             mPFC2CoreExploreRight = 0
             if random.random() < 0.03:
-    			exploreState = random.choice(list(ExploreStates))
+                exploreState = random.choice(list(ExploreStates))
         else:
             mPFC2CoreExploreLeft = 0.1
             mPFC2CoreExploreRight = 0.1
             if random.random() <0.05:
                 exploreState = random.choice(list(ExploreStates))
 
-        if HT5DEBUG:
-            mPFC_Green = visual_direction_Green_trace + visual_reward_Green + mPFC_Green_spont_act
-            mPFC_Blue = visual_direction_Blue_trace + visual_reward_Blue + mPFC_Blue_spont_act
-        else:
-            mPFC_Green = ofc5HTreceptors(visual_direction_Green_trace + visual_reward_Green*2 + mPFC_Green_spont_act,1+DRN,2+DRN)
-            mPFC_Blue = ofc5HTreceptors(visual_direction_Blue_trace + visual_reward_Blue*2 + mPFC_Blue_spont_act,1+DRN,2+DRN)
 
-        # the activity in the LH is literally that of the reward
-        LH = reward;
+        try: HT5DEBUG
+        except NameError:
+            mPFC_Green = self.ofc5HTreceptors(self.visual_direction_Green_trace + self.visual_reward_Green*2 + self.mPFC_Green_spont_act, 1+self.DRN, 2+self.DRN)
+            mPFC_Blue = self.ofc5HTreceptors(self.visual_direction_Blue_trace + self.visual_reward_Blue*2 + self.mPFC_Blue_spont_act, 1+self.DRN, 2+self.DRN)
+        else:
+            mPFC_Green = ofc5HTreceptors(self.visual_direction_Green_trace + visual_reward_Green*2 + self.mPFC_Green_spont_act,1+DRN,2+DRN)
+            mPFC_Blue = ofc5HTreceptors(self.visual_direction_Blue_trace + self.visual_reward_Blue*2 + self.mPFC_Blue_spont_act,1+DRN,2+DRN)
+
+        # if HT5DEBUG:
+        #     mPFC_Green = self.visual_direction_Green_trace + self.visual_reward_Green + self.mPFC_Green_spont_act
+        #     mPFC_Blue = self.visual_direction_Blue_trace + self.visual_reward_Blue + self.mPFC_Blue_spont_act
+        # else:
+        #     mPFC_Green = ofc5HTreceptors(self.visual_direction_Green_trace + visual_reward_Green*2 + self.mPFC_Green_spont_act,1+DRN,2+DRN)
+        #     mPFC_Blue = ofc5HTreceptors(self.visual_direction_Blue_trace + self.visual_reward_Blue*2 + self.mPFC_Blue_spont_act,1+DRN,2+DRN)
+        
+
+        # the self.activity in the LH is literally that of the reward
+        LH = self.reward
 
         # the VTA gets its activity from the LH and is ihibited by the RMTg
-	    VTA = (LH + VTA_baseline_activity) / (1 + RMTg * shunting_inhibition_factor)
+        self.VTA = (self.LH + self.VTA_baseline_activity) / (1 + self.RMTg * self.shunting_inhibition_factor)
 
         ########################
         # OFC
@@ -279,20 +306,21 @@ class Limbic_system:
         # So the higher the weight the higher the OFC activity
         # when the animal is inside that place field where there has been
         # reward experienced in the past.
-        OFC = pfLg2OFC * placefieldGreen + pfDg2OFC * placefieldBlue
-        if (((placefieldGreen-OFCprev) > 0.01) and (OFCpersist==0)):
-            OFCpersist = 200
 
-        OFCprev = placefieldGreen
+        OFC = self.pfLg2OFC * self.placefieldGreen + self.pfDg2OFC * self.placefieldBlue
+        if (((self.placefieldGreen-self.OFCprev) > 0.01) and (self.OFCpersist==0)):
+            self.OFCpersist = 200
+
+        OFCprev = self.placefieldGreen
         
         if LH > 0.5:
-		    OFCpersist = 0
+            self.OFCpersist = 0
 
-	    if OFCpersist>0:
-            OFCpersist = OFCpersist -1
+        if self.OFCpersist>0:
+            self.OFCpersist = self.OFCpersist -1
 
-	    pfLg2OFC = weightChange(pfLg2OFC, learning_rate_OFC * DRN * placefieldGreen);
-	    pfDg2OFC = weightChange(pfDg2OFC, learning_rate_OFC * DRN * placefieldBlue);
+        self.pfLg2OFC = weightChange(self, self.pfLg2OFC, self.learning_rate_OFC * self.DRN * self.placefieldGreen);
+        self.pfDg2OFC = weightChange(self, self.pfDg2OFC, self.learning_rate_OFC * self.DRN * self.placefieldBlue);
 
 
         # massive weight decay if there is no reward after a long period!
@@ -301,62 +329,69 @@ class Limbic_system:
         #		pfLg2OFC = pfLg2OFC * 0.999;
 
         # the dorsal raphe activity is driven by the OFC in a positive way
-        DRN = (LH + OFC * 4) / (1+RMTg * shunting_inhibition_factor + DRN_SUPPRESSION) + DRN_OFFSET
+        DRN = (LH + OFC * 4) / (1+self.RMTg * self.shunting_inhibition_factor + self.DRN_SUPPRESSION) + self.DRN_OFFSET
 
         # lateral shell activity
         # the place field feeds into the Nacc shell for the time being.
-        lShell = placefieldGreen * lShell_weight_pflg + placefieldBlue * lShell_weight_pfdg
+        lShell = self.placefieldGreen * self.lShell_weight_pflg + self.placefieldBlue * self.lShell_weight_pfdg
 
         # Let's do heterosynaptic plasticity in the shell
-        shell_DA = VTA
+        self.shell_DA = self.VTA
         
         # shell plasticity can experience a "dip" where then the weights
         # decrease. That's when it's below its baseline.
 
-        shell_plasticity = shell_DA - VTA_zero_val
+        shell_plasticity = self.shell_DA - self.VTA_zero_val
 
-        lShell_weight_pflg = weightChange(lShell_weight_pflg, learning_rate_lshell * shell_plasticity * placefieldGreen)
-        lShell_weight_pfdg = weightChange(lShell_weight_pfdg, learning_rate_lshell * shell_plasticity * placefieldBlue)
+        self.lShell_weight_pflg = weightChange(self, self.lShell_weight_pflg, self.learning_rate_lshell * self.shell_plasticity * self.placefieldGreen)
+        self.lShell_weight_pfdg = weightChange(self, self.lShell_weight_pfdg, self.learning_rate_lshell * self.shell_plasticity * self.placefieldBlue)
 
-	    # the shell inhibits the dlVP
-	    # dlVP = 1/(1+lShell * shunting_inhibition_factor)
+        # the shell inhibits the dlVP
+        # dlVP = 1/(1+lShell * shunting_inhibition_factor)
 
         # another inhibition: the dlVP inhibits the EP
-        EP = 1/(1+dlVP * shunting_inhibition_factor);
+        EP = 1/(1+self.dlVP * self.shunting_inhibition_factor);
 
         # the EP excites the LHb
-        LHb = EP + LHB_BIAS;
+        LHb = EP + self.LHB_BIAS;
 
         # and the LHb excites the RMTg
         RMTg = LHb;
 
-	    # core
-	    # we have two core units
-	    # if the Green is high then the rat approaches the Green marker
-        CoreGreenOut= (mPFC_Green * core_weight_lg2lg)
-	
+        # core
+        # we have two core units
+        # if the Green is high then the rat approaches the Green marker
+        CoreGreenOut= (mPFC_Green * self.core_weight_lg2lg)
+    
         # if the Blue is high then the rat approaches the Blue marker
-        CoreBlueOut= (mPFC_Blue * core_weight_dg2dg)
+        CoreBlueOut= (mPFC_Blue * self.core_weight_dg2dg)
 
-        float core_threshold = 0.25
+        core_threshold = 0.25
         
         if (CoreGreenOut < core_threshold):
              CoreGreenOut = 0
-	    if (CoreBlueOut < core_threshold):
+        if (CoreBlueOut < core_threshold):
             CoreBlueOut = 0;
 
-	    # plasticity
-        core_DA = VTA;
-        core_plasticity = core_DA - VTA_zero_val;
+        # plasticity
+        core_DA = self.VTA;
+        core_plasticity = core_DA - self.VTA_zero_val;
 
-        core_weight_lg2lg = weightChange(core_weight_lg2lg, learning_rate_core * core_plasticity * mPFC_Green)
-        core_weight_dg2dg = weightChange(core_weight_dg2dg, learning_rate_core * core_plasticity * mPFC_Blue)
+        self.core_weight_lg2lg = weightChange(self, self.core_weight_lg2lg, self.learning_rate_core * self.core_plasticity * self.mPFC_Green)
+        core_weight_dg2dg = weightChange(self, self.core_weight_dg2dg, self.learning_rate_core * self.core_plasticity * self.mPFC_Blue)
 
-	    # we assume that the Core performs lateral inhibtion to shut down exploration
-	    if ((CoreGreenOut > 0.05) and (CoreBlueOut > 0.05)):
+        # we assume that the Core performs lateral inhibtion to shut down exploration
+        if ((CoreGreenOut > 0.05) and (CoreBlueOut > 0.05)):
             mPFC2CoreExploreLeft = 0
             mPFC2CoreExploreRight = 0
 
-	# logging();
+        # logging();
 
-	self.step = self.step + 1
+        self.step = self.step + 1
+
+        return CoreBlueOut, CoreGreenOut, mPFC2CoreExploreLeft, mPFC2CoreExploreRight
+
+
+
+
+

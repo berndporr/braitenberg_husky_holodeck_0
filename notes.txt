@@ -3,3 +3,4 @@
 - the install script is also the script to basically do everything
 - nrpStorage (is that the place to keep experiments)
 - container path not clear with the "\"
+- documentation https://developer.humanbrainproject.eu/docs/projects/hbp-nrp-cle/1.1.8/
