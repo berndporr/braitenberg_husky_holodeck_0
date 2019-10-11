@@ -281,11 +281,19 @@ class Limbic_system:
 
         try: HT5DEBUG
         except NameError:
-            self.mPFC_Green = self.ofc5HTreceptors(self.visual_direction_Green_trace + self.visual_reward_Green*2 + self.mPFC_Green_spont_act, 1+self.DRN, 2+self.DRN)
-            self.mPFC_Blue = self.ofc5HTreceptors(self.visual_direction_Blue_trace + self.visual_reward_Blue*2 + self.mPFC_Blue_spont_act, 1+self.DRN, 2+self.DRN)
+            self.mPFC_Green = self.ofc5HTreceptors(self.visual_direction_Green_trace +
+                                                   self.visual_reward_Green*2 +
+                                                   self.mPFC_Green_spont_act, 1+self.DRN, 2+self.DRN)
+            self.mPFC_Blue = self.ofc5HTreceptors(self.visual_direction_Blue_trace +
+                                                  self.visual_reward_Blue*2 +
+                                                  self.mPFC_Blue_spont_act, 1+self.DRN, 2+self.DRN)
         else:
-            self.mPFC_Green = ofc5HTreceptors(self.visual_direction_Green_trace + visual_reward_Green*2 + self.mPFC_Green_spont_act,1+DRN,2+DRN)
-            self.mPFC_Blue = ofc5HTreceptors(self.visual_direction_Blue_trace + self.visual_reward_Blue*2 + self.mPFC_Blue_spont_act,1+DRN,2+DRN)
+            self.mPFC_Green = ofc5HTreceptors(self.visual_direction_Green_trace +
+                                              visual_reward_Green*2 +
+                                              self.mPFC_Green_spont_act,1+DRN,2+DRN)
+            self.mPFC_Blue = ofc5HTreceptors(self.visual_direction_Blue_trace +
+                                             self.visual_reward_Blue*2 +
+                                             self.mPFC_Blue_spont_act,1+DRN,2+DRN)
 
         # the self.activity in the LH is literally that of the reward
         self.LH = self.reward
@@ -337,11 +345,15 @@ class Limbic_system:
 
         self.shell_plasticity = self.shell_DA - self.VTA_zero_val
 
-        self.lShell_weight_pflg = weightChange(self, self.lShell_weight_pflg, self.learning_rate_lshell * self.shell_plasticity * self.placefieldGreen)
-        self.lShell_weight_pfdg = weightChange(self, self.lShell_weight_pfdg, self.learning_rate_lshell * self.shell_plasticity * self.placefieldBlue)
+        self.lShell_weight_pflg = weightChange(self,
+                                               self.lShell_weight_pflg,
+                                               self.learning_rate_lshell * self.shell_plasticity * self.placefieldGreen)
+        self.lShell_weight_pfdg = weightChange(self,
+                                               self.lShell_weight_pfdg,
+                                               self.learning_rate_lshell * self.shell_plasticity * self.placefieldBlue)
 
         # the shell inhibits the dlVP
-        # dlVP = 1/(1+lShell * shunting_inhibition_factor)
+        self.dlVP = 1/(1+self.lShell * self.shunting_inhibition_factor)
 
         # another inhibition: the dlVP inhibits the EP
         self.EP = 1/(1+self.dlVP * self.shunting_inhibition_factor)
@@ -371,8 +383,12 @@ class Limbic_system:
         self.core_DA = self.VTA
         self.core_plasticity = self.core_DA - self.VTA_zero_val
 
-        self.core_weight_lg2lg = weightChange(self, self.core_weight_lg2lg, self.learning_rate_core * self.core_plasticity * self.mPFC_Green)
-        self.core_weight_dg2dg = weightChange(self, self.core_weight_dg2dg, self.learning_rate_core * self.core_plasticity * self.mPFC_Blue)
+        self.core_weight_lg2lg = weightChange(self,
+                                              self.core_weight_lg2lg,
+                                              self.learning_rate_core * self.core_plasticity * self.mPFC_Green)
+        self.core_weight_dg2dg = weightChange(self,
+                                              self.core_weight_dg2dg,
+                                              self.learning_rate_core * self.core_plasticity * self.mPFC_Blue)
 
         # we assume that the Core performs lateral inhibtion to shut down exploration
         if ((self.CoreGreenOut > 0.05) and (self.CoreBlueOut > 0.05)):
@@ -446,7 +462,7 @@ def unit_test():
         mPFC_Green.append(l.mPFC_Green)
         DRN.append(l.DRN)
         core_w_green.append(l.core_weight_lg2lg)
-        VTA.append(l.LH)
+        VTA.append(l.VTA)
         core_out_green.append(l.CoreGreenOut)
 
     pl.subplot(711)
