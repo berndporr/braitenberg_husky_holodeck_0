@@ -1,29 +1,26 @@
-<ExD 
-  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
-  xmlns="http://schemas.humanbrainproject.eu/SP10/2014/ExDConfig" xsi:schemaLocation="http://schemas.humanbrainproject.eu/SP10/2014/ExDConfig ../ExDConfFile.xsd">
-  <name>brainless Braitenberg</name>
-  <thumbnail>ExDXMLExample.jpg</thumbnail>
-  <description>This experiment loads the Husky robot from Clearpath Robotics in the Holodeck environment.
+<ns1:ExD 
+  xmlns:ns1="http://schemas.humanbrainproject.eu/SP10/2014/ExDConfig" 
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <ns1:name>brainless Braitenberg</ns1:name>
+  <ns1:thumbnail>ExDXMLExample.jpg</ns1:thumbnail>
+  <ns1:description>This experiment loads the Husky robot from Clearpath Robotics in the Holodeck environment.
         If the user starts the experiment, the Braitenberg vehicle network is executed
         and the robot will turn around itself in place, until the camera detects a red color. Then,
         the robot will move towards the colored object. In this experiment, the user can interact
-        and change the color of both screens by clicking on them with the right mouse button.</description>
-  <tags>husky robotics holodeck braitenberg</tags>
-  <timeout>840</timeout>
-  <configuration type="3d-settings" src="ExDXMLExample.ini" />
-  <configuration type="brainvisualizer" src="brainvisualizer.json" />
-  <configuration type="user-interaction-settings" src="ExDXMLExample.uis" />
-  <maturity>production</maturity>
-  <environmentModel src="virtual_room.sdf">
-    <robotPose robotId="husky" x="0.0" y="0.0" z="0.5" roll="0.0" pitch="-0.0" yaw="3.14159265359" />
-  </environmentModel>
-  <bibiConf src="bibi_configuration.bibi" />
-  <cameraPose>
-    <cameraPosition x="5.056825994369357" y="-1.0210998541555323" z="2.697598759953974" />
-    <cameraLookAt x="0" y="0" z="0.49999" />
-  </cameraPose>
-  <cloneDate>2019-08-30T09:03:43</cloneDate>
-  <experimentControl>
-    <stateMachine id="statemachine_0_1570146448901_frontend_generated" src="statemachine_0_1570146448901_frontend_generated.exd" xsi:type="SMACHStateMachine" />
-  </experimentControl>
-</ExD>
+        and change the color of both screens by clicking on them with the right mouse button.</ns1:description>
+  <ns1:tags>husky robotics holodeck braitenberg</ns1:tags>
+  <ns1:timeout>840.0</ns1:timeout>
+  <ns1:configuration src="ExDXMLExample.ini" type="3d-settings" />
+  <ns1:configuration src="brainvisualizer.json" type="brainvisualizer" />
+  <ns1:configuration src="ExDXMLExample.uis" type="user-interaction-settings" />
+  <ns1:maturity>production</ns1:maturity>
+  <ns1:environmentModel src="virtual_room.sdf">
+    <ns1:robotPose robotId="husky" x="0.0" y="0.0" z="0.5" roll="0.0" pitch="-0.0" yaw="3.14159265359" />
+  </ns1:environmentModel>
+  <ns1:bibiConf src="bibi_configuration.bibi" />
+  <ns1:cameraPose>
+    <ns1:cameraPosition x="5.05682599437" y="-1.02109985416" z="2.69759875995" />
+    <ns1:cameraLookAt x="0.0" y="0.0" z="0.49999" />
+  </ns1:cameraPose>
+  <ns1:cloneDate>2019-08-30T09:03:43</ns1:cloneDate>
+</ns1:ExD>

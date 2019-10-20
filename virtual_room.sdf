@@ -1,18 +1,5 @@
 <sdf version="1.6">
   <world name="default">
-    <light name="sun" type="directional">
-      <pose frame="">7.485 -12.379 17.2198 0 -0 0</pose>
-      <diffuse>0.7 0.7 0.7 1</diffuse>
-      <specular>0.2 0.2 0.2 1</specular>
-      <direction>-0.1698 0.1 -0.3</direction>
-      <attenuation>
-        <range>1000</range>
-        <constant>0.9</constant>
-        <linear>0.01</linear>
-        <quadratic>0.001</quadratic>
-      </attenuation>
-      <cast_shadows>1</cast_shadows>
-    </light>
     <model name="concretewall1_0">
       <static>1</static>
       <link name="concretewall::body">
@@ -364,61 +351,6 @@
         <pose frame="">0 0 0 0 -0 0</pose>
       </link>
       <pose frame="">6.748 3.697 3.977 0 -0 1.5708</pose>
-    </model>
-    <model name="right_vr_screen">
-      <static>1</static>
-      <link name="body">
-        <collision name="frame">
-          <pose frame="">0 0.13 0.7 0 -0 0</pose>
-          <geometry>
-            <box>
-              <size>2 0.18 1.4</size>
-            </box>
-          </geometry>
-          <max_contacts>10</max_contacts>
-          <surface>
-            <contact>
-              <ode/>
-            </contact>
-            <bounce/>
-            <friction>
-              <torsional>
-                <ode/>
-              </torsional>
-              <ode/>
-            </friction>
-          </surface>
-          <laser_retro>0</laser_retro>
-        </collision>
-        <visual name="screen">
-          <cast_shadows>1</cast_shadows>
-          <geometry>
-            <mesh>
-              <uri>model://vr_screen/meshes/screen.dae</uri>
-              <scale>1 1 1</scale>
-            </mesh>
-          </geometry>
-        </visual>
-        <visual name="screen_glass">
-          <cast_shadows>0</cast_shadows>
-          <pose frame="">0 0.02 0.75 0 -0 0</pose>
-          <geometry>
-            <box>
-              <size>1.96 0.015 1.1</size>
-            </box>
-          </geometry>
-          <material>
-            <script>
-              <uri>file://media/materials/scripts/gazebo.material</uri>
-              <name>Gazebo/BlueGlow</name>
-            </script>
-          </material>
-        </visual>
-        <self_collide>0</self_collide>
-        <kinematic>0</kinematic>
-        <gravity>0</gravity>
-      </link>
-      <pose frame="">0 2.44 0.65 0 -0 0</pose>
     </model>
     <model name="bench_0">
       <static>1</static>
@@ -863,50 +795,6 @@
         <pose frame="">0 0 0 0 -0 0</pose>
       </link>
       <pose frame="">6.732 -0.287 4.026 0 -0 1.5708</pose>
-    </model>
-    <model name="woodwall_5">
-      <static>1</static>
-      <link name="woodwall::body">
-        <collision name="woodwall-coll">
-          <pose frame="">0 0 1 0 -0 0</pose>
-          <geometry>
-            <box>
-              <size>2 0.4 2</size>
-            </box>
-          </geometry>
-          <max_contacts>10</max_contacts>
-          <surface>
-            <contact>
-              <ode/>
-            </contact>
-            <bounce/>
-            <friction>
-              <torsional>
-                <ode/>
-              </torsional>
-              <ode/>
-            </friction>
-          </surface>
-        </collision>
-        <visual name="woodwall">
-          <cast_shadows>1</cast_shadows>
-          <geometry>
-            <mesh>
-              <uri>model://woodwall/meshes/woodwall.dae</uri>
-              <scale>1 1 1</scale>
-            </mesh>
-          </geometry>
-        </visual>
-        <velocity_decay>
-          <linear>0</linear>
-          <angular>0</angular>
-        </velocity_decay>
-        <self_collide>0</self_collide>
-        <kinematic>0</kinematic>
-        <gravity>1</gravity>
-        <pose frame="">0 0 0 0 -0 0</pose>
-      </link>
-      <pose frame="">-5.476 3.691 3.977 0 -0 1.5708</pose>
     </model>
     <model name="squarewindow_6">
       <static>1</static>
@@ -1557,50 +1445,6 @@
       </link>
       <pose frame="">0.528672 -3.579 5.07716 0 -0 0</pose>
     </model>
-    <model name="woodwall_3">
-      <static>1</static>
-      <link name="woodwall::body">
-        <collision name="woodwall-coll">
-          <pose frame="">0 0 1 0 -0 0</pose>
-          <geometry>
-            <box>
-              <size>2 0.4 2</size>
-            </box>
-          </geometry>
-          <max_contacts>10</max_contacts>
-          <surface>
-            <contact>
-              <ode/>
-            </contact>
-            <bounce/>
-            <friction>
-              <torsional>
-                <ode/>
-              </torsional>
-              <ode/>
-            </friction>
-          </surface>
-        </collision>
-        <visual name="woodwall">
-          <cast_shadows>1</cast_shadows>
-          <geometry>
-            <mesh>
-              <uri>model://woodwall/meshes/woodwall.dae</uri>
-              <scale>1 1 1</scale>
-            </mesh>
-          </geometry>
-        </visual>
-        <velocity_decay>
-          <linear>0</linear>
-          <angular>0</angular>
-        </velocity_decay>
-        <self_collide>0</self_collide>
-        <kinematic>0</kinematic>
-        <gravity>1</gravity>
-        <pose frame="">0 0 0 0 -0 0</pose>
-      </link>
-      <pose frame="">-5.47636 3.69107 0 0 -0 1.5708</pose>
-    </model>
     <model name="bigtopwindow_0">
       <static>1</static>
       <link name="bigtopwindow::body">
@@ -1821,25 +1665,6 @@
       </link>
       <pose frame="">-4.343 4.378 0.01 0 -0 0</pose>
     </model>
-    <model name="viz_poster_2_0">
-      <static>1</static>
-      <link name="vr_poster_2::body">
-        <visual name="vr_poster_2">
-          <cast_shadows>1</cast_shadows>
-          <geometry>
-            <mesh>
-              <uri>model://viz_poster_2/meshes/viz_poster_2.dae</uri>
-              <scale>1 1 1</scale>
-            </mesh>
-          </geometry>
-        </visual>
-        <pose frame="">0 0 0 0 -0 0</pose>
-        <self_collide>0</self_collide>
-        <kinematic>0</kinematic>
-        <gravity>1</gravity>
-      </link>
-      <pose frame="">-5.27605 1.68818 1.91121 0 -0 0</pose>
-    </model>
     <model name="concretewallhigh_4">
       <static>1</static>
       <link name="concretewallhigh::body">
@@ -1971,50 +1796,6 @@
         <pose frame="">0 0 0 0 -0 0</pose>
       </link>
       <pose frame="">-4.34331 -7.53299 0.00977 0 -0 0</pose>
-    </model>
-    <model name="concretewallhigh_0">
-      <static>1</static>
-      <link name="concretewallhigh::body">
-        <collision name="concretewallhigh-coll">
-          <pose frame="">0 0 2 0 -0 0</pose>
-          <geometry>
-            <box>
-              <size>2 0.4 4</size>
-            </box>
-          </geometry>
-          <max_contacts>10</max_contacts>
-          <surface>
-            <contact>
-              <ode/>
-            </contact>
-            <bounce/>
-            <friction>
-              <torsional>
-                <ode/>
-              </torsional>
-              <ode/>
-            </friction>
-          </surface>
-        </collision>
-        <visual name="concretewallhigh">
-          <cast_shadows>1</cast_shadows>
-          <geometry>
-            <mesh>
-              <uri>model://concretewallhigh/meshes/concretewallhigh.dae</uri>
-              <scale>1 1 1</scale>
-            </mesh>
-          </geometry>
-        </visual>
-        <velocity_decay>
-          <linear>0</linear>
-          <angular>0</angular>
-        </velocity_decay>
-        <self_collide>0</self_collide>
-        <kinematic>0</kinematic>
-        <gravity>1</gravity>
-        <pose frame="">0 0 0 0 -0 0</pose>
-      </link>
-      <pose frame="">-5.47636 -0.316687 0.015928 0 -0 1.5708</pose>
     </model>
     <model name="concretewallhigh_1">
       <static>1</static>
@@ -2725,50 +2506,6 @@
       </link>
       <pose frame="">0 0 0.02 0 -0 0</pose>
     </model>
-    <model name="woodwall_4">
-      <static>1</static>
-      <link name="woodwall::body">
-        <collision name="woodwall-coll">
-          <pose frame="">0 0 1 0 -0 0</pose>
-          <geometry>
-            <box>
-              <size>2 0.4 2</size>
-            </box>
-          </geometry>
-          <max_contacts>10</max_contacts>
-          <surface>
-            <contact>
-              <ode/>
-            </contact>
-            <bounce/>
-            <friction>
-              <torsional>
-                <ode/>
-              </torsional>
-              <ode/>
-            </friction>
-          </surface>
-        </collision>
-        <visual name="woodwall">
-          <cast_shadows>1</cast_shadows>
-          <geometry>
-            <mesh>
-              <uri>model://woodwall/meshes/woodwall.dae</uri>
-              <scale>1 1 1</scale>
-            </mesh>
-          </geometry>
-        </visual>
-        <velocity_decay>
-          <linear>0</linear>
-          <angular>0</angular>
-        </velocity_decay>
-        <self_collide>0</self_collide>
-        <kinematic>0</kinematic>
-        <gravity>1</gravity>
-        <pose frame="">0 0 0 0 -0 0</pose>
-      </link>
-      <pose frame="">-5.476 3.6915 2 0 -0 1.5708</pose>
-    </model>
     <model name="concretepylon_0">
       <static>1</static>
       <link name="concretepylon::body">
@@ -2902,138 +2639,6 @@
       </link>
       <pose frame="">6.748 -6.317 2 0 -0 1.5708</pose>
     </model>
-    <model name="woodwall_0">
-      <static>1</static>
-      <link name="woodwall::body">
-        <collision name="woodwall-coll">
-          <pose frame="">0 0 1 0 -0 0</pose>
-          <geometry>
-            <box>
-              <size>2 0.4 2</size>
-            </box>
-          </geometry>
-          <max_contacts>10</max_contacts>
-          <surface>
-            <contact>
-              <ode/>
-            </contact>
-            <bounce/>
-            <friction>
-              <torsional>
-                <ode/>
-              </torsional>
-              <ode/>
-            </friction>
-          </surface>
-        </collision>
-        <visual name="woodwall">
-          <cast_shadows>1</cast_shadows>
-          <geometry>
-            <mesh>
-              <uri>model://woodwall/meshes/woodwall.dae</uri>
-              <scale>1 1 1</scale>
-            </mesh>
-          </geometry>
-        </visual>
-        <velocity_decay>
-          <linear>0</linear>
-          <angular>0</angular>
-        </velocity_decay>
-        <self_collide>0</self_collide>
-        <kinematic>0</kinematic>
-        <gravity>1</gravity>
-        <pose frame="">0 0 0 0 -0 0</pose>
-      </link>
-      <pose frame="">-5.47636 -6.31669 0 0 -0 1.5708</pose>
-    </model>
-    <model name="woodwall_1">
-      <static>1</static>
-      <link name="woodwall::body">
-        <collision name="woodwall-coll">
-          <pose frame="">0 0 1 0 -0 0</pose>
-          <geometry>
-            <box>
-              <size>2 0.4 2</size>
-            </box>
-          </geometry>
-          <max_contacts>10</max_contacts>
-          <surface>
-            <contact>
-              <ode/>
-            </contact>
-            <bounce/>
-            <friction>
-              <torsional>
-                <ode/>
-              </torsional>
-              <ode/>
-            </friction>
-          </surface>
-        </collision>
-        <visual name="woodwall">
-          <cast_shadows>1</cast_shadows>
-          <geometry>
-            <mesh>
-              <uri>model://woodwall/meshes/woodwall.dae</uri>
-              <scale>1 1 1</scale>
-            </mesh>
-          </geometry>
-        </visual>
-        <velocity_decay>
-          <linear>0</linear>
-          <angular>0</angular>
-        </velocity_decay>
-        <self_collide>0</self_collide>
-        <kinematic>0</kinematic>
-        <gravity>1</gravity>
-        <pose frame="">0 0 0 0 -0 0</pose>
-      </link>
-      <pose frame="">-5.476 -6.317 2 0 -0 1.5708</pose>
-    </model>
-    <model name="woodwall_2">
-      <static>1</static>
-      <link name="woodwall::body">
-        <collision name="woodwall-coll">
-          <pose frame="">0 0 1 0 -0 0</pose>
-          <geometry>
-            <box>
-              <size>2 0.4 2</size>
-            </box>
-          </geometry>
-          <max_contacts>10</max_contacts>
-          <surface>
-            <contact>
-              <ode/>
-            </contact>
-            <bounce/>
-            <friction>
-              <torsional>
-                <ode/>
-              </torsional>
-              <ode/>
-            </friction>
-          </surface>
-        </collision>
-        <visual name="woodwall">
-          <cast_shadows>1</cast_shadows>
-          <geometry>
-            <mesh>
-              <uri>model://woodwall/meshes/woodwall.dae</uri>
-              <scale>1 1 1</scale>
-            </mesh>
-          </geometry>
-        </visual>
-        <velocity_decay>
-          <linear>0</linear>
-          <angular>0</angular>
-        </velocity_decay>
-        <self_collide>0</self_collide>
-        <kinematic>0</kinematic>
-        <gravity>1</gravity>
-        <pose frame="">0 0 0 0 -0 0</pose>
-      </link>
-      <pose frame="">-5.476 -6.317 3.97681 0 -0 1.5708</pose>
-    </model>
     <model name="left_vr_screen">
       <static>1</static>
       <link name="body">
@@ -3085,7 +2690,7 @@
           <material>
             <script>
               <uri>file://media/materials/scripts/gazebo.material</uri>
-              <name>Gazebo/RedGlow</name>
+              <name>Gazebo/GreenGlow</name>
             </script>
           </material>
         </visual>
@@ -3294,9 +2899,9 @@
       <heading_deg>0</heading_deg>
     </spherical_coordinates>
     <state world_name="default">
-      <sim_time>31 64000000</sim_time>
+      <sim_time>50 984000000</sim_time>
       <real_time>0 0</real_time>
-      <wall_time>1570149490 652608785</wall_time>
+      <wall_time>1571419934 473030393</wall_time>
       <iterations>1</iterations>
       <model name="bench_0">
         <pose frame="">-4.36935 1.01034 -0.280649 0 -0 0</pose>
@@ -3349,10 +2954,10 @@
         </link>
       </model>
       <model name="carpetground_0">
-        <pose frame="">-0.67 0 0 0 -0 0</pose>
+        <pose frame="">-1 0 0 0 -0 0</pose>
         <scale>1 1 1</scale>
         <link name="carpetground::body">
-          <pose frame="">-0.67 0 0 0 -0 0</pose>
+          <pose frame="">-1 0 0 0 -0 0</pose>
           <velocity>0 0 0 0 -0 0</velocity>
           <acceleration>0 0 0 0 -0 0</acceleration>
           <wrench>0 0 0 0 -0 0</wrench>
@@ -3363,76 +2968,6 @@
         <scale>1 1 1</scale>
         <link name="Computer::body">
           <pose frame="">4.0505 -6.35426 0.944646 0 0 -1.5708</pose>
-          <velocity>0 0 0 0 -0 0</velocity>
-          <acceleration>0 0 0 0 -0 0</acceleration>
-          <wrench>0 0 0 0 -0 0</wrench>
-        </link>
-      </model>
-      <model name="concrete_wall_0">
-        <pose frame="">-3.66506 0.059864 0.014666 0 0 -1.5708</pose>
-        <scale>1 1 1</scale>
-        <link name="concretewall::body">
-          <pose frame="">-3.66506 0.059864 0.014666 0 0 -1.5708</pose>
-          <velocity>0 0 0 0 -0 0</velocity>
-          <acceleration>0 0 0 0 -0 0</acceleration>
-          <wrench>0 0 0 0 -0 0</wrench>
-        </link>
-      </model>
-      <model name="concrete_wall_1">
-        <pose frame="">-3.665 2 0.015 0 -0 1.5708</pose>
-        <scale>1 1 1</scale>
-        <link name="concretewall::body">
-          <pose frame="">-3.665 2 0.015 0 -0 1.5708</pose>
-          <velocity>0 0 0 0 -0 0</velocity>
-          <acceleration>0 0 0 0 -0 0</acceleration>
-          <wrench>0 0 0 0 -0 0</wrench>
-        </link>
-      </model>
-      <model name="concrete_wall_2">
-        <pose frame="">-3.665 -1.892 0.015 0 -0 1.5708</pose>
-        <scale>1 1 1</scale>
-        <link name="concretewall::body">
-          <pose frame="">-3.665 -1.892 0.015 0 -0 1.5708</pose>
-          <velocity>0 0 0 0 -0 0</velocity>
-          <acceleration>0 0 0 0 -0 0</acceleration>
-          <wrench>0 0 0 0 -0 0</wrench>
-        </link>
-      </model>
-      <model name="concrete_wall_3">
-        <pose frame="">-2.865 -3.092 0.014666 0 -0 0</pose>
-        <scale>1 1 1</scale>
-        <link name="concretewall::body">
-          <pose frame="">-2.865 -3.092 0.014666 0 -0 0</pose>
-          <velocity>0 0 0 0 -0 0</velocity>
-          <acceleration>0 0 0 0 -0 0</acceleration>
-          <wrench>0 0 0 0 -0 0</wrench>
-        </link>
-      </model>
-      <model name="concrete_wall_4">
-        <pose frame="">-2.85901 3.16584 0.014895 0 -0 0</pose>
-        <scale>1 1 1</scale>
-        <link name="concretewall::body">
-          <pose frame="">-2.85901 3.16584 0.014895 0 -0 0</pose>
-          <velocity>0 0 0 0 -0 0</velocity>
-          <acceleration>0 0 0 0 -0 0</acceleration>
-          <wrench>0 0 0 0 -0 0</wrench>
-        </link>
-      </model>
-      <model name="concrete_wall_5">
-        <pose frame="">-0.865 -3.092 0.014666 0 -0 0</pose>
-        <scale>1 1 1</scale>
-        <link name="concretewall::body">
-          <pose frame="">-0.865 -3.092 0.014666 0 -0 0</pose>
-          <velocity>0 0 0 0 -0 0</velocity>
-          <acceleration>0 0 0 0 -0 0</acceleration>
-          <wrench>0 0 0 0 -0 0</wrench>
-        </link>
-      </model>
-      <model name="concrete_wall_6">
-        <pose frame="">-0.859009 3.16584 0.014666 0 -0 0</pose>
-        <scale>1 1 1</scale>
-        <link name="concretewall::body">
-          <pose frame="">-0.859009 3.16584 0.014666 0 -0 0</pose>
           <velocity>0 0 0 0 -0 0</velocity>
           <acceleration>0 0 0 0 -0 0</acceleration>
           <wrench>0 0 0 0 -0 0</wrench>
@@ -3543,16 +3078,6 @@
         <scale>1 1 1</scale>
         <link name="concretewall::body">
           <pose frame="">5.657 4.378 3.968 0 0 -3.14159</pose>
-          <velocity>0 0 0 0 -0 0</velocity>
-          <acceleration>0 0 0 0 -0 0</acceleration>
-          <wrench>0 0 0 0 -0 0</wrench>
-        </link>
-      </model>
-      <model name="concretewallhigh_0">
-        <pose frame="">-5.47636 -0.316687 0.015928 0 -0 1.5708</pose>
-        <scale>1 1 1</scale>
-        <link name="concretewallhigh::body">
-          <pose frame="">-5.47636 -0.316687 0.015928 0 -0 1.5708</pose>
           <velocity>0 0 0 0 -0 0</velocity>
           <acceleration>0 0 0 0 -0 0</acceleration>
           <wrench>0 0 0 0 -0 0</wrench>
@@ -3748,11 +3273,21 @@
           <wrench>0 0 0 0 -0 0</wrench>
         </link>
       </model>
+      <model name="left_sphere">
+        <pose frame="">-2.595 -2.085 0.225 -0 0.004171 -4e-06</pose>
+        <scale>0.4 0.4 0.4</scale>
+        <link name="link">
+          <pose frame="">-2.595 -2.085 0.225 -0 0.004171 -4e-06</pose>
+          <velocity>0 0 0 0 -0 0</velocity>
+          <acceleration>0 0 0 0 -0 0</acceleration>
+          <wrench>0 0 0 0 -0 0</wrench>
+        </link>
+      </model>
       <model name="left_vr_screen">
-        <pose frame="">-1.63839 -1.827 0.1 -1.5708 0 1.5708</pose>
+        <pose frame="">-3.43348 -1.97111 -0.14189 0 -0 1.5708</pose>
         <scale>1 1 1</scale>
         <link name="body">
-          <pose frame="">-1.63839 -1.827 0.1 -1.5708 0 1.5708</pose>
+          <pose frame="">-3.43348 -1.97111 -0.14189 0 -0 1.5708</pose>
           <velocity>0 0 0 0 -0 0</velocity>
           <acceleration>0 0 0 0 -0 0</acceleration>
           <wrench>0 0 0 0 -0 0</wrench>
@@ -3768,11 +3303,11 @@
           <wrench>0 0 0 0 -0 0</wrench>
         </link>
       </model>
-      <model name="right_vr_screen">
-        <pose frame="">-1.69421 1.886 0.1 -1.5708 0 1.5708</pose>
+      <model name="small_gray_carpet_1">
+        <pose frame="">-2.45 1.944 0.03 0 -0 0</pose>
         <scale>1 1 1</scale>
-        <link name="body">
-          <pose frame="">-1.69421 1.886 0.1 -1.5708 0 1.5708</pose>
+        <link name="graycarpetground::body">
+          <pose frame="">-2.45 1.944 0.03 0 -0 0</pose>
           <velocity>0 0 0 0 -0 0</velocity>
           <acceleration>0 0 0 0 -0 0</acceleration>
           <wrench>0 0 0 0 -0 0</wrench>
@@ -3783,6 +3318,16 @@
         <scale>1 1 1</scale>
         <link name="sofa::body">
           <pose frame="">-1.19702 -6.30912 -0.074259 0 -0 2.62634</pose>
+          <velocity>0 0 0 0 -0 0</velocity>
+          <acceleration>0 0 0 0 -0 0</acceleration>
+          <wrench>0 0 0 0 -0 0</wrench>
+        </link>
+      </model>
+      <model name="right_sphere">
+        <pose frame="">-2.50642 1.98547 0.424615 0 -0 0</pose>
+        <scale>0.4 0.4 0.4</scale>
+        <link name="link">
+          <pose frame="">-2.50642 1.98547 0.424615 0 -0 0</pose>
           <velocity>0 0 0 0 -0 0</velocity>
           <acceleration>0 0 0 0 -0 0</acceleration>
           <wrench>0 0 0 0 -0 0</wrench>
@@ -3938,21 +3483,61 @@
           <wrench>0 0 0 0 -0 0</wrench>
         </link>
       </model>
-      <model name="viz_poster_0">
-        <pose frame="">-5.27605 -0.322974 1.92915 0 -0 0</pose>
+      <model name="virtual_screen_0">
+        <pose frame="">-2.52849 -2.87238 -0.138108 0 -0 3.14159</pose>
         <scale>1 1 1</scale>
-        <link name="vr_poster::body">
-          <pose frame="">-5.27605 -0.322974 1.92915 0 -0 0</pose>
+        <link name="vr_screen::body">
+          <pose frame="">-2.52849 -2.87238 -0.138108 0 -0 3.14159</pose>
           <velocity>0 0 0 0 -0 0</velocity>
           <acceleration>0 0 0 0 -0 0</acceleration>
           <wrench>0 0 0 0 -0 0</wrench>
         </link>
       </model>
-      <model name="viz_poster_2_0">
-        <pose frame="">-5.27605 1.68818 1.91121 0 -0 0</pose>
+      <model name="virtual_screen_1">
+        <pose frame="">-2.50162 -3.23015 0.046021 -1.5708 0 0</pose>
+        <scale>1 1 1.25</scale>
+        <link name="vr_screen::body">
+          <pose frame="">-2.50162 -3.23015 0.046021 -1.5708 0 0</pose>
+          <velocity>0 0 0 0 -0 0</velocity>
+          <acceleration>0 0 0 0 -0 0</acceleration>
+          <wrench>0 0 0 0 -0 0</wrench>
+        </link>
+      </model>
+      <model name="virtual_screen_2">
+        <pose frame="">-2.515 2.938 -0.089326 0 -0 0</pose>
         <scale>1 1 1</scale>
-        <link name="vr_poster_2::body">
-          <pose frame="">-5.27605 1.68818 1.91121 0 -0 0</pose>
+        <link name="vr_screen::body">
+          <pose frame="">-2.515 2.938 -0.089326 0 -0 0</pose>
+          <velocity>0 0 0 0 -0 0</velocity>
+          <acceleration>0 0 0 0 -0 0</acceleration>
+          <wrench>0 0 0 0 -0 0</wrench>
+        </link>
+      </model>
+      <model name="virtual_screen_4">
+        <pose frame="">-3.445 2.003 -0.096171 0 -0 1.5708</pose>
+        <scale>1 1 1</scale>
+        <link name="vr_screen::body">
+          <pose frame="">-3.445 2.003 -0.096171 0 -0 1.5708</pose>
+          <velocity>0 0 0 0 -0 0</velocity>
+          <acceleration>0 0 0 0 -0 0</acceleration>
+          <wrench>0 0 0 0 -0 0</wrench>
+        </link>
+      </model>
+      <model name="virtual_screen_5">
+        <pose frame="">-2.52091 3.19843 0.069272 -1.5708 -0 -3.14159</pose>
+        <scale>1 1 1.25</scale>
+        <link name="vr_screen::body">
+          <pose frame="">-2.52091 3.19843 0.069272 -1.5708 -0 -3.14159</pose>
+          <velocity>0 0 0 0 -0 0</velocity>
+          <acceleration>0 0 0 0 -0 0</acceleration>
+          <wrench>0 0 0 0 -0 0</wrench>
+        </link>
+      </model>
+      <model name="viz_poster_0">
+        <pose frame="">-5.27605 -0.322974 1.92915 0 -0 0</pose>
+        <scale>1 1 1</scale>
+        <link name="vr_poster::body">
+          <pose frame="">-5.27605 -0.322974 1.92915 0 -0 0</pose>
           <velocity>0 0 0 0 -0 0</velocity>
           <acceleration>0 0 0 0 -0 0</acceleration>
           <wrench>0 0 0 0 -0 0</wrench>
@@ -3968,31 +3553,101 @@
           <wrench>0 0 0 0 -0 0</wrench>
         </link>
       </model>
+      <model name="white_panel_wall_0">
+        <pose frame="">-3.68199 -1.90333 -0.004895 0 0 -1.5708</pose>
+        <scale>1 1 1.5</scale>
+        <link name="whitepanelwall::body">
+          <pose frame="">-3.68199 -1.90333 -0.004895 0 0 -1.5708</pose>
+          <velocity>0 0 0 0 -0 0</velocity>
+          <acceleration>0 0 0 0 -0 0</acceleration>
+          <wrench>0 0 0 0 -0 0</wrench>
+        </link>
+      </model>
+      <model name="white_panel_wall_1">
+        <pose frame="">-3.68391 0.086449 0.014665 0 0 -1.5708</pose>
+        <scale>1 1 1.5</scale>
+        <link name="whitepanelwall::body">
+          <pose frame="">-3.68391 0.086449 0.014665 0 0 -1.5708</pose>
+          <velocity>0 0 0 0 -0 0</velocity>
+          <acceleration>0 0 0 0 -0 0</acceleration>
+          <wrench>0 0 0 0 -0 0</wrench>
+        </link>
+      </model>
+      <model name="white_panel_wall_2">
+        <pose frame="">-0.897301 -3.12983 0.081173 0 -0 0</pose>
+        <scale>1 1 1.5</scale>
+        <link name="whitepanelwall::body">
+          <pose frame="">-0.897301 -3.12983 0.081173 0 -0 0</pose>
+          <velocity>0 0 0 0 -0 0</velocity>
+          <acceleration>0 0 0 0 -0 0</acceleration>
+          <wrench>0 0 0 0 -0 0</wrench>
+        </link>
+      </model>
+      <model name="white_panel_wall_3">
+        <pose frame="">-2.8364 -3.11219 0.093499 0 -0 0</pose>
+        <scale>1 1 1.5</scale>
+        <link name="whitepanelwall::body">
+          <pose frame="">-2.8364 -3.11219 0.093499 0 -0 0</pose>
+          <velocity>0 0 0 0 -0 0</velocity>
+          <acceleration>0 0 0 0 -0 0</acceleration>
+          <wrench>0 0 0 0 -0 0</wrench>
+        </link>
+      </model>
+      <model name="white_panel_wall_4">
+        <pose frame="">-3.69891 2.06648 0.024767 0 0 -1.5708</pose>
+        <scale>1 1 1.5</scale>
+        <link name="whitepanelwall::body">
+          <pose frame="">-3.69891 2.06648 0.024767 0 0 -1.5708</pose>
+          <velocity>0 0 0 0 -0 0</velocity>
+          <acceleration>0 0 0 0 -0 0</acceleration>
+          <wrench>0 0 0 0 -0 0</wrench>
+        </link>
+      </model>
+      <model name="white_panel_wall_5">
+        <pose frame="">-2.84999 3.21503 0.014666 0 -0 3.14159</pose>
+        <scale>1 1 1.5</scale>
+        <link name="whitepanelwall::body">
+          <pose frame="">-2.84999 3.21503 0.014666 0 -0 3.14159</pose>
+          <velocity>0 0 0 0 -0 0</velocity>
+          <acceleration>0 0 0 0 -0 0</acceleration>
+          <wrench>0 0 0 0 -0 0</wrench>
+        </link>
+      </model>
+      <model name="white_panel_wall_6">
+        <pose frame="">-0.85 3.2 0.015 0 -0 3.14159</pose>
+        <scale>1 1 1.5</scale>
+        <link name="whitepanelwall::body">
+          <pose frame="">-0.85 3.2 0.015 0 -0 3.14159</pose>
+          <velocity>0 0 0 0 -0 0</velocity>
+          <acceleration>0 0 0 0 -0 0</acceleration>
+          <wrench>0 0 0 0 -0 0</wrench>
+        </link>
+      </model>
+      <model name="white_panel_wall_7">
+        <pose frame="">1.06655 -3.14753 0.081173 0 -0 0</pose>
+        <scale>1 1 1.5</scale>
+        <link name="whitepanelwall::body">
+          <pose frame="">1.06655 -3.14753 0.081173 0 -0 0</pose>
+          <velocity>0 0 0 0 -0 0</velocity>
+          <acceleration>0 0 0 0 -0 0</acceleration>
+          <wrench>0 0 0 0 -0 0</wrench>
+        </link>
+      </model>
+      <model name="white_panel_wall_8">
+        <pose frame="">1.097 3.2 0.015 0 -0 3.14159</pose>
+        <scale>1 1 1.5</scale>
+        <link name="whitepanelwall::body">
+          <pose frame="">1.097 3.2 0.015 0 -0 3.14159</pose>
+          <velocity>0 0 0 0 -0 0</velocity>
+          <acceleration>0 0 0 0 -0 0</acceleration>
+          <wrench>0 0 0 0 -0 0</wrench>
+        </link>
+      </model>
       <model name="woodtable_0">
         <pose frame="">3.90716 -6.09161 0.018804 0 -0 0</pose>
         <scale>1 1 1</scale>
         <link name="woodtable::body">
           <pose frame="">3.90716 -6.09161 0.018804 0 -0 0</pose>
-          <velocity>0 0 0 0 -0 0</velocity>
-          <acceleration>0 0 0 0 -0 0</acceleration>
-          <wrench>0 0 0 0 -0 0</wrench>
-        </link>
-      </model>
-      <model name="woodwall_0">
-        <pose frame="">-5.47636 -6.31669 0 0 -0 1.5708</pose>
-        <scale>1 1 1</scale>
-        <link name="woodwall::body">
-          <pose frame="">-5.47636 -6.31669 0 0 -0 1.5708</pose>
-          <velocity>0 0 0 0 -0 0</velocity>
-          <acceleration>0 0 0 0 -0 0</acceleration>
-          <wrench>0 0 0 0 -0 0</wrench>
-        </link>
-      </model>
-      <model name="woodwall_1">
-        <pose frame="">-5.476 -6.317 2 0 -0 1.5708</pose>
-        <scale>1 1 1</scale>
-        <link name="woodwall::body">
-          <pose frame="">-5.476 -6.317 2 0 -0 1.5708</pose>
           <velocity>0 0 0 0 -0 0</velocity>
           <acceleration>0 0 0 0 -0 0</acceleration>
           <wrench>0 0 0 0 -0 0</wrench>
@@ -4013,46 +3668,6 @@
         <scale>1 1 1</scale>
         <link name="woodwall::body">
           <pose frame="">6.748 3.697 3.977 0 -0 1.5708</pose>
-          <velocity>0 0 0 0 -0 0</velocity>
-          <acceleration>0 0 0 0 -0 0</acceleration>
-          <wrench>0 0 0 0 -0 0</wrench>
-        </link>
-      </model>
-      <model name="woodwall_2">
-        <pose frame="">-5.476 -6.317 3.97681 0 -0 1.5708</pose>
-        <scale>1 1 1</scale>
-        <link name="woodwall::body">
-          <pose frame="">-5.476 -6.317 3.97681 0 -0 1.5708</pose>
-          <velocity>0 0 0 0 -0 0</velocity>
-          <acceleration>0 0 0 0 -0 0</acceleration>
-          <wrench>0 0 0 0 -0 0</wrench>
-        </link>
-      </model>
-      <model name="woodwall_3">
-        <pose frame="">-5.47636 3.69107 0 0 -0 1.5708</pose>
-        <scale>1 1 1</scale>
-        <link name="woodwall::body">
-          <pose frame="">-5.47636 3.69107 0 0 -0 1.5708</pose>
-          <velocity>0 0 0 0 -0 0</velocity>
-          <acceleration>0 0 0 0 -0 0</acceleration>
-          <wrench>0 0 0 0 -0 0</wrench>
-        </link>
-      </model>
-      <model name="woodwall_4">
-        <pose frame="">-5.476 3.6915 2 0 -0 1.5708</pose>
-        <scale>1 1 1</scale>
-        <link name="woodwall::body">
-          <pose frame="">-5.476 3.6915 2 0 -0 1.5708</pose>
-          <velocity>0 0 0 0 -0 0</velocity>
-          <acceleration>0 0 0 0 -0 0</acceleration>
-          <wrench>0 0 0 0 -0 0</wrench>
-        </link>
-      </model>
-      <model name="woodwall_5">
-        <pose frame="">-5.476 3.691 3.977 0 -0 1.5708</pose>
-        <scale>1 1 1</scale>
-        <link name="woodwall::body">
-          <pose frame="">-5.476 3.691 3.977 0 -0 1.5708</pose>
           <velocity>0 0 0 0 -0 0</velocity>
           <acceleration>0 0 0 0 -0 0</acceleration>
           <wrench>0 0 0 0 -0 0</wrench>
@@ -4098,15 +3713,401 @@
           <wrench>0 0 0 0 -0 0</wrench>
         </link>
       </model>
-      <light name="sun">
-        <pose frame="">7.485 -12.379 17.2198 0 -0 0</pose>
+      <light name="directional_light_0">
+        <pose frame="">-2.94987 0.118216 4.2439 0 -0 0</pose>
+      </light>
+      <light name="point_light_0">
+        <pose frame="">0.387367 -0.096487 1.00289 0 -0 0</pose>
       </light>
     </state>
-    <model name="concrete_wall_0">
-      <pose frame="">0.7102 -0.02627 0.014666 0 -0 0</pose>
+    <model name="small_gray_carpet_1">
+      <pose frame="">0.256204 -1.54409 0.035 0 -0 0</pose>
       <static>1</static>
-      <link name="concretewall::body">
-        <collision name="concretewall1">
+      <link name="graycarpetground::body">
+        <collision name="graycarpetground-collision">
+          <pose frame="">0 0 0.01 0 -0 0</pose>
+          <geometry>
+            <box>
+              <size>2 2 0.02</size>
+            </box>
+          </geometry>
+          <max_contacts>10</max_contacts>
+          <surface>
+            <contact>
+              <ode/>
+            </contact>
+            <bounce/>
+            <friction>
+              <torsional>
+                <ode/>
+              </torsional>
+              <ode/>
+            </friction>
+          </surface>
+        </collision>
+        <visual name="graycarpetground">
+          <cast_shadows>1</cast_shadows>
+          <geometry>
+            <mesh>
+              <uri>model://graycarpetground/meshes/graycarpetground.dae</uri>
+              <scale>1 1 1</scale>
+            </mesh>
+          </geometry>
+        </visual>
+        <pose frame="">0 0 0 0 -0 0</pose>
+        <self_collide>0</self_collide>
+        <kinematic>0</kinematic>
+        <gravity>1</gravity>
+      </link>
+    </model>
+    <model name="left_sphere">
+    <static>1</static>
+      <pose frame="">-2.9501 -1.81123 0.601403 0 -0 0</pose>
+      <link name="link">
+        <inertial>
+          <mass>1</mass>
+          <inertia>
+            <ixx>1</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>1</iyy>
+            <iyz>0</iyz>
+            <izz>1</izz>
+          </inertia>
+        </inertial>
+        <collision name="collision">
+          <geometry>
+            <sphere>
+              <radius>0.5</radius>
+            </sphere>
+          </geometry>
+          <max_contacts>10</max_contacts>
+          <surface>
+            <contact>
+              <ode/>
+            </contact>
+            <bounce/>
+            <friction>
+              <torsional>
+                <ode/>
+              </torsional>
+              <ode/>
+            </friction>
+          </surface>
+          <laser_retro>6.45358e-10</laser_retro>
+        </collision>
+        <visual name="visual">
+          <geometry>
+            <sphere>
+              <radius>0.5</radius>
+            </sphere>
+          </geometry>
+          <material>
+            <script>
+              <uri>file://media/materials/scripts/gazebo.material</uri>
+              <name>Gazebo/White</name>
+            </script>
+          </material>
+        </visual>
+        <self_collide>0</self_collide>
+        <kinematic>0</kinematic>
+        <gravity>1</gravity>
+      </link>
+    </model>
+    <model name="virtual_screen_0">
+      <pose frame="">-2.2214 -2.87238 -0.004759 0 -0 0</pose>
+      <static>1</static>
+      <link name="vr_screen::body">
+        <collision name="frame">
+          <pose frame="">0 0.13 0.7 0 -0 0</pose>
+          <geometry>
+            <box>
+              <size>2 0.18 1.4</size>
+            </box>
+          </geometry>
+          <max_contacts>10</max_contacts>
+          <surface>
+            <contact>
+              <ode/>
+            </contact>
+            <bounce/>
+            <friction>
+              <torsional>
+                <ode/>
+              </torsional>
+              <ode/>
+            </friction>
+          </surface>
+          <laser_retro>1.77511e+28</laser_retro>
+        </collision>
+        <visual name="screen">
+          <cast_shadows>1</cast_shadows>
+          <geometry>
+            <mesh>
+              <uri>model://vr_screen/meshes/screen.dae</uri>
+              <scale>1 1 1</scale>
+            </mesh>
+          </geometry>
+          <material>
+            <script>
+              <name>__default__</name>
+              <uri>__default__</uri>
+            </script>
+          </material>
+        </visual>
+        <visual name="screen_glass">
+          <cast_shadows>0</cast_shadows>
+          <pose frame="">0 0.02 0.75 0 -0 0</pose>
+          <geometry>
+            <box>
+              <size>1.96 0.015 1.1</size>
+            </box>
+          </geometry>
+          <material>
+            <script>
+              <uri>file://media/materials/scripts/gazebo.material</uri>
+              <name>Gazebo/GreenGlow</name>
+            </script>
+          </material>
+        </visual>
+        <pose frame="">0 0 0 0 -0 0</pose>
+        <self_collide>0</self_collide>
+        <kinematic>0</kinematic>
+        <gravity>0</gravity>
+      </link>
+    </model>
+    <model name="virtual_screen_1">
+      <pose frame="">-1.91604 -1.71266 0.04 0 -0 0</pose>
+      <static>1</static>
+      <link name="vr_screen::body">
+        <collision name="frame">
+          <pose frame="">0 0.13 0.7 0 -0 0</pose>
+          <geometry>
+            <box>
+              <size>1.96 0.18 1.4</size>
+            </box>
+          </geometry>
+          <max_contacts>10</max_contacts>
+          <surface>
+            <contact>
+              <ode/>
+            </contact>
+            <bounce/>
+            <friction>
+              <torsional>
+                <ode/>
+              </torsional>
+              <ode/>
+            </friction>
+          </surface>
+          <laser_retro>4.29569e+24</laser_retro>
+        </collision>
+        <visual name="screen">
+          <cast_shadows>1</cast_shadows>
+          <geometry>
+            <mesh>
+              <uri>model://vr_screen/meshes/screen.dae</uri>
+              <scale>1 1 1</scale>
+            </mesh>
+          </geometry>
+          <material>
+            <script>
+              <name>__default__</name>
+              <uri>__default__</uri>
+            </script>
+          </material>
+        </visual>
+        <visual name="screen_glass">
+          <cast_shadows>0</cast_shadows>
+          <pose frame="">0 0.02 1 0 -0 0</pose>
+          <geometry>
+            <box>
+              <size>1.96 0.015 1.4</size>
+            </box>
+          </geometry>
+          <material>
+            <script>
+              <uri>file://media/materials/scripts/gazebo.material</uri>
+              <name>Gazebo/GreenGlow</name>
+            </script>
+          </material>
+        </visual>
+        <pose frame="">0 0 0 0 -0 0</pose>
+        <self_collide>0</self_collide>
+        <kinematic>0</kinematic>
+        <gravity>0</gravity>
+      </link>
+    </model>
+    <model name="virtual_screen_2">
+      <pose frame="">-2.45 2.77 0.025719 0 -0 0</pose>
+      <static>1</static>
+      <link name="vr_screen::body">
+        <collision name="frame">
+          <pose frame="">0 0.13 0.7 0 -0 0</pose>
+          <geometry>
+            <box>
+              <size>2 0.18 1.4</size>
+            </box>
+          </geometry>
+          <max_contacts>10</max_contacts>
+          <surface>
+            <contact>
+              <ode/>
+            </contact>
+            <bounce/>
+            <friction>
+              <torsional>
+                <ode/>
+              </torsional>
+              <ode/>
+            </friction>
+          </surface>
+        </collision>
+        <visual name="screen">
+          <cast_shadows>1</cast_shadows>
+          <geometry>
+            <mesh>
+              <uri>model://vr_screen/meshes/screen.dae</uri>
+              <scale>1 1 1</scale>
+            </mesh>
+          </geometry>
+        </visual>
+        <visual name="screen_glass">
+          <cast_shadows>0</cast_shadows>
+          <pose frame="">0 0.02 0.75 0 -0 0</pose>
+          <geometry>
+            <box>
+              <size>1.96 0.015 1.1</size>
+            </box>
+          </geometry>
+          <material>
+            <script>
+              <uri>file://media/materials/scripts/gazebo.material</uri>
+              <name>Gazebo/BlueGlow</name>
+            </script>
+          </material>
+        </visual>
+        <pose frame="">0 0 0 0 -0 0</pose>
+        <self_collide>0</self_collide>
+        <kinematic>0</kinematic>
+        <gravity>1</gravity>
+      </link>
+    </model>
+    <model name="virtual_screen_4">
+      <pose frame="">-1.40324 2.13884 0.025 0 -0 0</pose>
+      <static>1</static>
+      <link name="vr_screen::body">
+        <collision name="frame">
+          <pose frame="">0 0.13 0.7 0 -0 0</pose>
+          <geometry>
+            <box>
+              <size>2 0.18 1.4</size>
+            </box>
+          </geometry>
+          <max_contacts>10</max_contacts>
+          <surface>
+            <contact>
+              <ode/>
+            </contact>
+            <bounce/>
+            <friction>
+              <torsional>
+                <ode/>
+              </torsional>
+              <ode/>
+            </friction>
+          </surface>
+        </collision>
+        <visual name="screen">
+          <cast_shadows>1</cast_shadows>
+          <geometry>
+            <mesh>
+              <uri>model://vr_screen/meshes/screen.dae</uri>
+              <scale>1 1 1</scale>
+            </mesh>
+          </geometry>
+        </visual>
+        <visual name="screen_glass">
+          <cast_shadows>0</cast_shadows>
+          <pose frame="">0 0.02 0.75 0 -0 0</pose>
+          <geometry>
+            <box>
+              <size>1.96 0.015 1.1</size>
+            </box>
+          </geometry>
+          <material>
+            <script>
+              <uri>file://media/materials/scripts/gazebo.material</uri>
+              <name>Gazebo/BlueGlow</name>
+            </script>
+          </material>
+        </visual>
+        <pose frame="">0 0 0 0 -0 0</pose>
+        <self_collide>0</self_collide>
+        <kinematic>0</kinematic>
+        <gravity>1</gravity>
+      </link>
+    </model>
+    <model name="virtual_screen_5">
+      <pose frame="">-0.233837 -2.892 0.619895 0 -0 0</pose>
+      <static>1</static>
+      <link name="vr_screen::body">
+        <collision name="frame">
+          <pose frame="">0 0.13 0.7 0 -0 0</pose>
+          <geometry>
+            <box>
+              <size>2 0.18 1.4</size>
+            </box>
+          </geometry>
+          <max_contacts>10</max_contacts>
+          <surface>
+            <contact>
+              <ode/>
+            </contact>
+            <bounce/>
+            <friction>
+              <torsional>
+                <ode/>
+              </torsional>
+              <ode/>
+            </friction>
+          </surface>
+        </collision>
+        <visual name="screen">
+          <cast_shadows>1</cast_shadows>
+          <geometry>
+            <mesh>
+              <uri>model://vr_screen/meshes/screen.dae</uri>
+              <scale>1 1 1</scale>
+            </mesh>
+          </geometry>
+        </visual>
+        <visual name="screen_glass">
+          <cast_shadows>0</cast_shadows>
+          <pose frame="">0 0.02 0.96 0 -0 0</pose>
+          <geometry>
+            <box>
+              <size>1.96 0.015 1.4</size>
+            </box>
+          </geometry>
+          <material>
+            <script>
+              <uri>file://media/materials/scripts/gazebo.material</uri>
+              <name>Gazebo/BlueGlow</name>
+            </script>
+          </material>
+        </visual>
+        <pose frame="">0 0 0 0 -0 0</pose>
+        <self_collide>0</self_collide>
+        <kinematic>0</kinematic>
+        <gravity>1</gravity>
+      </link>
+    </model>
+    <model name="white_panel_wall_0">
+      <pose frame="">1 -0.578712 -0.004895 0 -0 0</pose>
+      <static>1</static>
+      <link name="whitepanelwall::body">
+        <collision name="whitepanelwall-coll">
           <pose frame="">0 0 1 0 -0 0</pose>
           <geometry>
             <box>
@@ -4127,11 +4128,11 @@
             </friction>
           </surface>
         </collision>
-        <visual name="concretewall1">
+        <visual name="whitepanelwall">
           <cast_shadows>1</cast_shadows>
           <geometry>
             <mesh>
-              <uri>model://concretewall1/meshes/concretewall1.dae</uri>
+              <uri>model://whitepanelwall/meshes/whitepanelwall.dae</uri>
               <scale>1 1 1</scale>
             </mesh>
           </geometry>
@@ -4146,11 +4147,11 @@
         <pose frame="">0 0 0 0 -0 0</pose>
       </link>
     </model>
-    <model name="concrete_wall_1">
-      <pose frame="">-2.99422 2.686 0.014666 0 -0 0</pose>
+    <model name="white_panel_wall_1">
+      <pose frame="">-3.636 -0.122613 0.014665 0 -0 0</pose>
       <static>1</static>
-      <link name="concretewall::body">
-        <collision name="concretewall1">
+      <link name="whitepanelwall::body">
+        <collision name="whitepanelwall-coll">
           <pose frame="">0 0 1 0 -0 0</pose>
           <geometry>
             <box>
@@ -4171,11 +4172,11 @@
             </friction>
           </surface>
         </collision>
-        <visual name="concretewall1">
+        <visual name="whitepanelwall">
           <cast_shadows>1</cast_shadows>
           <geometry>
             <mesh>
-              <uri>model://concretewall1/meshes/concretewall1.dae</uri>
+              <uri>model://whitepanelwall/meshes/whitepanelwall.dae</uri>
               <scale>1 1 1</scale>
             </mesh>
           </geometry>
@@ -4190,11 +4191,11 @@
         <pose frame="">0 0 0 0 -0 0</pose>
       </link>
     </model>
-    <model name="concrete_wall_2">
-      <pose frame="">-1.8384 -1.70561 0.085101 0 -0 0</pose>
+    <model name="white_panel_wall_2">
+      <pose frame="">0.89039 -1.27669 0.020105 0 -0 0</pose>
       <static>1</static>
-      <link name="concretewall::body">
-        <collision name="concretewall1">
+      <link name="whitepanelwall::body">
+        <collision name="whitepanelwall-coll">
           <pose frame="">0 0 1 0 -0 0</pose>
           <geometry>
             <box>
@@ -4215,11 +4216,11 @@
             </friction>
           </surface>
         </collision>
-        <visual name="concretewall1">
+        <visual name="whitepanelwall">
           <cast_shadows>1</cast_shadows>
           <geometry>
             <mesh>
-              <uri>model://concretewall1/meshes/concretewall1.dae</uri>
+              <uri>model://whitepanelwall/meshes/whitepanelwall.dae</uri>
               <scale>1 1 1</scale>
             </mesh>
           </geometry>
@@ -4234,11 +4235,11 @@
         <pose frame="">0 0 0 0 -0 0</pose>
       </link>
     </model>
-    <model name="concrete_wall_3">
-      <pose frame="">-2.865 -3.092 0.014666 0 -0 0</pose>
+    <model name="white_panel_wall_3">
+      <pose frame="">-1.85582 -3.65179 0.093499 0 -0 0</pose>
       <static>1</static>
-      <link name="concretewall::body">
-        <collision name="concretewall1">
+      <link name="whitepanelwall::body">
+        <collision name="whitepanelwall-coll">
           <pose frame="">0 0 1 0 -0 0</pose>
           <geometry>
             <box>
@@ -4259,11 +4260,11 @@
             </friction>
           </surface>
         </collision>
-        <visual name="concretewall1">
+        <visual name="whitepanelwall">
           <cast_shadows>1</cast_shadows>
           <geometry>
             <mesh>
-              <uri>model://concretewall1/meshes/concretewall1.dae</uri>
+              <uri>model://whitepanelwall/meshes/whitepanelwall.dae</uri>
               <scale>1 1 1</scale>
             </mesh>
           </geometry>
@@ -4278,11 +4279,11 @@
         <pose frame="">0 0 0 0 -0 0</pose>
       </link>
     </model>
-    <model name="concrete_wall_4">
-      <pose frame="">-2.97153 3.978 0.014895 0 -0 0</pose>
+    <model name="white_panel_wall_4">
+      <pose frame="">0.22666 1.45078 0.093499 0 -0 0</pose>
       <static>1</static>
-      <link name="concretewall::body">
-        <collision name="concretewall1">
+      <link name="whitepanelwall::body">
+        <collision name="whitepanelwall-coll">
           <pose frame="">0 0 1 0 -0 0</pose>
           <geometry>
             <box>
@@ -4303,11 +4304,11 @@
             </friction>
           </surface>
         </collision>
-        <visual name="concretewall1">
+        <visual name="whitepanelwall">
           <cast_shadows>1</cast_shadows>
           <geometry>
             <mesh>
-              <uri>model://concretewall1/meshes/concretewall1.dae</uri>
+              <uri>model://whitepanelwall/meshes/whitepanelwall.dae</uri>
               <scale>1 1 1</scale>
             </mesh>
           </geometry>
@@ -4322,11 +4323,11 @@
         <pose frame="">0 0 0 0 -0 0</pose>
       </link>
     </model>
-    <model name="concrete_wall_5">
-      <pose frame="">-0.865 -3.092 0.014666 0 -0 0</pose>
+    <model name="white_panel_wall_5">
+      <pose frame="">-0.419567 1.99186 0.014666 0 -0 0</pose>
       <static>1</static>
-      <link name="concretewall::body">
-        <collision name="concretewall1">
+      <link name="whitepanelwall::body">
+        <collision name="whitepanelwall-coll">
           <pose frame="">0 0 1 0 -0 0</pose>
           <geometry>
             <box>
@@ -4347,11 +4348,11 @@
             </friction>
           </surface>
         </collision>
-        <visual name="concretewall1">
+        <visual name="whitepanelwall">
           <cast_shadows>1</cast_shadows>
           <geometry>
             <mesh>
-              <uri>model://concretewall1/meshes/concretewall1.dae</uri>
+              <uri>model://whitepanelwall/meshes/whitepanelwall.dae</uri>
               <scale>1 1 1</scale>
             </mesh>
           </geometry>
@@ -4366,11 +4367,11 @@
         <pose frame="">0 0 0 0 -0 0</pose>
       </link>
     </model>
-    <model name="concrete_wall_6">
-      <pose frame="">-0.859009 3.16584 0.014666 0 -0 0</pose>
+    <model name="white_panel_wall_6">
+      <pose frame="">-0.849985 3.18099 0.014666 0 -0 0</pose>
       <static>1</static>
-      <link name="concretewall::body">
-        <collision name="concretewall1">
+      <link name="whitepanelwall::body">
+        <collision name="whitepanelwall-coll">
           <pose frame="">0 0 1 0 -0 0</pose>
           <geometry>
             <box>
@@ -4391,11 +4392,11 @@
             </friction>
           </surface>
         </collision>
-        <visual name="concretewall1">
+        <visual name="whitepanelwall">
           <cast_shadows>1</cast_shadows>
           <geometry>
             <mesh>
-              <uri>model://concretewall1/meshes/concretewall1.dae</uri>
+              <uri>model://whitepanelwall/meshes/whitepanelwall.dae</uri>
               <scale>1 1 1</scale>
             </mesh>
           </geometry>
@@ -4410,5 +4411,171 @@
         <pose frame="">0 0 0 0 -0 0</pose>
       </link>
     </model>
-    </world>
+    <model name="white_panel_wall_7">
+      <pose frame="">1.14562 -2.58141 0.081173 0 -0 0</pose>
+      <static>1</static>
+      <link name="whitepanelwall::body">
+        <collision name="whitepanelwall-coll">
+          <pose frame="">0 0 1 0 -0 0</pose>
+          <geometry>
+            <box>
+              <size>2 0.4 2</size>
+            </box>
+          </geometry>
+          <max_contacts>10</max_contacts>
+          <surface>
+            <contact>
+              <ode/>
+            </contact>
+            <bounce/>
+            <friction>
+              <torsional>
+                <ode/>
+              </torsional>
+              <ode/>
+            </friction>
+          </surface>
+        </collision>
+        <visual name="whitepanelwall">
+          <cast_shadows>1</cast_shadows>
+          <geometry>
+            <mesh>
+              <uri>model://whitepanelwall/meshes/whitepanelwall.dae</uri>
+              <scale>1 1 1</scale>
+            </mesh>
+          </geometry>
+        </visual>
+        <velocity_decay>
+          <linear>0</linear>
+          <angular>0</angular>
+        </velocity_decay>
+        <self_collide>0</self_collide>
+        <kinematic>0</kinematic>
+        <gravity>1</gravity>
+        <pose frame="">0 0 0 0 -0 0</pose>
+      </link>
+    </model>
+    <model name="white_panel_wall_8">
+      <pose frame="">1.24908 2.47804 0.015 0 -0 0</pose>
+      <static>1</static>
+      <link name="whitepanelwall::body">
+        <collision name="whitepanelwall-coll">
+          <pose frame="">0 0 1 0 -0 0</pose>
+          <geometry>
+            <box>
+              <size>2 0.4 2</size>
+            </box>
+          </geometry>
+          <max_contacts>10</max_contacts>
+          <surface>
+            <contact>
+              <ode/>
+            </contact>
+            <bounce/>
+            <friction>
+              <torsional>
+                <ode/>
+              </torsional>
+              <ode/>
+            </friction>
+          </surface>
+        </collision>
+        <visual name="whitepanelwall">
+          <cast_shadows>1</cast_shadows>
+          <geometry>
+            <mesh>
+              <uri>model://whitepanelwall/meshes/whitepanelwall.dae</uri>
+              <name>Gazebo/Black</name>
+              <scale>1 1 1</scale>
+            </mesh>
+          </geometry>
+        </visual>
+        <velocity_decay>
+          <linear>0</linear>
+          <angular>0</angular>
+        </velocity_decay>
+        <self_collide>0</self_collide>
+        <kinematic>0</kinematic>
+        <gravity>1</gravity>
+        <pose frame="">0 0 0 0 -0 0</pose>
+      </link>
+    </model>
+    <light name="directional_light_0" type="directional">
+      <pose frame="">-2.94987 0.118216 4.2439 0 -0 0</pose>
+      <diffuse>0.5 0.5 0.5 1</diffuse>
+      <specular>0.1 0.1 0.1 1</specular>
+      <direction>0 0 -1</direction>
+      <attenuation>
+        <range>20</range>
+        <constant>0.5</constant>
+        <linear>0.01</linear>
+        <quadratic>0.001</quadratic>
+      </attenuation>
+    </light>
+    <light name="point_light_0" type="point">
+      <pose frame="">0.5088 0.303878 1.00289 0 -0 0</pose>
+      <diffuse>0.5 0.5 0.5 1</diffuse>
+      <specular>0.1 0.1 0.1 1</specular>
+      <attenuation>
+        <range>20</range>
+        <constant>0.5</constant>
+        <linear>0.01</linear>
+        <quadratic>0.001</quadratic>
+      </attenuation>
+      <direction>0 0 -1</direction>
+    </light>
+    <model name="right_sphere">
+    <static>1</static>
+      <pose frame="">-1.62088 1.16717 0.519561 0 -0 0</pose>
+      <link name="link">
+        <inertial>
+          <mass>1</mass>
+          <inertia>
+            <ixx>1</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>1</iyy>
+            <iyz>0</iyz>
+            <izz>1</izz>
+          </inertia>
+        </inertial>
+        <collision name="collision">
+          <geometry>
+            <sphere>
+              <radius>0.5</radius>
+            </sphere>
+          </geometry>
+          <max_contacts>10</max_contacts>
+          <surface>
+            <contact>
+              <ode/>
+            </contact>
+            <bounce/>
+            <friction>
+              <torsional>
+                <ode/>
+              </torsional>
+              <ode/>
+            </friction>
+          </surface>
+        </collision>
+        <visual name="visual">
+          <geometry>
+            <sphere>
+              <radius>0.5</radius>
+            </sphere>
+          </geometry>
+          <material>
+            <script>
+              <uri>file://media/materials/scripts/gazebo.material</uri>
+              <name>Gazebo/White</name>
+            </script>
+          </material>
+        </visual>
+        <self_collide>0</self_collide>
+        <kinematic>0</kinematic>
+        <gravity>1</gravity>
+      </link>
+    </model>
+  </world>
 </sdf>

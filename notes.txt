@@ -4,3 +4,9 @@
 - nrpStorage (is that the place to keep experiments)
 - container path not clear with the "\"
 - documentation https://developer.humanbrainproject.eu/docs/projects/hbp-nrp-cle/1.1.8/
+- It would be good to have the 'save to storage' button in the Object Inspector as well as the Object Library.
+- Undo button in the object Inspector would be very useful.
+- When running an experiment for the first time after starting the server, there is normally a Gazebo error. On a second attempt it runs without error.
+- unable to use names with leading underscore. eg. __init__, _variablename etc
+- ability to scale non primitive shapes would be useful. Currently I have been using the developer tools to remove the disabled property on the input box has worked as expected with some objects.
+- Having the option to duplicate on any object would be useful.
