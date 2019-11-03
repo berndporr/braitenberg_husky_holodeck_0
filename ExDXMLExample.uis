@@ -646,7 +646,7 @@
           "isClosable": true,
           "reorderEnabled": true,
           "title": "",
-          "width": 69.23076923076923,
+          "width": 75,
           "height": 30,
           "content": [
             {
@@ -654,7 +654,7 @@
               "isClosable": true,
               "reorderEnabled": true,
               "title": "",
-              "height": 39.96447602131439,
+              "height": 63.44262295081967,
               "content": [
                 {
                   "type": "stack",
@@ -662,9 +662,9 @@
                   "isClosable": true,
                   "reorderEnabled": true,
                   "title": "",
-                  "activeItemIndex": 0,
-                  "width": 69.23076923076924,
-                  "height": 75.24590163934425,
+                  "activeItemIndex": 1,
+                  "width": 75,
+                  "height": 59.01639344262295,
                   "content": [
                     {
                       "type": "component",
@@ -680,6 +680,21 @@
                       "pheight": 700,
                       "isClosable": true,
                       "reorderEnabled": true
+                    },
+                    {
+                      "type": "component",
+                      "title": "Smach Editor",
+                      "id": "smach-editor",
+                      "componentName": "angularModuleComponent",
+                      "componentState": {
+                        "module": "exdFrontendApp",
+                        "angularDirective": "<smach-editor />",
+                        "singleton": true
+                      },
+                      "pwidth": 800,
+                      "pheight": 900,
+                      "isClosable": true,
+                      "reorderEnabled": true
                     }
                   ]
                 },
@@ -689,20 +704,20 @@
                   "reorderEnabled": true,
                   "title": "",
                   "activeItemIndex": 0,
-                  "width": 30.76923076923077,
+                  "width": 25,
                   "content": [
                     {
                       "type": "component",
-                      "title": "ROS Terminal",
-                      "id": "ros-terminal",
+                      "title": "Object Inspector",
+                      "id": "object-inspector",
                       "componentName": "angularModuleComponent",
                       "componentState": {
                         "module": "exdFrontendApp",
-                        "angularDirective": "<ros-terminal />",
+                        "angularDirective": "<object-inspector />",
                         "singleton": true
                       },
-                      "pwidth": 400,
-                      "pheight": 300,
+                      "pwidth": 300,
+                      "pheight": 800,
                       "isClosable": true,
                       "reorderEnabled": true
                     }
@@ -715,67 +730,32 @@
               "isClosable": true,
               "reorderEnabled": true,
               "title": "",
-              "height": 60.03552397868561,
-              "width": 72.72727272727273,
+              "height": 36.55737704918033,
               "content": [
                 {
-                  "type": "row",
+                  "type": "stack",
+                  "header": {},
                   "isClosable": true,
                   "reorderEnabled": true,
                   "title": "",
-                  "width": 60.36772296964299,
+                  "activeItemIndex": 0,
+                  "width": 66.66666666666666,
                   "content": [
                     {
-                      "type": "stack",
-                      "header": {},
-                      "isClosable": true,
-                      "reorderEnabled": true,
-                      "title": "",
-                      "activeItemIndex": 0,
-                      "width": 72.72727272727273,
-                      "content": [
-                        {
-                          "type": "component",
-                          "title": "Environment Rendering",
-                          "id": "environment-rendering",
-                          "componentName": "angularModuleComponent",
-                          "componentState": {
-                            "module": "environmentRenderingModule",
-                            "angularDirective": "<environment-rendering />",
-                            "singleton": true
-                          },
-                          "isClosable": false,
-                          "customOptionsDirective": "<environment-rendering-options/>",
-                          "pwidth": 800,
-                          "pheight": 600,
-                          "reorderEnabled": true
-                        }
-                      ]
-                    },
-                    {
-                      "type": "stack",
-                      "isClosable": true,
-                      "reorderEnabled": true,
-                      "title": "",
-                      "activeItemIndex": 0,
-                      "width": 27.272727272727273,
-                      "content": [
-                        {
-                          "type": "component",
-                          "title": "Object Inspector",
-                          "id": "object-inspector",
-                          "componentName": "angularModuleComponent",
-                          "componentState": {
-                            "module": "exdFrontendApp",
-                            "angularDirective": "<object-inspector />",
-                            "singleton": true
-                          },
-                          "pwidth": 300,
-                          "pheight": 800,
-                          "isClosable": true,
-                          "reorderEnabled": true
-                        }
-                      ]
+                      "type": "component",
+                      "title": "Environment Rendering",
+                      "id": "environment-rendering",
+                      "componentName": "angularModuleComponent",
+                      "componentState": {
+                        "module": "environmentRenderingModule",
+                        "angularDirective": "<environment-rendering />",
+                        "singleton": true
+                      },
+                      "isClosable": false,
+                      "customOptionsDirective": "<environment-rendering-options/>",
+                      "pwidth": 800,
+                      "pheight": 600,
+                      "reorderEnabled": true
                     }
                   ]
                 },
@@ -786,7 +766,7 @@
                   "title": "",
                   "activeItemIndex": 0,
                   "height": 100,
-                  "width": 39.63227703035701,
+                  "width": 33.33333333333333,
                   "content": [
                     {
                       "type": "component",

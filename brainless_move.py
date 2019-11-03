@@ -1,9 +1,9 @@
 import hbp_nrp_cle.tf_framework as nrp
 from hbp_nrp_cle.robotsim.RobotInterface import Topic
 import geometry_msgs.msg 
-from gazebo_msgs.srv import SetModelState, GetModelState
+from gazebo_msgs.srv import SetModelState, GetModelState, SetVisualProperties
 from gazebo_msgs.msg import ContactsState, ModelStates
-import rospy 
+import rospy
 import sys
 from cv_bridge import CvBridge
 import cv2
@@ -11,7 +11,9 @@ import numpy as np
 import math
 import logging 
 
-rospy.wait_for_service("/gazebo/set_model_state")
+
+rospy.wait_for_service('/gazebo/set_visual_properties', 1)
+set_visual_props = rospy.ServiceProxy('/gazebo/set_visual_properties', SetVisualProperties, persistent=True)
 service_proxy_set_state = rospy.ServiceProxy('/gazebo/set_model_state', SetModelState, persistent=True)
 @nrp.MapRobotSubscriber('contacts', Topic('/gazebo/contact_point_data', ContactsState))
 @nrp.MapRobotSubscriber("position", Topic('/gazebo/model_states', gazebo_msgs.msg.ModelStates))
@@ -19,23 +21,27 @@ service_proxy_set_state = rospy.ServiceProxy('/gazebo/set_model_state', SetModel
 @nrp.MapVariable("init_distance_to_left_landmark", global_key="init_distance_to_left_landmark", initial_value=None)
 @nrp.MapVariable("init_distance_to_right_landmark", global_key="init_distance_to_right_landmark", initial_value=None)
 @nrp.MapVariable("set_model_state_srv", initial_value=service_proxy_set_state)
-
+@nrp.MapVariable("initial_model_state", global_key="initial_model_state", initial_value=None)
+@nrp.MapVariable("set_visual_properties", initial_value=set_visual_props)
 @nrp.Neuron2Robot(Topic('/husky/husky/cmd_vel', geometry_msgs.msg.Twist))
-def brainless_move(t, camera, position, set_model_state_srv, contacts,
-                   init_distance_to_left_landmark, init_distance_to_right_landmark):   
+def brainless_move(t, camera, position, set_model_state_srv, contacts, initial_model_state,
+                   init_distance_to_left_landmark, init_distance_to_right_landmark, set_visual_properties):   
     import math
     import random
     import Limbic_system
     from helper import Results, Coordinates, detect_white
     from hbp_nrp_cle.tf_framework.tf_lib import detect_red
+    import inspect
+    import os
 
-    # centre coordinates of landmarks
-    GREEN_PLACEFIELD_POS = (-2.5, -1.9, 0.03)
-    BLUE_PLACEFIELD_POS = (-2.5, 1.95, 0.03)
-    LEFT_SPHERE_POS  = (-2.595, -2.085, 0.225)
-    RIGHT_SPHERE_POS = (-2.5, 1.9, 0.4)
-    PLACEFIELD_LENGTH = 2.0
+    # centre coordinates of field areas
+    GREEN_PLACEFIELD_POS = (-6.5, -4.7, 0.03)
+    BLUE_PLACEFIELD_POS = (-6.5, 4.7, 0.03)
+    LEFT_SPHERE_POS  = (-7.4, -6.3, 0.225)
+    RIGHT_SPHERE_POS = (-7.2, 5.2, 0.4)
+    PLACEFIELD_LENGTH = 5
     ROBOT_ID = 'husky'
+
 
     def get_position(object_name):
         return position.value.pose[position.value.name.index(object_name)].position
@@ -58,12 +64,8 @@ def brainless_move(t, camera, position, set_model_state_srv, contacts,
         return geometry_msgs.msg.Twist(linear=geometry_msgs.msg.Vector3(x=2, y=0.0, z=0.0), angular=geometry_msgs.msg.Vector3(x=0, y=0, z=angle_to_target)) 
 
 
-    def explore_left():
-        return geometry_msgs.msg.Twist(linear=geometry_msgs.msg.Vector3(x=2, y=0.0, z=0.0), angular=geometry_msgs.msg.Vector3(x=0, y=0, z=2)) 
-
-
-    def explore_right():
-        return geometry_msgs.msg.Twist(linear=geometry_msgs.msg.Vector3(x=2, y=0.0, z=0.0), angular=geometry_msgs.msg.Vector3(x=0, y=0, z=2))
+    def explore(direction):
+        return geometry_msgs.msg.Twist(linear=geometry_msgs.msg.Vector3(x=2, y=0.0, z=0.0), angular=geometry_msgs.msg.Vector3(x=0, y=0, z=direction)) 
 
 
     def move_to_colour(colour):
@@ -86,17 +88,20 @@ def brainless_move(t, camera, position, set_model_state_srv, contacts,
         return geometry_msgs.msg.Twist(linear=geometry_msgs.msg.Vector3(x=2, y=0.0, z=0.0), angular=geometry_msgs.msg.Vector3(x=0, y=0, z= 10 * angle_to_colour))  
 
 
-    def change_position(object_name, new_position, scale=1):
+    def reset_robot_position(new_position):
         ms_msg = gazebo_msgs.msg.ModelState()
         ms_msg.reference_frame = 'world'
-        ms_msg.model_name = object_name
-        ms_msg.scale.x = ms_msg.scale.y = ms_msg.scale.z = scale
+        ms_msg.model_name = ROBOT_ID
+        ms_msg.scale.x = ms_msg.scale.y = ms_msg.scale.z = 1
+        ms_msg.pose.orientation.x = 0
+        ms_msg.pose.orientation.y = 0
+        ms_msg.pose.orientation.z = 1
         ms_msg.pose.position = new_position
         response = set_model_state_srv.value(ms_msg)
         return response
 
-    
-    def hide_food(): 
+
+    def hide_food():
         sphere_position = position.value.pose[position.value.name.index('sphere_0')].position
         sphere_position.z = -1
         change_position('sphere_0', sphere_position, scale=0.2)
@@ -162,6 +167,10 @@ def brainless_move(t, camera, position, set_model_state_srv, contacts,
             return None 
 
 
+    if initial_model_state.value is None:
+        initial_model_state.value = position.value
+
+
     distance_to_right_landmark = 0
     distance_to_left_landmark  = 0
     norm_distance_to_left_landmark  = 0
@@ -190,17 +199,16 @@ def brainless_move(t, camera, position, set_model_state_srv, contacts,
     visual_reward_green = sees_reward_left(camera.value)
     visual_reward_blue  = sees_reward_right(camera.value)
 
-    clientLogger.info(reward,
-                      placefield_green,
-                      placefield_blue,
-                      touching_landmark_green,
-                      touching_landmark_blue,             
-                      sees_landmark_green,
-                      sees_landmark_blue,
-                      visual_reward_green,
-                      visual_reward_blue)
+    # clientLogger.info("INPUT : ", reward,
+    #                   placefield_green,
+    #                   placefield_blue,
+    #                   touching_landmark_green,
+    #                   touching_landmark_blue,             
+    #                   sees_landmark_green,
+    #                   sees_landmark_blue,
+    #                   visual_reward_green,
+    #                   visual_reward_blue)
 
-                        
     limbic_system = Limbic_system.Limbic_system()
     limbic_output = limbic_system.doStep(reward,
                         placefield_green,
@@ -212,5 +220,23 @@ def brainless_move(t, camera, position, set_model_state_srv, contacts,
                         visual_reward_green,
                         visual_reward_blue)
 
-    clientLogger.info(limbic_output)
-    return move_to_colour('white')
+    initial_robot_position = initial_model_state.value.pose[position.value.name.index(ROBOT_ID)].position
+
+    if (reward):
+        reset_robot_position(initial_robot_position)
+        try:
+            set_visual_properties.value(model_name='left_sphere', link_name='link',
+                                    visual_name='visual',
+                                    property_name='material:script:name',
+                                    property_value='Gazebo/White')
+        except:
+            clientLogger.info("ROSPY ERROR")
+
+
+    # if (limbic_output[0] == 0 and limbic_output[1] == 0):
+    #     direction = limbic_output[2] - limbic_output[3]
+    #     direction = min(2, direction*5)
+    #     return explore(direction)
+    # else: 
+    #     return move_to_colour('green')
+    return move_to_colour('green')

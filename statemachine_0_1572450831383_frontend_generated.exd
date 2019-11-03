@@ -1,0 +1,73 @@
+import hbp_nrp_excontrol.nrp_states as states
+from smach import StateMachine
+from hbp_nrp_excontrol.logs import clientLogger
+import smach
+import random
+import rospy
+import time 
+
+FINISHED = 'FINISHED'
+ERROR = 'ERROR'
+PREEMPTED = 'PREEMPTED'
+
+sm = StateMachine(outcomes=[FINISHED, ERROR, PREEMPTED])
+GREEN_FIELD = (-6.5, -4.7, 0.03)
+BLUE_FIELD  = (-6.5, 4.7, 0.03)
+PLACEFIELD_LENGTH = 5
+
+ROBOT_ID = 'husky'
+random_time = random.randint(0, 3)
+
+
+class Wait(smach.State):
+    def __init__(self):
+        smach.State.__init__(self,  outcomes=['valid','invalid', 'preempted'])  
+        self.initial_time = 0 
+        self.random_interval = random.randint(0, 3)
+        clientLogger.info(self.random_interval)
+    def execute(self, userdata):
+        if (self.initial_time == 0):
+            self.initial_time = time.time()
+        current_time = time.time()
+        time_diff = current_time - self.initial_time
+        if (time_diff < self.random_interval):
+            return 'valid'
+        else:
+            return 'invalid'
+
+with sm:
+    StateMachine.add(
+      "on_green_field",
+      states.RobotPoseMonitorState(ROBOT_ID, lambda _, p: not ((-9 < p.position.x < -4) and
+                                                  (-7.2 < p.position.y < -2.2) and
+                                                  (0 < p.position.z < 1))),
+      transitions={'valid': 'on_green_field',
+                    'invalid': 'wait_random_time',
+                    'preempted': PREEMPTED}                                                
+    )
+    StateMachine.add(
+      "wait_random_time",
+      Wait(),
+      transitions = {"valid": "wait_random_time",
+                     "invalid": "set_reward_red",
+                     "preempted": PREEMPTED}
+    )
+    StateMachine.add( 
+      "set_reward_red",
+      states.SetMaterialColorServiceState("left_sphere",
+                                          "link",
+                                          "visual",
+                                          "Gazebo/RedGlow"),
+      transitions = {"succeeded": 'wait_for_reset',
+                     "aborted": FINISHED,
+                     "preempted": "PREEMPTED"}
+    )
+    StateMachine.add(
+      "wait_for_reset",
+      states.RobotPoseMonitorState(ROBOT_ID, lambda _, p: (p.position.x > -2)),
+      transitions = {'valid': 'on_green_field',
+                     'invalid': 'wait_for_reset',
+                     'preempted': PREEMPTED}
+    )
+    
+

@@ -1,6 +1,4 @@
-<ns1:ExD 
-  xmlns:ns1="http://schemas.humanbrainproject.eu/SP10/2014/ExDConfig" 
-  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+<ns1:ExD xmlns:ns1="http://schemas.humanbrainproject.eu/SP10/2014/ExDConfig" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <ns1:name>brainless Braitenberg</ns1:name>
   <ns1:thumbnail>ExDXMLExample.jpg</ns1:thumbnail>
   <ns1:description>This experiment loads the Husky robot from Clearpath Robotics in the Holodeck environment.
@@ -10,17 +8,20 @@
         and change the color of both screens by clicking on them with the right mouse button.</ns1:description>
   <ns1:tags>husky robotics holodeck braitenberg</ns1:tags>
   <ns1:timeout>840.0</ns1:timeout>
-  <ns1:configuration src="ExDXMLExample.ini" type="3d-settings" />
-  <ns1:configuration src="brainvisualizer.json" type="brainvisualizer" />
-  <ns1:configuration src="ExDXMLExample.uis" type="user-interaction-settings" />
+  <ns1:configuration src="ExDXMLExample.ini" type="3d-settings"/>
+  <ns1:configuration src="brainvisualizer.json" type="brainvisualizer"/>
+  <ns1:configuration src="ExDXMLExample.uis" type="user-interaction-settings"/>
   <ns1:maturity>production</ns1:maturity>
   <ns1:environmentModel src="virtual_room.sdf">
-    <ns1:robotPose robotId="husky" x="0.0" y="0.0" z="0.5" roll="0.0" pitch="-0.0" yaw="3.14159265359" />
+    <ns1:robotPose robotId="husky" x="0.0" y="0.0" z="0.5" roll="0.0" pitch="-0.0" yaw="3.14159265359"/>
   </ns1:environmentModel>
-  <ns1:bibiConf src="bibi_configuration.bibi" />
+  <ns1:bibiConf src="bibi_configuration.bibi"/>
   <ns1:cameraPose>
-    <ns1:cameraPosition x="5.05682599437" y="-1.02109985416" z="2.69759875995" />
-    <ns1:cameraLookAt x="0.0" y="0.0" z="0.49999" />
+    <ns1:cameraPosition x="5.05682599437" y="-1.02109985416" z="2.69759875995"/>
+    <ns1:cameraLookAt x="0.0" y="0.0" z="0.49999"/>
   </ns1:cameraPose>
   <ns1:cloneDate>2019-08-30T09:03:43</ns1:cloneDate>
-</ns1:ExD>
+  <ns1:experimentControl>
+    <ns1:stateMachine id="statemachine_0_1572450831383_frontend_generated" src="statemachine_0_1572450831383_frontend_generated.exd" xsi:type="ns1:SMACHStateMachine"/>
+  </ns1:experimentControl>
+    </ns1:ExD>
