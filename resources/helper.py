@@ -33,7 +33,7 @@ def detect_white(image):
     right_image = 0 
     if not isinstance(image, type(None)):
         lower_threshold = np.array([0, 0, 252])
-        upper_threshold = np.array([0, 0, 255])
+        upper_threshold = np.array([45, 13, 255])
         cv_image = bridge.imgmsg_to_cv2(image, "rgb8")
         hsv_image = cv2.cvtColor(cv_image, cv2.COLOR_RGB2HSV)
         mask = cv2.inRange(hsv_image, lower_threshold, upper_threshold)

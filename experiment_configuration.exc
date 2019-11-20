@@ -24,4 +24,4 @@
   <ns1:experimentControl>
     <ns1:stateMachine id="statemachine_0_1572450831383_frontend_generated" src="statemachine_0_1572450831383_frontend_generated.exd" xsi:type="ns1:SMACHStateMachine"/>
   </ns1:experimentControl>
-    </ns1:ExD>
+</ns1:ExD>

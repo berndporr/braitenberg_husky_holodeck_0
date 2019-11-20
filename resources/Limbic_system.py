@@ -2,9 +2,9 @@ import Filter
 import random
 from enum import Enum
 import math 
-
+from hbp_nrp_excontrol.logs import clientLogger
 # which state for exploration
-class ExploreStates(Enum):
+class ExploreStates:
     EXPLORE_STRAIGHT = 0
     EXPLORE_LEFT = 1
     EXPLORE_RIGHT = 2
@@ -235,7 +235,7 @@ class Limbic_system:
         self.visual_reward_Green = _visual_reward_Green
         self.visual_reward_Blue = _visual_reward_Blue
 
-        # smooth out the visual stuff
+        # smooth out the visual stuf
         self.visual_direction_Green_trace = self.visual_direction_Green_mPFC_filter.filter(self.visual_direction_Green)
         self.visual_direction_Blue_trace = self.visual_direction_Blue_mPFC_filter.filter(self.visual_direction_Blue)
 
@@ -261,22 +261,22 @@ class Limbic_system:
             self.mPFC2CoreExploreLeft = 0.1
             self.mPFC2CoreExploreRight = 0
             if random.random() < 0.03:
-                self.exploreState = random.choice(list(ExploreStates))
+                self.exploreState = random.choice(range(0, 4))
         elif self.exploreState == ExploreStates.EXPLORE_RIGHT:
             self.mPFC2CoreExploreLeft = 0
             self.mPFC2CoreExploreRight = 0.1
             if random.random() < 0.03:
-                self.exploreState = random.choice(list(ExploreStates))
+                self.exploreState = random.choice(range(0, 4))
         elif self.exploreState == ExploreStates.EXPLORE_STOP:
             self.mPFC2CoreExploreLeft = 0
             self.mPFC2CoreExploreRight = 0
             if random.random() < 0.03:
-                self.exploreState = random.choice(list(ExploreStates))
+                self.exploreState = random.choice(range(0, 4))
         else:
             self.mPFC2CoreExploreLeft = 0.1
             self.mPFC2CoreExploreRight = 0.1
-            if random.random() <0.05:
-                self.exploreState = random.choice(list(ExploreStates))
+            if random.random() <0.5:
+                self.exploreState = random.choice(range(0, 4))
 
 
         try: HT5DEBUG
@@ -368,7 +368,7 @@ class Limbic_system:
         # we have two core units
         # if the Green is high then the rat approaches the Green marker
         self.CoreGreenOut= ( self.mPFC_Green * self.core_weight_lg2lg )
-    
+        
         # if the Blue is high then the rat approaches the Blue marker
         self.CoreBlueOut= ( self.mPFC_Blue * self.core_weight_dg2dg)
 
@@ -398,7 +398,7 @@ class Limbic_system:
         # logging();
 
         self.step = self.step + 1
-
+        
         return self.CoreBlueOut, self.CoreGreenOut, self.mPFC2CoreExploreLeft, self.mPFC2CoreExploreRight
 
 
@@ -432,7 +432,7 @@ def unit_test():
     core_w_green = []
     VTA = []
     core_out_green = []
-    
+
     for i in range(10000):
         # repeats every 2000 time steps
         epoch = i % 2000

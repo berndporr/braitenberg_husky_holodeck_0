@@ -60,13 +60,13 @@ with sm:
                                           "Gazebo/RedGlow"),
       transitions = {"succeeded": 'wait_for_reset',
                      "aborted": FINISHED,
-                     "preempted": "PREEMPTED"}
+                     "preempted": PREEMPTED}
     )
     StateMachine.add(
       "wait_for_reset",
-      states.RobotPoseMonitorState(ROBOT_ID, lambda _, p: (p.position.x > -2)),
-      transitions = {'valid': 'on_green_field',
-                     'invalid': 'wait_for_reset',
+      states.RobotPoseMonitorState(ROBOT_ID, lambda _, p: not (p.position.x > -2)),
+      transitions = {'valid': 'wait_for_reset',
+                     'invalid': 'on_green_field',
                      'preempted': PREEMPTED}
     )
     

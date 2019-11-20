@@ -11,3 +11,4 @@
 - ability to scale non primitive shapes would be useful. Currently I have been using the developer tools to remove the disabled property on the input box has worked as expected with some objects.
 - Having the option to duplicate on any object would be useful.
 - being able to group objects and move them together would be a good feature
+- currently, to see changes made in a resource, the whole container has to be restarted. 

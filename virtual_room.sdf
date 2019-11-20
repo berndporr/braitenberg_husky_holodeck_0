@@ -1906,10 +1906,10 @@
       <heading_deg>0</heading_deg>
     </spherical_coordinates>
     <state world_name="default">
-      <sim_time>57 79000000</sim_time>
+      <sim_time>68 240000000</sim_time>
       <real_time>0 0</real_time>
-      <wall_time>1572453059 772189944</wall_time>
-      <iterations>1</iterations>
+      <wall_time>1573431993 483490967</wall_time>
+      <iterations>11161</iterations>
       <model name="bench_0">
         <pose frame="">4.17734 5.69273 -0.280649 0 0 -1.60782</pose>
         <scale>1 1 1</scale>
@@ -2001,10 +2001,10 @@
         </link>
       </model>
       <model name="carpet_2">
-        <pose frame="">-1 -5.582 0.02 0 -0 0</pose>
+        <pose frame="">-1 -5.582 0 0 -0 0</pose>
         <scale>1 1 1</scale>
         <link name="carpetground::body">
-          <pose frame="">-1 -5.582 0.02 0 -0 0</pose>
+          <pose frame="">-1 -5.582 0 0 -0 0</pose>
           <velocity>0 0 0 0 -0 0</velocity>
           <acceleration>0 0 0 0 -0 0</acceleration>
           <wrench>0 0 0 0 -0 0</wrench>
