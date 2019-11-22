@@ -2,7 +2,8 @@ import Filter
 import random
 from enum import Enum
 import math 
-from hbp_nrp_excontrol.logs import clientLogger
+#from hbp_nrp_excontrol.logs import clientLogger
+
 # which state for exploration
 class ExploreStates:
     EXPLORE_STRAIGHT = 0
@@ -331,8 +332,8 @@ class Limbic_system:
         #		pfLg2OFC = pfLg2OFC * 0.999;
 
         # the dorsal raphe activity is driven by the OFC in a positive way
-        DRN = (self.LH + self.OFC * 4) / (1+self.RMTg * self.shunting_inhibition_factor + self.DRN_SUPPRESSION) + self.DRN_OFFSET
-
+        self.DRN = (self.LH + self.OFC * 4) / (1+self.RMTg * self.shunting_inhibition_factor + self.DRN_SUPPRESSION) + self.DRN_OFFSET
+ 
         # lateral shell activity
         # the place field feeds into the Nacc shell for the time being.
         self.lShell = self.placefieldGreen * self.lShell_weight_pflg + self.placefieldBlue * self.lShell_weight_pfdg

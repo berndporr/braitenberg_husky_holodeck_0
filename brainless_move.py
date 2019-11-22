@@ -48,6 +48,7 @@ def brainless_move(t, camera, position, set_model_state_srv, contacts, limbic_sy
     RIGHT_SPHERE_POS = (-7, 5, 0.5)
     PLACEFIELD_LENGTH = 5
     ROBOT_ID = 'husky'
+    SPEED_FACTOR = 4
 
 
     def get_position(object_name):
@@ -89,15 +90,13 @@ def brainless_move(t, camera, position, set_model_state_srv, contacts, limbic_sy
                 direction = -3
             elif (current_angle > target_angle + 0.5):
                 direction = 0
-
             else:
                 direction = 3
-
-        return geometry_msgs.msg.Twist(linear=geometry_msgs.msg.Vector3(x=1, y=0.0, z=0.0), angular=geometry_msgs.msg.Vector3(x=0, y=0, z=direction))
+        return geometry_msgs.msg.Twist(linear=geometry_msgs.msg.Vector3(x=SPEED_FACTOR, y=0.0, z=0.0), angular=geometry_msgs.msg.Vector3(x=0, y=0, z=direction))
 
             
     def explore(direction, speed=0.5):
-        return geometry_msgs.msg.Twist(linear=geometry_msgs.msg.Vector3(x=speed, y=0.0, z=0.0), angular=geometry_msgs.msg.Vector3(x=0, y=0, z=direction)) 
+        return geometry_msgs.msg.Twist(linear=geometry_msgs.msg.Vector3(x=speed*SPEED_FACTOR, y=0.0, z=0.0), angular=geometry_msgs.msg.Vector3(x=0, y=0, z=direction*2)) 
 
 
     def move_to_colour(colour, speed=1):
@@ -117,7 +116,7 @@ def brainless_move(t, camera, position, set_model_state_srv, contacts, limbic_sy
         position = tf.find_centroid_hsv(camera.value, lower_threshold, upper_threshold) or (160, 120)
         azimuth, elevation = tf.cam.pixel2angle(position[0], position[1]) 
         angle_to_colour = float(azimuth) * math.pi / 180
-        return geometry_msgs.msg.Twist(linear=geometry_msgs.msg.Vector3(x=speed, y=0.0, z=0.0), angular=geometry_msgs.msg.Vector3(x=0, y=0, z= 10 * angle_to_colour))  
+        return geometry_msgs.msg.Twist(linear=geometry_msgs.msg.Vector3(x=speed*SPEED_FACTOR, y=0.0, z=0.0), angular=geometry_msgs.msg.Vector3(x=0, y=0, z= 10 * angle_to_colour))  
 
 
     def reset_robot_position(new_position):
@@ -177,8 +176,8 @@ def brainless_move(t, camera, position, set_model_state_srv, contacts, limbic_sy
 
     def collision():
         for collision in contacts.value.states:
-            return bool(re.search("box_[0,1,3,4]|high_concrete_wall", collision.collision1_name) or 
-                        re.search("box_[0,1,3,4]|high_concrete_wall", collision.collision2_name))
+            return bool(re.search("box_[0,1,3,4]|high_concrete_wall|right_sphere", collision.collision1_name) or 
+                        re.search("box_[0,1,3,4]|high_concrete_wall|right_sphere", collision.collision2_name))
 
 
     def got_reward():
@@ -281,8 +280,9 @@ def brainless_move(t, camera, position, set_model_state_srv, contacts, limbic_sy
 
     if reward:
         reset_robot_position(initial_robot_position)
+        reset_reward()
         
-    clientLogger.info("OUTPUT: ", limbic_output)
+    # clientLogger.info("OUTPUT: ", limbic_output)
     if collision():
         reset_robot_position(initial_robot_position)
         reset_reward()

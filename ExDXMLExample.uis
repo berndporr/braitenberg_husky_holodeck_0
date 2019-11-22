@@ -642,45 +642,79 @@
       },
       "content": [
         {
-          "type": "row",
+          "type": "column",
           "isClosable": true,
           "reorderEnabled": true,
           "title": "",
-          "width": 75,
-          "height": 66.66666666666667,
+          "width": 25,
           "content": [
             {
-              "type": "column",
+              "type": "row",
               "isClosable": true,
               "reorderEnabled": true,
               "title": "",
-              "width": 31.01777059773829,
+              "height": 61.8421052631579,
+              "width": 57.142857142857146,
               "content": [
                 {
-                  "type": "stack",
-                  "header": {},
+                  "type": "row",
                   "isClosable": true,
                   "reorderEnabled": true,
                   "title": "",
-                  "activeItemIndex": 0,
-                  "width": 44.653179190751445,
-                  "height": 42.857142857142854,
+                  "width": 82.3529411764706,
                   "content": [
                     {
-                      "type": "component",
-                      "title": "Environment Rendering",
-                      "id": "environment-rendering",
-                      "componentName": "angularModuleComponent",
-                      "componentState": {
-                        "module": "environmentRenderingModule",
-                        "angularDirective": "<environment-rendering />",
-                        "singleton": true
-                      },
-                      "isClosable": false,
-                      "customOptionsDirective": "<environment-rendering-options/>",
-                      "pwidth": 800,
-                      "pheight": 600,
-                      "reorderEnabled": true
+                      "type": "stack",
+                      "header": {},
+                      "isClosable": true,
+                      "reorderEnabled": true,
+                      "title": "",
+                      "activeItemIndex": 0,
+                      "width": 57.14285714285714,
+                      "height": 42.857142857142854,
+                      "content": [
+                        {
+                          "type": "component",
+                          "title": "Environment Rendering",
+                          "id": "environment-rendering",
+                          "componentName": "angularModuleComponent",
+                          "componentState": {
+                            "module": "environmentRenderingModule",
+                            "angularDirective": "<environment-rendering />",
+                            "singleton": true
+                          },
+                          "isClosable": false,
+                          "customOptionsDirective": "<environment-rendering-options/>",
+                          "pwidth": 800,
+                          "pheight": 600,
+                          "reorderEnabled": true
+                        }
+                      ]
+                    },
+                    {
+                      "type": "stack",
+                      "isClosable": true,
+                      "reorderEnabled": true,
+                      "title": "",
+                      "activeItemIndex": 0,
+                      "width": 42.857142857142854,
+                      "content": [
+                        {
+                          "type": "component",
+                          "title": "Object Library",
+                          "id": "environment-designer",
+                          "componentName": "angularModuleComponent",
+                          "componentState": {
+                            "module": "exdFrontendApp",
+                            "angularDirective": "<environment-designer />",
+                            "singleton": true
+                          },
+                          "pwidth": 600,
+                          "pheight": 800,
+                          "isClosable": true,
+                          "reorderEnabled": true
+                        }
+                      ]
                     }
                   ]
                 },
@@ -690,8 +724,42 @@
                   "reorderEnabled": true,
                   "title": "",
                   "activeItemIndex": 0,
-                  "height": 57.14285714285714,
-                  "width": 100,
+                  "width": 17.647058823529413,
+                  "content": [
+                    {
+                      "type": "component",
+                      "title": "Object Inspector",
+                      "id": "object-inspector",
+                      "componentName": "angularModuleComponent",
+                      "componentState": {
+                        "module": "exdFrontendApp",
+                        "angularDirective": "<object-inspector />",
+                        "singleton": true
+                      },
+                      "pwidth": 300,
+                      "pheight": 800,
+                      "isClosable": true,
+                      "reorderEnabled": true
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "row",
+              "isClosable": true,
+              "reorderEnabled": true,
+              "title": "",
+              "height": 38.1578947368421,
+              "content": [
+                {
+                  "type": "stack",
+                  "isClosable": true,
+                  "reorderEnabled": true,
+                  "title": "",
+                  "activeItemIndex": 0,
+                  "height": 37.71929824561403,
+                  "width": 25,
                   "content": [
                     {
                       "type": "component",
@@ -709,76 +777,6 @@
                       "reorderEnabled": true
                     }
                   ]
-                }
-              ]
-            },
-            {
-              "type": "row",
-              "isClosable": true,
-              "reorderEnabled": true,
-              "title": "",
-              "width": 68.98222940226171,
-              "height": 43.75,
-              "content": [
-                {
-                  "type": "column",
-                  "isClosable": true,
-                  "reorderEnabled": true,
-                  "title": "",
-                  "width": 73.77049180327869,
-                  "content": [
-                    {
-                      "type": "stack",
-                      "isClosable": true,
-                      "reorderEnabled": true,
-                      "title": "",
-                      "activeItemIndex": 0,
-                      "width": 75,
-                      "height": 43.75,
-                      "content": [
-                        {
-                          "type": "component",
-                          "title": "TF Editor",
-                          "id": "transfer-function-editor",
-                          "componentName": "angularModuleComponent",
-                          "componentState": {
-                            "module": "exdFrontendApp",
-                            "angularDirective": "<transfer-function-editor />",
-                            "singleton": true
-                          },
-                          "pwidth": 900,
-                          "pheight": 700,
-                          "isClosable": true,
-                          "reorderEnabled": true
-                        }
-                      ]
-                    },
-                    {
-                      "type": "stack",
-                      "isClosable": true,
-                      "reorderEnabled": true,
-                      "title": "",
-                      "activeItemIndex": 0,
-                      "height": 56.25,
-                      "content": [
-                        {
-                          "type": "component",
-                          "title": "Smach Editor",
-                          "id": "smach-editor",
-                          "componentName": "angularModuleComponent",
-                          "componentState": {
-                            "module": "exdFrontendApp",
-                            "angularDirective": "<smach-editor />",
-                            "singleton": true
-                          },
-                          "pwidth": 800,
-                          "pheight": 900,
-                          "isClosable": true,
-                          "reorderEnabled": true
-                        }
-                      ]
-                    }
-                  ]
                 },
                 {
                   "type": "stack",
@@ -786,20 +784,20 @@
                   "reorderEnabled": true,
                   "title": "",
                   "activeItemIndex": 0,
-                  "width": 26.229508196721312,
+                  "width": 75,
                   "content": [
                     {
                       "type": "component",
-                      "title": "Object Inspector",
-                      "id": "object-inspector",
+                      "title": "TF Editor",
+                      "id": "transfer-function-editor",
                       "componentName": "angularModuleComponent",
                       "componentState": {
                         "module": "exdFrontendApp",
-                        "angularDirective": "<object-inspector />",
+                        "angularDirective": "<transfer-function-editor />",
                         "singleton": true
                       },
-                      "pwidth": 300,
-                      "pheight": 800,
+                      "pwidth": 900,
+                      "pheight": 700,
                       "isClosable": true,
                       "reorderEnabled": true
                     }

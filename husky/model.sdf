@@ -3,7 +3,7 @@
   <model name="husky">
     <!-- old values left for reference -->
     <!--pose>0 0 .5 0 0 0</pose-->
-    <pose>0 0 0 0 0 0</pose>
+    <pose>-1.5 0 0 0 0 0</pose>
     <!-- Main Chassis -->
     <link name="base_link">
       <!-- Physics -->

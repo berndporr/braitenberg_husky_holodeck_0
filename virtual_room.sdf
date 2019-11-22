@@ -1906,10 +1906,10 @@
       <heading_deg>0</heading_deg>
     </spherical_coordinates>
     <state world_name="default">
-      <sim_time>68 240000000</sim_time>
+      <sim_time>140 382000000</sim_time>
       <real_time>0 0</real_time>
-      <wall_time>1573431993 483490967</wall_time>
-      <iterations>11161</iterations>
+      <wall_time>1574355722 362794057</wall_time>
+      <iterations>1</iterations>
       <model name="bench_0">
         <pose frame="">4.17734 5.69273 -0.280649 0 0 -1.60782</pose>
         <scale>1 1 1</scale>
@@ -2538,7 +2538,7 @@
         </visual>
         <self_collide>0</self_collide>
         <kinematic>0</kinematic>
-        <gravity>1</gravity>
+        <gravity>0</gravity>
       </link>
     </model>
     <light name="directional_light_0" type="directional">
