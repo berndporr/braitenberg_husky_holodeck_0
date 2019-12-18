@@ -1,6 +1,7 @@
 import hbp_nrp_excontrol.nrp_states as states
 from smach import StateMachine
 from hbp_nrp_excontrol.logs import clientLogger
+from std_msgs.msg import String
 import smach
 import random
 import rospy
@@ -20,6 +21,7 @@ random_time = random.randint(0, 3)
 
 
 class Wait(smach.State):
+
     def __init__(self):
         smach.State.__init__(self,  outcomes=['valid','invalid', 'preempted'])  
         self.initial_time = 0 
@@ -34,6 +36,25 @@ class Wait(smach.State):
             return 'valid'
         else:
             return 'invalid'
+
+class WaitForRosMsg(smach.State): 
+    
+    def __init__(self, matchString):
+        smach.State.__init__(self,  outcomes=['valid','invalid', 'preempted'])  
+        self.matchString = matchString
+        self.match = False
+
+    def callback(self, ros_msg):
+        if (self.matchString in ros_msg.data):
+            self.match = True
+
+    def execute(self, userdata): 
+        rospy.Subscriber('state_msg', String, self.callback)
+        if self.match:
+            clientLogger.info("STATE MACHINE: STRINGS MATCH")
+            return 'valid'
+        clientLogger.info("State Machine: NO MATCH")
+        return 'invalid'
 
 with sm:
     StateMachine.add(
@@ -66,8 +87,56 @@ with sm:
       "wait_for_reset",
       states.RobotPoseMonitorState(ROBOT_ID, lambda _, p: not (p.position.x > -2)),
       transitions = {'valid': 'wait_for_reset',
-                     'invalid': 'on_green_field',
+                     'invalid': 'check_for_reversal',
                      'preempted': PREEMPTED}
     )
-    
+    StateMachine.add(
+      "check_for_reversal",
+      WaitForRosMsg('Start Reversal'),
+      transitions = {"valid": "start_reversal",
+                  "invalid": "on_green_field",
+                  "preempted": PREEMPTED}
+      )
 
+################################# START REVERSAL ##########################################
+
+    StateMachine.add(
+      "start_reversal",
+      states.ClientLogState("STATE MACHINE: Starting Reversal"),
+      transitions = {'succeeded': 'on_blue_field',
+                     'aborted': ERROR}
+    )
+
+    StateMachine.add(
+      "on_blue_field",
+      states.RobotPoseMonitorState(ROBOT_ID, lambda _, p: not ((-9 < p.position.x < -4) and
+                                                  (2.2 < p.position.y < 7.2) and
+                                                  (0 < p.position.z < 1))),
+      transitions={'valid': 'reversal_wait_random_time',
+                    'invalid': 'reversal_wait_random_time',
+                    'preempted': PREEMPTED}                                                
+    )
+    StateMachine.add(
+      "reversal_wait_random_time",
+      Wait(),
+      transitions={'valid': 'reversal_wait_random_time',
+                   'invalid': 'reversal_set_reward_red',
+                   'preempted': PREEMPTED}
+    )
+    StateMachine.add(
+      "reversal_set_reward_red",
+      states.SetMaterialColorServiceState("right_sphere",
+                                          "link",
+                                          "visual",
+                                          "Gazebo/RedGlow"),
+      transitions = {"succeeded": 'reversal_wait_for_reset',
+                     "aborted": FINISHED,
+                     "preempted": PREEMPTED}
+    )
+    StateMachine.add(
+      "reversal_wait_for_reset",
+      states.RobotPoseMonitorState(ROBOT_ID, lambda _, p: not (p.position.x > -2)),
+      transitions = {'valid': 'reversal_wait_for_reset',
+                     'invalid': 'on_blue_field',
+                     'preempted': PREEMPTED}
+    )

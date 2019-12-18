@@ -41,6 +41,7 @@
         <kinematic>0</kinematic>
         <gravity>1</gravity>
         <pose frame="">0 0 0 0 -0 0</pose>
+        <enable_wind>0</enable_wind>
       </link>
       <pose frame="">-5.46911 -2.30918 4.02082 0 -0 1.5708</pose>
     </model>
@@ -85,6 +86,7 @@
         <kinematic>0</kinematic>
         <gravity>1</gravity>
         <pose frame="">0 0 0 0 -0 0</pose>
+        <enable_wind>0</enable_wind>
       </link>
       <pose frame="">-5.46911 -4.31171 4.02082 0 -0 1.5708</pose>
     </model>
@@ -129,6 +131,7 @@
         <kinematic>0</kinematic>
         <gravity>1</gravity>
         <pose frame="">0 0 0 0 -0 0</pose>
+        <enable_wind>0</enable_wind>
       </link>
       <pose frame="">-4.343 -7.533 3.968 0 0 -3.14159</pose>
     </model>
@@ -173,6 +176,7 @@
         <kinematic>0</kinematic>
         <gravity>1</gravity>
         <pose frame="">0 0 0 0 -0 0</pose>
+        <enable_wind>0</enable_wind>
       </link>
       <pose frame="">3.657 -7.533 3.968 0 0 -3.14159</pose>
     </model>
@@ -217,6 +221,7 @@
         <kinematic>0</kinematic>
         <gravity>1</gravity>
         <pose frame="">0 0 0 0 -0 0</pose>
+        <enable_wind>0</enable_wind>
       </link>
       <pose frame="">5.657 -7.533 3.968 0 0 -3.14159</pose>
     </model>
@@ -261,6 +266,7 @@
         <kinematic>0</kinematic>
         <gravity>1</gravity>
         <pose frame="">0 0 0 0 -0 0</pose>
+        <enable_wind>0</enable_wind>
       </link>
       <pose frame="">6.748 3.697 2 0 -0 1.5708</pose>
     </model>
@@ -305,6 +311,7 @@
         <kinematic>0</kinematic>
         <gravity>1</gravity>
         <pose frame="">0 0 0 0 -0 0</pose>
+        <enable_wind>0</enable_wind>
       </link>
       <pose frame="">6.748 3.697 3.977 0 -0 1.5708</pose>
     </model>
@@ -350,6 +357,7 @@
         <kinematic>0</kinematic>
         <gravity>1</gravity>
         <pose frame="">0 0 0 0 -0 0</pose>
+        <enable_wind>0</enable_wind>
       </link>
       <pose frame="">-4.36935 1.01034 -0.280649 0 -0 0</pose>
     </model>
@@ -395,6 +403,7 @@
         <kinematic>0</kinematic>
         <gravity>1</gravity>
         <pose frame="">0 0 0 0 -0 0</pose>
+        <enable_wind>0</enable_wind>
       </link>
       <pose frame="">3.90716 -6.09161 0.018804 0 -0 0</pose>
     </model>
@@ -440,6 +449,7 @@
         <kinematic>0</kinematic>
         <gravity>1</gravity>
         <pose frame="">0 0 0 0 -0 0</pose>
+        <enable_wind>0</enable_wind>
       </link>
       <pose frame="">6.732 -2.29658 4.026 0 -0 1.5708</pose>
     </model>
@@ -485,6 +495,7 @@
         <kinematic>0</kinematic>
         <gravity>1</gravity>
         <pose frame="">0 0 0 0 -0 0</pose>
+        <enable_wind>0</enable_wind>
       </link>
       <pose frame="">6.732 -4.29891 4.026 0 -0 1.5708</pose>
     </model>
@@ -525,6 +536,7 @@
         <self_collide>1</self_collide>
         <kinematic>0</kinematic>
         <gravity>1</gravity>
+        <enable_wind>0</enable_wind>
       </link>
       <pose frame="">0 0 0 0 -0 0</pose>
     </model>
@@ -570,6 +582,7 @@
         <kinematic>0</kinematic>
         <gravity>1</gravity>
         <pose frame="">0 0 0 0 -0 0</pose>
+        <enable_wind>0</enable_wind>
       </link>
       <pose frame="">6.65107 4.82045 0.019561 0 -0 0</pose>
     </model>
@@ -615,6 +628,7 @@
         <kinematic>0</kinematic>
         <gravity>1</gravity>
         <pose frame="">0 0 0 0 -0 0</pose>
+        <enable_wind>0</enable_wind>
       </link>
       <pose frame="">4.0505 -6.35426 0.944646 0 0 -1.5708</pose>
     </model>
@@ -660,6 +674,7 @@
         <kinematic>0</kinematic>
         <gravity>1</gravity>
         <pose frame="">0 0 0 0 -0 0</pose>
+        <enable_wind>0</enable_wind>
       </link>
       <pose frame="">6.732 -0.287 4.026 0 -0 1.5708</pose>
     </model>
@@ -705,6 +720,7 @@
         <kinematic>0</kinematic>
         <gravity>1</gravity>
         <pose frame="">0 0 0 0 -0 0</pose>
+        <enable_wind>0</enable_wind>
       </link>
       <pose frame="">-0.343 -7.52824 3.9729 0 -0 0</pose>
     </model>
@@ -750,6 +766,7 @@
         <kinematic>0</kinematic>
         <gravity>1</gravity>
         <pose frame="">0 0 0 0 -0 0</pose>
+        <enable_wind>0</enable_wind>
       </link>
       <pose frame="">1.657 -7.52824 3.9729 0 -0 0</pose>
     </model>
@@ -795,6 +812,7 @@
         <kinematic>0</kinematic>
         <gravity>1</gravity>
         <pose frame="">0 0 0 0 -0 0</pose>
+        <enable_wind>0</enable_wind>
       </link>
       <pose frame="">-2.343 -7.52824 3.9729 0 -0 0</pose>
     </model>
@@ -840,6 +858,7 @@
         <kinematic>0</kinematic>
         <gravity>1</gravity>
         <pose frame="">0 0 0 0 -0 0</pose>
+        <enable_wind>0</enable_wind>
       </link>
       <pose frame="">-5.4732 -0.287088 4.02572 0 0 -1.5708</pose>
     </model>
@@ -885,6 +904,7 @@
         <kinematic>0</kinematic>
         <gravity>1</gravity>
         <pose frame="">0 0 0 0 -0 0</pose>
+        <enable_wind>0</enable_wind>
       </link>
       <pose frame="">-5.4732 1.71291 4.02572 0 0 -1.5708</pose>
     </model>
@@ -904,6 +924,7 @@
         <self_collide>0</self_collide>
         <kinematic>0</kinematic>
         <gravity>1</gravity>
+        <enable_wind>0</enable_wind>
       </link>
       <pose frame="">-5.27605 -0.322974 1.92915 0 -0 0</pose>
     </model>
@@ -949,6 +970,7 @@
         <kinematic>0</kinematic>
         <gravity>1</gravity>
         <pose frame="">0 0 0 0 -0 0</pose>
+        <enable_wind>0</enable_wind>
       </link>
       <pose frame="">-5.35088 4.37792 0.019561 0 -0 0</pose>
     </model>
@@ -994,6 +1016,7 @@
         <kinematic>0</kinematic>
         <gravity>1</gravity>
         <pose frame="">0 0 0 0 -0 0</pose>
+        <enable_wind>0</enable_wind>
       </link>
       <pose frame="">6.65107 -7.53909 0.019561 0 -0 0</pose>
     </model>
@@ -1039,6 +1062,7 @@
         <kinematic>0</kinematic>
         <gravity>1</gravity>
         <pose frame="">0 0 0 0 -0 0</pose>
+        <enable_wind>0</enable_wind>
       </link>
       <pose frame="">-1.19702 -6.30912 -0.074259 0 -0 2.62634</pose>
     </model>
@@ -1084,6 +1108,7 @@
         <kinematic>0</kinematic>
         <gravity>1</gravity>
         <pose frame="">0 0 0 0 -0 0</pose>
+        <enable_wind>0</enable_wind>
       </link>
       <pose frame="">6.73181 1.697 4.02572 0 -0 1.5708</pose>
     </model>
@@ -1128,6 +1153,7 @@
         <kinematic>0</kinematic>
         <gravity>1</gravity>
         <pose frame="">0 0 0 0 -0 0</pose>
+        <enable_wind>0</enable_wind>
       </link>
       <pose frame="">3.65669 -7.53299 0.00977 0 -0 0</pose>
     </model>
@@ -1172,6 +1198,7 @@
         <kinematic>0</kinematic>
         <gravity>1</gravity>
         <pose frame="">0 0 0 0 -0 0</pose>
+        <enable_wind>0</enable_wind>
       </link>
       <pose frame="">5.65775 -7.53299 0.00977 0 -0 0</pose>
     </model>
@@ -1216,6 +1243,7 @@
         <kinematic>0</kinematic>
         <gravity>1</gravity>
         <pose frame="">0 0 0 0 -0 0</pose>
+        <enable_wind>0</enable_wind>
       </link>
       <pose frame="">-4.34331 -7.53299 0.00977 0 -0 0</pose>
     </model>
@@ -1261,6 +1289,7 @@
         <kinematic>0</kinematic>
         <gravity>1</gravity>
         <pose frame="">0 0 0 0 -0 0</pose>
+        <enable_wind>0</enable_wind>
       </link>
       <pose frame="">-0.34331 -7.4879 0.019561 0 -0 0</pose>
     </model>
@@ -1306,6 +1335,7 @@
         <kinematic>0</kinematic>
         <gravity>1</gravity>
         <pose frame="">0 0 0 0 -0 0</pose>
+        <enable_wind>0</enable_wind>
       </link>
       <pose frame="">-2.34331 -7.4879 0.019561 0 -0 0</pose>
     </model>
@@ -1351,6 +1381,7 @@
         <kinematic>0</kinematic>
         <gravity>1</gravity>
         <pose frame="">0 0 0 0 -0 0</pose>
+        <enable_wind>0</enable_wind>
       </link>
       <pose frame="">1.65669 -7.4879 0.019561 0 -0 0</pose>
     </model>
@@ -1396,6 +1427,7 @@
         <kinematic>0</kinematic>
         <gravity>1</gravity>
         <pose frame="">0 0 0 0 -0 0</pose>
+        <enable_wind>0</enable_wind>
       </link>
       <pose frame="">6.74039 -2.29538 0.019561 0 -0 1.5708</pose>
     </model>
@@ -1441,6 +1473,7 @@
         <kinematic>0</kinematic>
         <gravity>1</gravity>
         <pose frame="">0 0 0 0 -0 0</pose>
+        <enable_wind>0</enable_wind>
       </link>
       <pose frame="">6.74 1.705 0.02 0 -0 1.5708</pose>
     </model>
@@ -1486,6 +1519,7 @@
         <kinematic>0</kinematic>
         <gravity>1</gravity>
         <pose frame="">0 0 0 0 -0 0</pose>
+        <enable_wind>0</enable_wind>
       </link>
       <pose frame="">6.74 -0.295 0.02 0 -0 1.5708</pose>
     </model>
@@ -1531,6 +1565,7 @@
         <kinematic>0</kinematic>
         <gravity>1</gravity>
         <pose frame="">0 0 0 0 -0 0</pose>
+        <enable_wind>0</enable_wind>
       </link>
       <pose frame="">6.74039 -4.29539 0.019561 0 -0 1.5708</pose>
     </model>
@@ -1571,6 +1606,7 @@
         <self_collide>0</self_collide>
         <kinematic>0</kinematic>
         <gravity>1</gravity>
+        <enable_wind>0</enable_wind>
       </link>
       <pose frame="">0 0 0.02 0 -0 0</pose>
     </model>
@@ -1616,6 +1652,7 @@
         <kinematic>0</kinematic>
         <gravity>1</gravity>
         <pose frame="">0 0 0 0 -0 0</pose>
+        <enable_wind>0</enable_wind>
       </link>
       <pose frame="">-5.21683 -7.3505 0.019561 0 -0 0</pose>
     </model>
@@ -1660,6 +1697,7 @@
         <kinematic>0</kinematic>
         <gravity>1</gravity>
         <pose frame="">0 0 0 0 -0 0</pose>
+        <enable_wind>0</enable_wind>
       </link>
       <pose frame="">6.74826 -6.31669 0 0 -0 1.5708</pose>
     </model>
@@ -1704,6 +1742,7 @@
         <kinematic>0</kinematic>
         <gravity>1</gravity>
         <pose frame="">0 0 0 0 -0 0</pose>
+        <enable_wind>0</enable_wind>
       </link>
       <pose frame="">6.748 -6.317 2 0 -0 1.5708</pose>
     </model>
@@ -1749,6 +1788,7 @@
         <kinematic>0</kinematic>
         <gravity>1</gravity>
         <pose frame="">0 0 0 0 -0 0</pose>
+        <enable_wind>0</enable_wind>
       </link>
       <pose frame="">-5.47636 -3.31669 0 0 -0 1.5708</pose>
     </model>
@@ -1794,6 +1834,7 @@
         <kinematic>0</kinematic>
         <gravity>1</gravity>
         <pose frame="">0 0 0 0 -0 0</pose>
+        <enable_wind>0</enable_wind>
       </link>
       <pose frame="">4.16044 -4.45334 0.013045 0 0 -0.585731</pose>
     </model>
@@ -1838,6 +1879,7 @@
         <kinematic>0</kinematic>
         <gravity>1</gravity>
         <pose frame="">0 0 0 0 -0 0</pose>
+        <enable_wind>0</enable_wind>
       </link>
       <pose frame="">6.748 -6.317 3.977 0 -0 1.5708</pose>
     </model>
@@ -1882,6 +1924,7 @@
         <kinematic>0</kinematic>
         <gravity>1</gravity>
         <pose frame="">0 0 0 0 -0 0</pose>
+        <enable_wind>0</enable_wind>
       </link>
       <pose frame="">6.74826 3.69705 0 0 -0 1.5708</pose>
     </model>
@@ -1906,10 +1949,10 @@
       <heading_deg>0</heading_deg>
     </spherical_coordinates>
     <state world_name="default">
-      <sim_time>140 382000000</sim_time>
+      <sim_time>186 583000000</sim_time>
       <real_time>0 0</real_time>
-      <wall_time>1574355722 362794057</wall_time>
-      <iterations>1</iterations>
+      <wall_time>1574612089 121538355</wall_time>
+      <iterations>46201</iterations>
       <model name="bench_0">
         <pose frame="">4.17734 5.69273 -0.280649 0 0 -1.60782</pose>
         <scale>1 1 1</scale>
@@ -2539,7 +2582,9 @@
         <self_collide>0</self_collide>
         <kinematic>0</kinematic>
         <gravity>0</gravity>
+        <enable_wind>0</enable_wind>
       </link>
+      <enable_wind>0</enable_wind>
     </model>
     <light name="directional_light_0" type="directional">
       <pose frame="">-2.94987 0.118216 4.2439 0 -0 0</pose>
@@ -2616,6 +2661,7 @@
         <self_collide>0</self_collide>
         <kinematic>0</kinematic>
         <gravity>1</gravity>
+        <enable_wind>0</enable_wind>
       </link>
     </model>
     <model name="box_0">
@@ -2670,6 +2716,7 @@
         <self_collide>0</self_collide>
         <kinematic>0</kinematic>
         <gravity>1</gravity>
+        <enable_wind>0</enable_wind>
       </link>
     </model>
     <model name="box_1">
@@ -2724,6 +2771,7 @@
         <self_collide>0</self_collide>
         <kinematic>0</kinematic>
         <gravity>1</gravity>
+        <enable_wind>0</enable_wind>
       </link>
     </model>
     <model name="box_2">
@@ -2778,6 +2826,7 @@
         <self_collide>0</self_collide>
         <kinematic>0</kinematic>
         <gravity>1</gravity>
+        <enable_wind>0</enable_wind>
       </link>
     </model>
     <model name="box_3">
@@ -2832,6 +2881,7 @@
         <self_collide>0</self_collide>
         <kinematic>0</kinematic>
         <gravity>1</gravity>
+        <enable_wind>0</enable_wind>
       </link>
     </model>
     <model name="box_4">
@@ -2886,6 +2936,7 @@
         <self_collide>0</self_collide>
         <kinematic>0</kinematic>
         <gravity>1</gravity>
+        <enable_wind>0</enable_wind>
       </link>
     </model>
     <model name="box_5">
@@ -2940,6 +2991,7 @@
         <self_collide>0</self_collide>
         <kinematic>0</kinematic>
         <gravity>1</gravity>
+        <enable_wind>0</enable_wind>
       </link>
     </model>
     <model name="carpet_0">
@@ -2980,6 +3032,7 @@
         <self_collide>0</self_collide>
         <kinematic>0</kinematic>
         <gravity>1</gravity>
+        <enable_wind>0</enable_wind>
       </link>
     </model>
     <model name="carpet_1">
@@ -3020,6 +3073,7 @@
         <self_collide>0</self_collide>
         <kinematic>0</kinematic>
         <gravity>1</gravity>
+        <enable_wind>0</enable_wind>
       </link>
     </model>
     <model name="carpet_2">
@@ -3060,6 +3114,7 @@
         <self_collide>0</self_collide>
         <kinematic>0</kinematic>
         <gravity>1</gravity>
+        <enable_wind>0</enable_wind>
       </link>
     </model>
     <model name="high_concrete_wall_3">
@@ -3092,7 +3147,7 @@
           <geometry>
             <mesh>
               <uri>model://concretewallhigh/meshes/concretewallhigh.dae</uri>
-              <scale>1 1 1</scale>
+              <scale>2.8 1 1.5</scale>
             </mesh>
           </geometry>
         </visual>
@@ -3104,6 +3159,7 @@
         <kinematic>0</kinematic>
         <gravity>1</gravity>
         <pose frame="">0 0 0 0 -0 0</pose>
+        <enable_wind>0</enable_wind>
       </link>
     </model>
     <model name="high_concrete_wall_5">
@@ -3136,7 +3192,7 @@
           <geometry>
             <mesh>
               <uri>model://concretewallhigh/meshes/concretewallhigh.dae</uri>
-              <scale>1 1 1</scale>
+              <scale>3 1 1.5</scale>
             </mesh>
           </geometry>
         </visual>
@@ -3148,6 +3204,7 @@
         <kinematic>0</kinematic>
         <gravity>1</gravity>
         <pose frame="">0 0 0 0 -0 0</pose>
+        <enable_wind>0</enable_wind>
       </link>
     </model>
     <model name="high_concrete_wall_6">
@@ -3180,7 +3237,7 @@
           <geometry>
             <mesh>
               <uri>model://concretewallhigh/meshes/concretewallhigh.dae</uri>
-              <scale>1 1 1</scale>
+              <scale>2.8 1 1.5</scale>
             </mesh>
           </geometry>
         </visual>
@@ -3192,7 +3249,9 @@
         <kinematic>0</kinematic>
         <gravity>1</gravity>
         <pose frame="">0 0 0 0 -0 0</pose>
+        <enable_wind>0</enable_wind>
       </link>
     </model>
+    <wind/>
     </world>
 </sdf>

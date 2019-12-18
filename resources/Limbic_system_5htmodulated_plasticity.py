@@ -27,7 +27,7 @@ def weightChange(self, w, delta):
 
 
 class Limbic_system:
-    
+
 
     def ofc5HTreceptors(self, x, htR1, htR2):
         htR1 = htR1 + self.OFC_5HTR1_OFFSET

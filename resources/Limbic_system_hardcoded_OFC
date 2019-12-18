@@ -27,7 +27,7 @@ def weightChange(self, w, delta):
 
 
 class Limbic_system:
-    
+
 
     def ofc5HTreceptors(self, x, htR1, htR2):
         htR1 = htR1 + self.OFC_5HTR1_OFFSET
@@ -334,15 +334,15 @@ class Limbic_system:
 
         # the dorsal raphe activity is driven by the OFC in a positive way
 
-        if (self.DRN_FLAG == 0):
-            self.DRN = (self.LH + self.OFC * 4) / (1+self.RMTg * self.shunting_inhibition_factor + self.DRN_SUPPRESSION) + self.DRN_OFFSET
-        else: 
-            self.DRN = self.DRN - 0.02 * self.DRN
+        # if (self.DRN_FLAG == 0):
+        self.DRN = (self.LH + self.OFC * 4) / (1+self.RMTg * self.shunting_inhibition_factor + self.DRN_SUPPRESSION) + self.DRN_OFFSET
+        # else: 
+        #     self.DRN = self.DRN - 0.02 * self.DRN
 
-        if self.DRN > 0.2: 
-            self.DRN_FLAG = 1
-        if self.DRN < 0.05:
-            self.DRN_FLAG = 0
+        # if self.DRN > 0.2: 
+        #     self.DRN_FLAG = 1
+        # if self.DRN < 0.05:
+        #     self.DRN_FLAG = 0
 
         # lateral shell activity
         # the place field feeds into the Nacc shell for the time being.
@@ -392,7 +392,7 @@ class Limbic_system:
 
         # plasticity
         self.core_DA = self.VTA
-        self.core_plasticity = (self.core_DA - self.VTA_zero_val) * self.DRN
+        self.core_plasticity = (self.core_DA - self.VTA_zero_val) 
 
         self.core_weight_lg2lg = weightChange(self,
                                               self.core_weight_lg2lg,

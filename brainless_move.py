@@ -10,11 +10,13 @@ import cv2
 import numpy as np
 import math
 import logging
+from std_msgs.msg import String
 
 rospy.wait_for_service('/gazebo/set_visual_properties', 1)
 set_visual_props = rospy.ServiceProxy('/gazebo/set_visual_properties', SetVisualProperties, persistent=True)
 service_proxy_set_state = rospy.ServiceProxy('/gazebo/set_model_state', SetModelState, persistent=True)
-constants = {"distance_to_left_landmark": None, "distance_to_right_landmark": None, "model_state": None}
+constants = {"distance_to_left_landmark": None, "distance_to_right_landmark": None, "model_state": None,
+             "initial_step": True, "reward_flag": 0, "initial_run": True, "reward_counter": 0}
 
 @nrp.MapVariable("set_visual_properties", initial_value=set_visual_props)
 @nrp.MapVariable("set_model_state_srv", initial_value=service_proxy_set_state)
@@ -24,8 +26,9 @@ constants = {"distance_to_left_landmark": None, "distance_to_right_landmark": No
 @nrp.MapRobotSubscriber("position", Topic('/gazebo/model_states', gazebo_msgs.msg.ModelStates))
 @nrp.MapRobotSubscriber("camera", Topic('/husky/husky/camera', sensor_msgs.msg.Image))
 @nrp.MapRobotPublisher("plot_data", Topic("plot_data", std_msgs.msg.String ))
+@nrp.MapRobotPublisher("state_msg", Topic("state_msg", std_msgs.msg.String ))
 @nrp.Neuron2Robot(Topic('/husky/husky/cmd_vel', geometry_msgs.msg.Twist))
-def brainless_move(t, camera, position, set_model_state_srv, contacts, limbic_system, set_visual_properties, constants, plot_data):   
+def brainless_move(t, camera, position, set_model_state_srv, contacts, limbic_system, set_visual_properties, constants, plot_data, state_msg):   
     import math
     import random
     import Limbic_system
@@ -39,8 +42,6 @@ def brainless_move(t, camera, position, set_model_state_srv, contacts, limbic_sy
     import tf
     from tf.transformations import euler_from_quaternion, quaternion_from_euler
     import re
-    import rqt_plot
-    
     # centre coordinates of field areas
     GREEN_PLACEFIELD_POS = (-6.5, -4.7, 0.03)
     BLUE_PLACEFIELD_POS = (-6.5, 4.7, 0.03)
@@ -48,8 +49,7 @@ def brainless_move(t, camera, position, set_model_state_srv, contacts, limbic_sy
     RIGHT_SPHERE_POS = (-7, 5, 0.5)
     PLACEFIELD_LENGTH = 5
     ROBOT_ID = 'husky'
-    SPEED_FACTOR = 4
-
+    SPEED_FACTOR = 5
 
     def get_position(object_name):
         return position.value.pose[position.value.name.index(object_name)].position
@@ -87,11 +87,11 @@ def brainless_move(t, camera, position, set_model_state_srv, contacts, limbic_sy
                 direction = 3
         else: 
             if ((current_angle > upper_angle) and (current_angle < target_angle -1)):
-                direction = -3
-            elif (current_angle > target_angle + 0.5):
+                direction = 3
+            elif ((current_angle < target_angle + 0.5) and (current_angle > target_angle -0.5)):
                 direction = 0
             else:
-                direction = 3
+                direction = -3
         return geometry_msgs.msg.Twist(linear=geometry_msgs.msg.Vector3(x=SPEED_FACTOR, y=0.0, z=0.0), angular=geometry_msgs.msg.Vector3(x=0, y=0, z=direction))
 
             
@@ -131,19 +131,6 @@ def brainless_move(t, camera, position, set_model_state_srv, contacts, limbic_sy
         response = set_model_state_srv.value(ms_msg)
         return response
 
-
-    def hide_food():
-        sphere_position = position.value.pose[position.value.name.index('sphere_0')].position
-        sphere_position.z = -1
-        change_position('sphere_0', sphere_position, scale=0.2)
-
-    
-    def show_food():
-        sphere_position = position.value.pose[position.value.name.index('sphere_0')].position
-        sphere_position.z = 0.3
-        change_position('sphere_0', sphere_position, scale=0.2)
-
-    
     def sees_reward(image):
         return nrp.tf_lib.detect_red(image).left > 0.001 or nrp.tf_lib.detect_red(image).right > 0.001
 
@@ -163,6 +150,7 @@ def brainless_move(t, camera, position, set_model_state_srv, contacts, limbic_sy
         return detect_white(image).right > 0.001
 
 
+    # todo loop this in case of more collsions -> better reward detection?
     def is_touching_landmark(landmark_name):
         try:
             collision1 = contacts.value.states[0].collision1_name
@@ -176,12 +164,14 @@ def brainless_move(t, camera, position, set_model_state_srv, contacts, limbic_sy
 
     def collision():
         for collision in contacts.value.states:
-            return bool(re.search("box_[0,1,3,4]|high_concrete_wall|right_sphere", collision.collision1_name) or 
-                        re.search("box_[0,1,3,4]|high_concrete_wall|right_sphere", collision.collision2_name))
+            if bool(re.search("box_[0,1,3,4]|high_concrete_wall", collision.collision1_name) or 
+                    re.search("box_[0,1,3,4]|high_concrete_wall", collision.collision2_name)):
+                return True
+        return False
 
 
     def got_reward():
-        if sees_reward(camera.value) and is_touching_landmark('left_sphere'):
+        if sees_reward(camera.value) and (is_touching_landmark('left_sphere') or is_touching_landmark('right_sphere')):
             clientLogger.info("Got Reward!")
             return True
         return False
@@ -194,8 +184,8 @@ def brainless_move(t, camera, position, set_model_state_srv, contacts, limbic_sy
     
 
     def distance_between_points(point1, point2):
-        # -0.6 for robot length
-        return math.sqrt((point2.x - point1.x)**2 + (point2.y - point1.y)**2) -0.6
+        # -0.62 for robot length + reward size
+        return math.sqrt((point2.x - point1.x)**2 + (point2.y - point1.y)**2) -0.62
 
 
     def normalise_distance(distance, maximum, minimum=0):
@@ -211,13 +201,13 @@ def brainless_move(t, camera, position, set_model_state_srv, contacts, limbic_sy
                                         visual_name='visual',
                                         property_name='material:script:name',
                                         property_value='Gazebo/White')
+            set_visual_properties.value(model_name='right_sphere', link_name='link',
+                                        visual_name='visual',
+                                        property_name='material:script:name',
+                                        property_value='Gazebo/White')                                        
         except:
             clientLogger.info("ROSPY ERROR")
 
-    distance_to_right_landmark = 0
-    distance_to_left_landmark  = 0
-    norm_distance_to_left_landmark  = 0
-    norm_distance_to_right_landmark = 0
     left_landmark_pos  = Coordinates(LEFT_SPHERE_POS[0], LEFT_SPHERE_POS[1], LEFT_SPHERE_POS[2])
     right_landmark_pos = Coordinates(RIGHT_SPHERE_POS[0], RIGHT_SPHERE_POS[1], RIGHT_SPHERE_POS[2])
     robot_pos = get_position(ROBOT_ID)
@@ -242,20 +232,18 @@ def brainless_move(t, camera, position, set_model_state_srv, contacts, limbic_sy
     placefield_blue = int(on_placefield(ROBOT_ID, BLUE_PLACEFIELD_POS, PLACEFIELD_LENGTH, PLACEFIELD_LENGTH))
     touching_landmark_green = int(is_touching_landmark('left_sphere') )
     touching_landmark_blue  = int(is_touching_landmark('right_sphere'))
-    sees_landmark_green = min(1, norm_distance_to_left_landmark*2) 
-    sees_landmark_blue  = min(1, norm_distance_to_right_landmark*2)
+    sees_landmark_green = min(1, norm_distance_to_left_landmark) 
+    sees_landmark_blue  = min(1, norm_distance_to_right_landmark)
     visual_reward_green = int(sees_reward(camera.value) and placefield_green)
     visual_reward_blue  = int(sees_reward(camera.value) and placefield_blue)
 
-    # clientLogger.info("INPUT : ", reward,
-    #                   placefield_green,
-    #                   placefield_blue,
-    #                   touching_landmark_green,
-    #                   touching_landmark_blue,             
-    #                   sees_landmark_green,
-    #                   sees_landmark_blue,
-    #                   visual_reward_green,
-    #                   visual_reward_blue)
+
+    reset = False
+    if (reward and constants.value["reward_flag"] == 0):
+        constants.value["reward_flag"] = 1
+
+    elif(not reward and constants.value["reward_flag"] == 1):
+        reset = True
 
     limbic_output = limbic_system.doStep(reward,
                         placefield_green,
@@ -267,30 +255,48 @@ def brainless_move(t, camera, position, set_model_state_srv, contacts, limbic_sy
                         visual_reward_green,
                         visual_reward_blue)
 
-    plot_msg = str(sees_landmark_green) + ',' + \
-                str(sees_landmark_blue) + ',' +\
-                str(placefield_green) + ',' +\
-                str(placefield_blue) + ',' +\
-                str(limbic_system.mPFC_Green) + ',' +\
-                str(limbic_system.DRN) + ',' +\
-                str(limbic_system.core_weight_lg2lg) + ',' +\
-                str(limbic_system.VTA) + ',' +\
-                str(limbic_system.CoreGreenOut)
+    if constants.value["initial_step"] == True: 
+        plot_msg = "sees_green/, pf_green, OFC/, pfLg2OFC, core_weight_lg2lg/, dg2dg, DRN, coreDA, reward/, CoreGreen"
+    else:
+        plot_msg = str(sees_landmark_green) + ',' + \
+                   str(placefield_green) + ',' + \
+                   str(limbic_system.OFC) + ',' + \
+                   str(limbic_system.pfLg2OFC) + ',' + \
+                   str(limbic_system.core_weight_lg2lg) + ',' + \
+                   str(limbic_system.core_weight_dg2dg) + ',' + \
+                   str(limbic_system.DRN) + ',' + \
+                   str(limbic_system.VTA - limbic_system.VTA_zero_val ) + ',' + \
+                   str(reward) + ',' + \
+                   str(limbic_system.CoreGreenOut)  
     plot_data.send_message(plot_msg)
 
-    if reward:
+    if (constants.value["reward_counter"] == 4):
+        state_msg.send_message('State Machine: Start Reversal')
+
+    if reset:
+    # if (reward and constants.value["reward_flag"] == 1):
+        constants.value["reward_flag"] = 0
         reset_robot_position(initial_robot_position)
         reset_reward()
+        constants.value["reward_counter"] = constants.value["reward_counter"] + 1
+
+
+    constants.value["initial_step"] = False
         
-    # clientLogger.info("OUTPUT: ", limbic_output)
-    if collision():
+    if (collision() or ( (is_touching_landmark("left_sphere") or is_touching_landmark("right_sphere")) and not sees_reward(camera.value)) and constants.value["reward_flag"] != 1):
         reset_robot_position(initial_robot_position)
         reset_reward()
+
+    # Hard coded first run to skip exploration stage. should be removed for real experiment.
+    if constants.value["initial_run"] == True:
+        if reward: 
+            constants.value["initial_run"] = False
+        return move_to(robot_pos, left_landmark_pos, robot_angle, 2)
     if (limbic_output[0] > 0):
-        return move_to(robot_pos, right_landmark_pos, robot_angle, speed=limbic_output[0])
+        return move_to(robot_pos, right_landmark_pos, robot_angle, speed=limbic_output[0] * SPEED_FACTOR)
     elif (limbic_output[1] > 0):
-        return move_to(robot_pos, left_landmark_pos, robot_angle, speed=limbic_output[1])
+        return move_to(robot_pos, left_landmark_pos, robot_angle, speed=limbic_output[1] * SPEED_FACTOR)
     else: 
         direction = limbic_output[2] - limbic_output[3]
         direction = min(2, direction*10)
-        return explore(direction, speed=1)    
+        return explore(direction, speed=0.1 * SPEED_FACTOR)    
