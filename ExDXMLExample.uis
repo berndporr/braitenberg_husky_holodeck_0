@@ -642,79 +642,44 @@
       },
       "content": [
         {
-          "type": "column",
+          "type": "row",
           "isClosable": true,
           "reorderEnabled": true,
           "title": "",
-          "width": 40,
+          "height": 30,
+          "width": 72.72727272727272,
           "content": [
             {
               "type": "row",
               "isClosable": true,
               "reorderEnabled": true,
               "title": "",
-              "height": 74.52415812591508,
+              "width": 59.45945945945946,
               "content": [
                 {
-                  "type": "column",
+                  "type": "stack",
                   "isClosable": true,
                   "reorderEnabled": true,
                   "title": "",
-                  "width": 47.05882352941176,
+                  "activeItemIndex": 0,
+                  "width": 72.72727272727273,
+                  "height": 100,
                   "content": [
                     {
-                      "type": "stack",
-                      "header": {},
-                      "isClosable": true,
-                      "reorderEnabled": true,
-                      "title": "",
-                      "activeItemIndex": 0,
-                      "width": 47.05882352941176,
-                      "height": 50,
-                      "content": [
-                        {
-                          "type": "component",
-                          "title": "Environment Rendering",
-                          "id": "environment-rendering",
-                          "componentName": "angularModuleComponent",
-                          "componentState": {
-                            "module": "environmentRenderingModule",
-                            "angularDirective": "<environment-rendering />",
-                            "singleton": true
-                          },
-                          "isClosable": false,
-                          "customOptionsDirective": "<environment-rendering-options/>",
-                          "pwidth": 800,
-                          "pheight": 600,
-                          "reorderEnabled": true
-                        }
-                      ]
-                    },
-                    {
-                      "type": "stack",
-                      "header": {},
-                      "isClosable": true,
-                      "reorderEnabled": true,
-                      "title": "",
-                      "activeItemIndex": 0,
-                      "height": 50,
-                      "content": [
-                        {
-                          "type": "component",
-                          "title": "Smach Editor",
-                          "id": "smach-editor",
-                          "componentName": "angularModuleComponent",
-                          "componentState": {
-                            "module": "exdFrontendApp",
-                            "angularDirective": "<smach-editor />",
-                            "singleton": true
-                          },
-                          "pwidth": 800,
-                          "pheight": 900,
-                          "isClosable": true,
-                          "reorderEnabled": true
-                        }
-                      ]
+                      "type": "component",
+                      "title": "Environment Rendering",
+                      "id": "environment-rendering",
+                      "componentName": "angularModuleComponent",
+                      "componentState": {
+                        "module": "environmentRenderingModule",
+                        "angularDirective": "<environment-rendering />",
+                        "singleton": true
+                      },
+                      "isClosable": false,
+                      "customOptionsDirective": "<environment-rendering-options/>",
+                      "pwidth": 800,
+                      "pheight": 600,
+                      "reorderEnabled": true
                     }
                   ]
                 },
@@ -724,7 +689,67 @@
                   "reorderEnabled": true,
                   "title": "",
                   "activeItemIndex": 0,
-                  "width": 52.94117647058823,
+                  "width": 27.272727272727273,
+                  "content": [
+                    {
+                      "type": "component",
+                      "title": "Object Inspector",
+                      "id": "object-inspector",
+                      "componentName": "angularModuleComponent",
+                      "componentState": {
+                        "module": "exdFrontendApp",
+                        "angularDirective": "<object-inspector />",
+                        "singleton": true
+                      },
+                      "pwidth": 300,
+                      "pheight": 800,
+                      "isClosable": true,
+                      "reorderEnabled": true
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "column",
+              "isClosable": true,
+              "reorderEnabled": true,
+              "title": "",
+              "width": 40.54054054054054,
+              "content": [
+                {
+                  "type": "stack",
+                  "isClosable": true,
+                  "reorderEnabled": true,
+                  "title": "",
+                  "activeItemIndex": 0,
+                  "width": 100,
+                  "height": 30,
+                  "content": [
+                    {
+                      "type": "component",
+                      "title": "Log Console",
+                      "id": "log-console",
+                      "componentName": "angularModuleComponent",
+                      "componentState": {
+                        "module": "exdFrontendApp",
+                        "angularDirective": "<log-console />",
+                        "singleton": true
+                      },
+                      "pwidth": 400,
+                      "pheight": 300,
+                      "isClosable": true,
+                      "reorderEnabled": true
+                    }
+                  ]
+                },
+                {
+                  "type": "stack",
+                  "isClosable": true,
+                  "reorderEnabled": true,
+                  "title": "",
+                  "activeItemIndex": 0,
+                  "height": 70,
                   "content": [
                     {
                       "type": "component",
@@ -742,32 +767,6 @@
                       "reorderEnabled": true
                     }
                   ]
-                }
-              ]
-            },
-            {
-              "type": "stack",
-              "isClosable": true,
-              "reorderEnabled": true,
-              "title": "",
-              "activeItemIndex": 0,
-              "width": 40,
-              "height": 25.475841874084914,
-              "content": [
-                {
-                  "type": "component",
-                  "title": "Log Console",
-                  "id": "log-console",
-                  "componentName": "angularModuleComponent",
-                  "componentState": {
-                    "module": "exdFrontendApp",
-                    "angularDirective": "<log-console />",
-                    "singleton": true
-                  },
-                  "pwidth": 400,
-                  "pheight": 300,
-                  "isClosable": true,
-                  "reorderEnabled": true
                 }
               ]
             }

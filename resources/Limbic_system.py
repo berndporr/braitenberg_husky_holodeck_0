@@ -2,7 +2,6 @@ import Filter
 import random
 from enum import Enum
 import math 
-from hbp_nrp_excontrol.logs import clientLogger
 
 # which state for exploration
 class ExploreStates:
@@ -61,10 +60,10 @@ class Limbic_system:
         self.core_weight_dg2dg = 0.2
 
         # motor activities
-        self.CoreGreenOut = 0
-        self.CoreBlueOut = 0
-        self.mPFC2CoreExploreLeft = 0
-        self.mPFC2CoreExploreRight = 0
+        self.CoreGreenOut = 0.0
+        self.CoreBlueOut = 0.0
+        self.mPFC2CoreExploreLeft = 0.0
+        self.mPFC2CoreExploreRight = 0.0
 
         # learning rate of the core
         self.learning_rate_core = 0.6
@@ -97,7 +96,7 @@ class Limbic_system:
         self.lShell_weight_pfdg = 0
 
         # learning rate in the shell
-        self.learning_rate_lshell = 0.001;
+        self.learning_rate_lshell = 0.004
 
 
         ##################################################################
@@ -171,15 +170,18 @@ class Limbic_system:
         self.DRN = 0
         self.DRN_OFFSET = 0
         self.DRN_SUPPRESSION = 0
-        self.DRN_FLAG = 0
+
         ######################################################################
         # Oribtofrontal Cortex (OFC)
         self.OFC = 0
         self.OFCprev = 0
         self.OFCpersist = 0
 
+        self.prev_green = 0
+        self.prev_blue  = 0 
+
         # learning rate for the OFC, just now from HC to OFC
-        self.learning_rate_OFC = 0.01
+        self.learning_rate_OFC = 0.5
 
         # weights from the hippocampus place fields to the OFC
         self.pfLg2OFC = 0
@@ -220,7 +222,6 @@ class Limbic_system:
         - two signals when the agent touches the landmark: (on_contact_direction_*)
         - visual inputs when the agent sees a landmark which goes from 0 to 1 the closer the agent gets (_visual_direction_*)
         - visual inputs when the agent sees the reward (_visual_reward_*)
-
         It needs to set the outputs:
         - CoreGreenOut and CoreBlueOut which when set to non-zero generates a navigation behaviour towards
             the landmarks
@@ -237,9 +238,15 @@ class Limbic_system:
         self.visual_reward_Green = _visual_reward_Green
         self.visual_reward_Blue = _visual_reward_Blue
 
-        # smooth out the visual stuf
+
         self.visual_direction_Green_trace = self.visual_direction_Green_mPFC_filter.filter(self.visual_direction_Green)
-        self.visual_direction_Blue_trace = self.visual_direction_Blue_mPFC_filter.filter(self.visual_direction_Blue)
+        self.visual_direction_Blue_trace = self.visual_direction_Blue_mPFC_filter.filter(self.visual_direction_Blue)      
+        
+        if self.placefieldGreen:
+            self.visual_direction_Blue_trace = 0
+        if self.placefieldBlue:
+            self.visual_direction_Green_trace = 0
+
 
         if self.mPFCspontGreen > 0:
             self.mPFCspontGreen = self.mPFCspontGreen - 1
@@ -311,11 +318,17 @@ class Limbic_system:
         # when the animal is inside that place field where there has been
         # reward experienced in the past.
 
-        self.OFC = self.pfLg2OFC * self.placefieldGreen + self.pfDg2OFC * self.placefieldBlue
-        if (((self.placefieldGreen-self.OFCprev) > 0.01) and (self.OFCpersist==0)):
+        # massive weight decay if there is no reward after a long period!
+        if ((self.OFCpersist>0) and (self.OFCpersist<160)):
+            self.OFC = self.OFC * 0.999
+        else:
+            self.OFC = self.pfLg2OFC * self.placefieldGreen + self.pfDg2OFC * self.placefieldBlue
+        if ( ((self.placefieldGreen-self.prev_green) > 0.01) or ((self.placefieldGreen-self.prev_blue) > 0.01)
+              and (self.OFCpersist==0) ):
             self.OFCpersist = 200
 
-        self.OFCprev = self.placefieldGreen
+        self.prev_green = self.placefieldGreen
+        self.prev_blue  = self.placefieldBlue
         
         if self.LH > 0.5:
             self.OFCpersist = 0
@@ -327,28 +340,18 @@ class Limbic_system:
         self.pfDg2OFC = weightChange(self, self.pfDg2OFC, self.learning_rate_OFC * self.DRN * self.placefieldBlue)
 
 
-        # massive weight decay if there is no reward after a long period!
-    # todo
-        if ((self.OFCpersist>0) and (self.OFCpersist<100)):
-            self.pfLg2OFC = self.pfLg2OFC * 0.9
 
         # the dorsal raphe activity is driven by the OFC in a positive way
 
-        if (self.DRN_FLAG == 0):
-            self.DRN = (self.LH + self.OFC * 4) / (1+self.RMTg * self.shunting_inhibition_factor + self.DRN_SUPPRESSION) + self.DRN_OFFSET
-        else: 
-            self.DRN = self.DRN - 0.02 * self.DRN
+        self.DRN = (self.LH + self.OFC * 4) / (1+self.RMTg * self.shunting_inhibition_factor + self.DRN_SUPPRESSION) + self.DRN_OFFSET
 
-        if self.DRN > 0.2: 
-            self.DRN_FLAG = 1
-        if self.DRN < 0.05:
-            self.DRN_FLAG = 0
 
         # lateral shell activity
         # the place field feeds into the Nacc shell for the time being.
-        self.lShell = self.placefieldGreen * self.lShell_weight_pflg + self.placefieldBlue * self.lShell_weight_pfdg
+        # self.lShell = self.placefieldGreen * self.lShell_weight_pflg + self.placefieldBlue * self.lShell_weight_pfdg
+        self.lShell = self.OFC * self.lShell_weight_pflg + self.OFC * self.lShell_weight_pfdg
 
-        # Let's do heterosynaptic plasticity in the shell
+        # Let's do heterosynaptic plasticity in the shell   
         self.shell_DA = self.VTA
         
         # shell plasticity can experience a "dip" where then the weights
@@ -358,10 +361,10 @@ class Limbic_system:
 
         self.lShell_weight_pflg = weightChange(self,
                                                self.lShell_weight_pflg,
-                                               self.learning_rate_lshell * self.shell_plasticity * self.placefieldGreen)
+                                               self.learning_rate_lshell * self.shell_plasticity * self.OFC)
         self.lShell_weight_pfdg = weightChange(self,
                                                self.lShell_weight_pfdg,
-                                               self.learning_rate_lshell * self.shell_plasticity * self.placefieldBlue)
+                                               self.learning_rate_lshell * self.shell_plasticity * self.OFC)
 
         # the shell inhibits the dlVP
         self.dlVP = 1/(1+self.lShell * self.shunting_inhibition_factor)
@@ -379,7 +382,7 @@ class Limbic_system:
         # we have two core units
         # if the Green is high then the rat approaches the Green marker
         self.CoreGreenOut= ( self.mPFC_Green * self.core_weight_lg2lg )
-        
+
         # if the Blue is high then the rat approaches the Blue marker
         self.CoreBlueOut= ( self.mPFC_Blue * self.core_weight_dg2dg)
 
@@ -410,7 +413,7 @@ class Limbic_system:
         # logging();
 
         self.step = self.step + 1
-        
+
         return self.CoreBlueOut, self.CoreGreenOut, self.mPFC2CoreExploreLeft, self.mPFC2CoreExploreRight
 
 

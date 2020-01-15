@@ -13,15 +13,15 @@
   <ns1:configuration src="ExDXMLExample.uis" type="user-interaction-settings"/>
   <ns1:maturity>production</ns1:maturity>
   <ns1:environmentModel src="virtual_room.sdf">
-    <ns1:robotPose robotId="husky" x="0.0" y="0.0" z="0.5" roll="0.0" pitch="-0.0" yaw="3.14159265359"/>
+    <ns1:robotPose pitch="8.13512179945e-21" robotId="husky" roll="1.9558123101e-18" x="1.32974672318" y="3.9999999899e-06" yaw="-3.14159011841" z="0.499980211258"/>
   </ns1:environmentModel>
   <ns1:bibiConf src="bibi_configuration.bibi"/>
+  <ns1:experimentControl>
+    <ns1:stateMachine id="statemachine_0_1572450831383_frontend_generated" src="statemachine_0_1572450831383_frontend_generated.exd" xsi:type="ns1:SMACHStateMachine"/>
+  </ns1:experimentControl>
   <ns1:cameraPose>
     <ns1:cameraPosition x="5.05682599437" y="-1.02109985416" z="2.69759875995"/>
     <ns1:cameraLookAt x="0.0" y="0.0" z="0.49999"/>
   </ns1:cameraPose>
   <ns1:cloneDate>2019-08-30T09:03:43</ns1:cloneDate>
-  <ns1:experimentControl>
-    <ns1:stateMachine id="statemachine_0_1572450831383_frontend_generated" src="statemachine_0_1572450831383_frontend_generated.exd" xsi:type="ns1:SMACHStateMachine"/>
-  </ns1:experimentControl>
 </ns1:ExD>

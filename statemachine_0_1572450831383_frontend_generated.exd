@@ -1,11 +1,14 @@
 import hbp_nrp_excontrol.nrp_states as states
 from smach import StateMachine
-from hbp_nrp_excontrol.logs import clientLogger
+from hbp_nrp_excontrol.logs import clientLogger 
 from std_msgs.msg import String
 import smach
 import random
 import rospy
 import time 
+from gazebo_msgs.msg import ModelStates
+from gazebo_msgs.srv import GetModelState
+
 
 FINISHED = 'FINISHED'
 ERROR = 'ERROR'
@@ -17,7 +20,6 @@ BLUE_FIELD  = (-6.5, 4.7, 0.03)
 PLACEFIELD_LENGTH = 5
 
 ROBOT_ID = 'husky'
-random_time = random.randint(0, 3)
 
 
 class Wait(smach.State):
@@ -25,17 +27,37 @@ class Wait(smach.State):
     def __init__(self):
         smach.State.__init__(self,  outcomes=['valid','invalid', 'preempted'])  
         self.initial_time = 0 
-        self.random_interval = random.randint(0, 3)
-        clientLogger.info(self.random_interval)
+        clientLogger.info("init")
+        self.random_interval = -1
+
+    def get_x_pos(self):
+        position_service = rospy.ServiceProxy('/gazebo/get_model_state', GetModelState)
+        position_response = position_service(ROBOT_ID, '')
+        return position_response.pose.position.x
+
     def execute(self, userdata):
         if (self.initial_time == 0):
             self.initial_time = time.time()
+        if (self.random_interval == -1):
+            self.random_interval = random.randint(1, 4)
+
+        x_pos = self.get_x_pos()
         current_time = time.time()
         time_diff = current_time - self.initial_time
-        if (time_diff < self.random_interval):
-            return 'valid'
-        else:
+
+        if (time_diff >= self.random_interval):
+            self.initial_time = 0
+            self.random_interval = -1
             return 'invalid'
+        elif (x_pos > -2): 
+            clientLogger.info("PREEMPTED")
+            self.initial_time = 0
+            self.random_interval = -1
+            return 'preempted'        
+        else:
+            return 'valid'
+
+
 
 class WaitForRosMsg(smach.State): 
     
@@ -71,7 +93,7 @@ with sm:
       Wait(),
       transitions = {"valid": "wait_random_time",
                      "invalid": "set_reward_red",
-                     "preempted": PREEMPTED}
+                     "preempted": "on_green_field"}
     )
     StateMachine.add( 
       "set_reward_red",
@@ -121,7 +143,7 @@ with sm:
       Wait(),
       transitions={'valid': 'reversal_wait_random_time',
                    'invalid': 'reversal_set_reward_red',
-                   'preempted': PREEMPTED}
+                   'preempted': 'on_blue_field'}
     )
     StateMachine.add(
       "reversal_set_reward_red",
