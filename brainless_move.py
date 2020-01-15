@@ -36,7 +36,7 @@ def brainless_move(t, camera, position, set_model_state_srv, contacts, limbic_sy
     reload(Limbic_system)
     import helper
     reload(helper)
-    from helper import Results, Coordinates, detect_colour
+    from helper import Results, Coordinates
     from hbp_nrp_cle.tf_framework.tf_lib import detect_red
     import inspect
     import os
